@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { lazy, useEffect } from "react";
+import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
 import LazyRoute from "./components/LazyRoute";
 
@@ -25,6 +26,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+     <ScrollToTop /> 
       <Routes>
         
         <Route element={<PageLayout />}>
