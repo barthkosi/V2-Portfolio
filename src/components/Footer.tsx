@@ -2,8 +2,8 @@ export default function Footer() {
     return (
       <footer className="w-full p-4 md:p-6">
         <div className="max-w-[1440px] flex flex-col items-start gap-4 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
-          <div className='flex flex-col items-start text-left gap-12 p-6 md:p-10'>
-            <div className="flex flex-col gap-3">
+          <div className='w-full flex flex-col md:flex-row items-start text-left gap-12 p-6 md:p-10'>
+            <div className="w-full flex flex-col gap-3">
               <div className="label-s text-[var(--content-tertiary)]">Links</div>
               <div className="flex flex-col gap-2 label-m text-[var(--content-primary)]">
                 <div className="flex flex-row gap-2">
@@ -20,8 +20,9 @@ export default function Footer() {
               </div>  
               
              </div>
-
-              <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
+            <div className="w-full flex flex-col gap-3">
+             <div className="label-s text-[var(--content-tertiary)]">Social</div>
+              <div className="flex flex-col gap-2 label-m text-[var(--content-primary)]">
                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">
                   X (Twitter)
                </a>
@@ -29,7 +30,7 @@ export default function Footer() {
                   GitHub
                </a>
               </div>
-            
+            </div>
           </div>
         </div>
       </footer>
