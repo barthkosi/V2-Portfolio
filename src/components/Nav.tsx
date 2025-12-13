@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Nav() {
   return (
-    <nav className="w-full flex flex-row h-[64px] md:h-[102px] px-8 py-4 items-center justify-between flex gap-6 sticky top-0 z-50">
+    <nav className="w-full flex flex-row h-[64px] md:h-[102px] p-4 md:p-8 items-center justify-between flex gap-6 sticky top-0 z-50">
       <div className="flex flex-row items-center gap-1.5">
         <div className= "w-[38px] h-[38px] bg-[var(--background-secondary)]"></div>
         <div className= "label-l text-[var(--content-primary)] ">barth</div>
