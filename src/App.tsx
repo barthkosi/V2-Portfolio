@@ -2,24 +2,6 @@ import { useEffect } from "react";
 import "./index.css";
 import "./App.css";
 
-const ColorBox = ({
-  label,
-  color,
-}: {
-  label: string;
-  color: string;
-}) => {
-  return (
-    <div className="flex flex-col items-start gap-1">
-      <span className="label-xs text-[var(--content-secondary)]">{label}</span>
-      <div
-        className="w-20 h-10 rounded border border-border"
-        style={{ background: `var(${color})` }}
-      />
-    </div>
-  );
-};
-
 function App() {
   useEffect(() => {
     // Check system preference
@@ -46,9 +28,12 @@ function App() {
 
   return (
     <>
-     <div>
-      <H1>Barthkosi</H1>
-     </div>
+    
+      <main className="min-h-screen bg-background text-foreground p-8 md:p-20 max-w-6xl mx-auto space-y-24">
+        <div>
+          <h1>Barthkosi</h1>
+        </div>
+      </main>
     </>
   );
 }
