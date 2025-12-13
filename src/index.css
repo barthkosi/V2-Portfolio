@@ -234,6 +234,7 @@
 
 :root {
   --radius: 0.625rem;
+  -layout-max: 1440px;
   
   /* ============================================
      SEMANTIC TOKENS - Light Mode

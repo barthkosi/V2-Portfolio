@@ -1,41 +1,40 @@
-import { useEffect } from "react";
-import "./index.css";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { lazy, useEffect } from "react";
+import PageLayout from "./components/PageLayout";
+import LazyRoute from "./components/LazyRoute";
 
-function App() {
+// Lazy load all pages
+const Home = lazy(() => import("./pages/Home"));
+const Projects = lazy(() => import("./pages/Projects"));
+const ReadingList = lazy(() => import("./pages/ReadingList"));
+const Writing = lazy(() => import("./pages/Writing"));
+const Archive = lazy(() => import("./pages/Archive"));
+
+export default function App() {
+  // Dark/light system preference
   useEffect(() => {
-    // Check system preference
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    
-    // Apply dark mode based on system preference
     const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
-      if (e.matches) {
-        document.documentElement.classList.add('dark');
-      } else {
-        document.documentElement.classList.remove('dark');
-      }
+      if (e.matches) document.documentElement.classList.add('dark');
+      else document.documentElement.classList.remove('dark');
     };
-    
-    // Set initial state
     updateDarkMode(darkModeMediaQuery);
-    
-    // Listen for changes
     darkModeMediaQuery.addEventListener('change', updateDarkMode);
-    
-    // Cleanup
     return () => darkModeMediaQuery.removeEventListener('change', updateDarkMode);
   }, []);
 
   return (
-    <>
-    
-      <main className="min-h-screen bg-background text-foreground p-8 md:p-20 max-w-6xl mx-auto space-y-24">
-        <div>
-          <h1>Barthkosi</h1>
-        </div>
-      </main>
-    </>
+    <BrowserRouter>
+      <Routes>
+        
+        <Route element={<PageLayout />}>
+          <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
+          <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
+          <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
+          <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
+          <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
-
-export default App;
