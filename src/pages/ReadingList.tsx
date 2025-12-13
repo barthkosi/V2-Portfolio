@@ -1,9 +1,13 @@
+import InfoBlock from "../components/InfoBlock";
+
 export default function Home() {
     return (
-      <div className="relative w-full h-screen bg-gray-100 dark:bg-gray-900 flex items-center justify-center">
-        <h1 className="text-5xl font-bold text-gray-900 dark:text-white">
-          Welcome to My Portfolio
-        </h1>
+      <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
+        <InfoBlock
+          title="Projects"
+          number={12}
+          description="Completed interactive projects and experiments."></InfoBlock>
+          <div className= "w-full aspect-square bg-[var(--background-secondary)] transform [transform:perspective(500px)_skewX(-24deg)]"></div>
       </div>
     );
   }
