@@ -1,0 +1,36 @@
+{
+  "compilerOptions": {
+    /* --- SHADCN-UI REQUIRED SETTINGS (DO NOT DELETE) --- */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* --- VERCEL/VITE FIXES (ADD THESE) --- */
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+
+    /* This fixes the "Cannot find module" errors */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+
+    /* This fixes the 100+ "Cannot use JSX" errors */
+    "jsx": "react-jsx",
+
+    /* This fixes the 'path' import error */
+    "esModuleInterop": true,
+    
+    /* Strictness (Recommended) */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
