@@ -21,12 +21,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-row gap-2">
-                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
-            
-                  <div className="body-s">Lorem Ipsum dolor</div>
-                </div> 
-                <div className="flex flex-row gap-2">
-                  <Link to="/archive" className="hover:text-[var(--content-secondary)]">Archive</Link>
+                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading</Link>
             
                   <div className="body-s">Lorem Ipsum dolor</div>
                 </div>
