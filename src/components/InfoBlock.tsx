@@ -6,7 +6,7 @@ type InfoBlockProps = {
 
 export default function InfoBlock({ title, number, description }: InfoBlockProps) {
   return (
-    <div className="flex flex-col items-start text-left gap-2 lg:sticky lg:top-[134px] lg:self-start">
+    <div className="flex flex-col items-center lg:items-start text-center lg:text-left gap-2 lg:sticky lg:top-[134px] lg:self-start">
       <div className="flex items-start gap-2">
         <h2 className="title-special whitespace-nowrap flex-shrink-0">
           {title}
