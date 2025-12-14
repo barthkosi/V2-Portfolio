@@ -1,22 +1,26 @@
-type InfoBlockProps = {
+type InfoBlockProps = { 
   title: string
-  number: string | number
+  number: number
   description: string
 }
 
 export default function InfoBlock({ title, number, description }: InfoBlockProps) {
   return (
-    <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-2">
-      <div className="flex items-start justify-center lg:justify-start">
-        <h2>{title}</h2>
-        <span className="h6 text-[var(--content-primary)]">{number}</span>
+    <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-2 lg:sticky lg:top-[134px] lg:self-start">
+      <div className="flex items-start gap-2">
+        <h2 className="whitespace-nowrap flex-shrink-0">
+          {title}
+        </h2>
+
+        <span className="h6 text-[var(--content-primary)] whitespace-nowrap flex-shrink-0">
+          {number}
+        </span>
       </div>
 
-      <p className="body-m text-[var(--content-secondary)]">
+      {/* Description */}
+      <p className="body-m-medium max-w-[335px] text-[var(--content-secondary)]">
         {description}
       </p>
     </div>
   )
 }
-
-  
