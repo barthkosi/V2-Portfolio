@@ -746,14 +746,6 @@
     }
   }
 
-  .title-special {
-    font-family: var(--font-family-heading);
-    font-weight: 600;
-    font-size: 56px;
-    line-height: 64px;
-    letter-spacing: -2.8px;
-  }
-    
   /* BODY TEXT */
   .body-l {
     font-family: var(--font-family-body);
