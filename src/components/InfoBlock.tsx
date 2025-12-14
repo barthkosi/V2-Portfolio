@@ -6,9 +6,9 @@ type InfoBlockProps = {
 
 export default function InfoBlock({ title, number, description }: InfoBlockProps) {
   return (
-    <div className="flex flex-col items-center text-center lg:items-start lg:text-left gap-2 lg:sticky lg:top-[134px] lg:self-start">
+    <div className="flex flex-col items-start text-left gap-2 lg:sticky lg:top-[134px] lg:self-start">
       <div className="flex items-start gap-2">
-        <h2 className="whitespace-nowrap flex-shrink-0">
+        <h2 className="title-special whitespace-nowrap flex-shrink-0">
           {title}
         </h2>
 
@@ -18,7 +18,7 @@ export default function InfoBlock({ title, number, description }: InfoBlockProps
       </div>
 
       {/* Description */}
-      <p className="body-m-medium max-w-[335px] text-[var(--content-secondary)]">
+      <p className="body-m-medium md:max-w-[480px] lg:max-w-[335px] text-[var(--content-secondary)]">
         {description}
       </p>
     </div>
