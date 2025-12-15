@@ -10,6 +10,7 @@ const Projects = lazy(() => import("./pages/Projects"));
 const ReadingList = lazy(() => import("./pages/ReadingList"));
 const Writing = lazy(() => import("./pages/Writing"));
 const Archive = lazy(() => import("./pages/Archive"));
+const Illustrations = lazy(() => import("./pages/Illustrations"));
 
 export default function App() {
   // Dark/light system preference
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
           <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
           <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
+          <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />
         </Route>
       </Routes>
     </BrowserRouter>
