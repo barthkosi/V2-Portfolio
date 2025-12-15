@@ -32,6 +32,20 @@ export default function Nav() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+  
+  // Prevent body scroll when mobile menu is open
+   useEffect(() => {
+     if (isOpen) {
+       document.body.style.overflow = 'hidden';
+     } else {
+       document.body.style.overflow = 'unset';
+     }
+     
+     // Cleanup on unmount
+     return () => {
+       document.body.style.overflow = 'unset';
+  };
+}, [isOpen]);
 
   return (
     <motion.nav
