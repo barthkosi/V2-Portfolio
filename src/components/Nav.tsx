@@ -6,7 +6,7 @@ export default function Nav() {
     <motion.nav
       className="w-full flex flex-row h-[64px] md:h-[102px] p-4 md:p-8 items-center justify-between gap-6 sticky top-0 z-50"
       style={{
-        background: `linear-gradient(to bottom, var(--background-primary) 0%, var(--opacity-0) 100%)`,
+        background: `linear-gradient(to bottom, var(--background-primary) 16%, var(--opacity-0) 100%)`,
       }}
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
