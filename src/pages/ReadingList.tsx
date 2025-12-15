@@ -3,28 +3,34 @@ import BookCard from "../components/BookCard";
 
 const books = [
   {
-    id: "penguin-highway",
+    id: "the-brand-gap",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    title: "The Brand Gap",
+    author: "Marty Neumeier",
+  },
+  {
+    id: "steal-like-an-artist",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    title: "Steal Like an Artist",
+    author: "Austin Kleon",
+  },
+  {
+    id: "the-alchemist",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    title: "The Alchemist",
+    author: "Paulo Coelho",
+  },
+  {
+    id: "tdoet",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    title: "The Design of Everyday Things",
+    author: "Don Norman",
+  },
+  {
+    id: "ph",
     image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
     title: "Penguin Highway",
-    author: "Brad Frost",
-  },
-  {
-    id: "another-book",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
-    title: "Another Book",
-    author: "Someone Else",
-  },
-  {
-    id: "a-another-book",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
-    title: "a-Another Book",
-    author: "Someone Else",
-  },
-  {
-    id: "third-book",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
-    title: "Third Book",
-    author: "Another Author",
+    author: "Tomihiko Morimi",
   },
 ]
 

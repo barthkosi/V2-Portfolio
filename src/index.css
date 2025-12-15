@@ -660,9 +660,9 @@
   
   @media (min-width: 768px) {
     .h3 {
-      font-size: 2.5rem; /* 40px */
-      line-height: 3rem; /* 48px */
-      letter-spacing: -1.2px;
+      font-size: var(--font-size-5xl);
+    line-height: var(--line-height-5xl);
+    letter-spacing: -0.8px;
     }
   }
   

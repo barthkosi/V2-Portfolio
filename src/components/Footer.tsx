@@ -6,8 +6,8 @@ export default function Footer() {
         <div className="max-w-[1440px] flex flex-col items-start gap-4 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
           <div className='w-full flex flex-col md:flex-row items-start text-left gap-5 p-6 md:p-10'>
             <div className="w-full flex flex-col gap-3">
-              <div className="label-s text-[var(--content-tertiary)]">Links</div>
-              <div className="flex flex-col gap-2 label-m text-[var(--content-primary)]">
+              <div className="label-xs text-[var(--content-tertiary)]">Links</div>
+              <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
                 <div className="flex flex-row gap-2">
                   <Link to="/" className="hover:text-[var(--content-secondary)]">Home</Link>
                   <div className="body-s">An Intro to my mind</div>
@@ -19,8 +19,7 @@ export default function Footer() {
                 </div>
 
                 <div className="flex flex-row gap-2">
-                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
-            
+                  <Link to="/illustrations" className="hover:text-[var(--content-secondary)]">Illustrations</Link>
                   <div className="body-s">Lorem Ipsum dolor</div>
                 </div>
 
@@ -29,19 +28,36 @@ export default function Footer() {
             
                   <div className="body-s">Lorem Ipsum dolor</div>
                 </div>
+               
+                <div className="flex flex-row gap-2">
+                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
+            
+                  <div className="body-s">Lorem Ipsum dolor</div>
+                </div>
+                
               </div>  
               
              </div>
             <div className="w-full flex flex-col gap-3">
-             <div className="label-s text-[var(--content-tertiary)]">Social</div>
-              <div className="flex flex-col gap-2 label-m text-[var(--content-primary)]">
-               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">
+             <div className="label-xs text-[var(--content-tertiary)]">Social</div>
+              <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
+               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
                   X (Twitter)
                </a>
-               <a href="https://github.com/" target="_blank" rel="noopener noreferrer" className="hover:underline">
-                  GitHub
+               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
+                  Arena
                </a>
-
+               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
+                  LinkedIn
+               </a>
+               <a href="https://github.com/barthkosi" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
+               GitHub
+               </a>
+               
               </div>
             </div>
           </div>

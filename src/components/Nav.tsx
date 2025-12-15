@@ -4,12 +4,12 @@ import { motion } from "framer-motion";
 export default function Nav() {
   return (
     <motion.nav
-    className="w-full flex flex-row h-[64px] md:h-[102px] p-4 md:p-8 items-center justify-between gap-6 sticky top-0 z-50 overflow-hidden"
+    className="w-full flex flex-col h-[64px] md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
     initial={{ y: -24, opacity: 0 }}
     animate={{ y: 0, opacity: 1 }}
     transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
   >
-    {/* Gradient mask that simulates progressive blur */}
+  
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
@@ -21,16 +21,44 @@ export default function Nav() {
         WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
       }}
     ></div>
-  
-    {/* Nav content */}
-    <div className="relative flex flex-row items-center gap-1.5">
+     
+    <div className="w-full relative flex flex-row justify-between items-center">
+    <div className="flex flex-row items-center gap-1.5">
       <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>
       <div className="label-l text-[var(--content-primary)]">barth</div>
+      </div>
+
+      <div>
+      <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>      
+      </div>
     </div>
-    <div className="relative flex flex-row gap-5 text-[var(--content-tertiary)]">
-      <Link to="/" className="label-m hover:text-[var(--content-primary)]">Home</Link>
-      <Link to="/projects" className="label-m hover:text-[var(--content-primary)]">Projects</Link>
-      <Link to="/reading-list" className="label-m hover:text-[var(--content-primary)]">Reading</Link>
+    <div className="relative h3 flex flex-col gap-3 text-[var(--content-primary)]">      
+      <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
+      <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
+      <div className="flex flex-col gap-1">
+        <div className="label-s text-[var(--content-tertiary)]">Vault</div>
+        
+        <Link to="/archive" className="hover:text-[var(--content-primary)]">Archive</Link>
+        <Link to="/reading-list" className="hover:text-[var(--content-primary)]">Reading List</Link>
+      </div>
+
+      <div className="flex flex-col gap-1">
+        <div className="label-s text-[var(--content-tertiary)]">Social</div>
+        
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+           X(Twitter)
+          </a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+              Arena
+           </a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+           LinkedIn
+        </a>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+           Github
+        </a>
+      </div>
+      
     </div>
   </motion.nav>
   
