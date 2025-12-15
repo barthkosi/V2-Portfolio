@@ -652,7 +652,7 @@
   
   .h3 {
     font-family: var(--font-family-heading);
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.75rem; /* 28px */
     line-height: 2rem; /* 32px */
     letter-spacing: -0.8px;

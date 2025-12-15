@@ -12,21 +12,26 @@ export default function Nav() {
       animate={{ 
         y: 0, 
         opacity: 1,
-        height: isOpen ? "auto" : "64px"
+        
       }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
     <div
-      className="absolute inset-0 pointer-events-none"
-      style={{
-        background: `linear-gradient(to bottom, var(--background-primary), var(--opacity-0))`,
-        // The blur layer: full blur but masked to taper it out
-        backdropFilter: 'blur(4px)',
-        WebkitBackdropFilter: 'blur(4px)',
-        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
-        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
-      }}
-    ></div>
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background: isOpen 
+            ? 'var(--background-primary)' 
+            : `linear-gradient(to bottom, var(--background-primary), var(--opacity-0))`,
+          backdropFilter: 'blur(4px)',
+          WebkitBackdropFilter: 'blur(4px)',
+          maskImage: isOpen 
+            ? 'none' 
+            : 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
+          WebkitMaskImage: isOpen 
+            ? 'none' 
+            : 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
+  }}
+></div>
      
      <div className="w-full relative flex flex-row justify-between items-center">
      <div className="flex flex-row items-center gap-1.5">
