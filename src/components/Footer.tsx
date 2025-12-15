@@ -10,29 +10,29 @@ export default function Footer() {
               <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
                 <div className="flex flex-row gap-2">
                   <Link to="/" className="hover:text-[var(--content-secondary)]">Home</Link>
-                  <div className="body-s">An Intro to my mind</div>
+                  <div className="label-xs text-[var(--content-secondary)]">An Intro to my mind</div>
                 </div>
                               
                 <div className="flex flex-row gap-2">
                   <Link to="/projects" className="hover:text-[var(--content-secondary)]">Projects</Link>
-                  <div className="body-s">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
                 </div>
 
                 <div className="flex flex-row gap-2">
                   <Link to="/illustrations" className="hover:text-[var(--content-secondary)]">Illustrations</Link>
-                  <div className="body-s">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
                 </div>
 
                 <div className="flex flex-row gap-2">
                   <Link to="/archive" className="hover:text-[var(--content-secondary)]">Archive</Link>
             
-                  <div className="body-s">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
                 </div>
                
                 <div className="flex flex-row gap-2">
                   <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
             
-                  <div className="body-s">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
                 </div>
                 
               </div>  
