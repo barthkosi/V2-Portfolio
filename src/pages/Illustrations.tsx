@@ -41,7 +41,7 @@ export default function illustrations() {
             variant="centered"
             title="Illustrations"
             number={imageCount}
-            description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
+            description=""
           />
           </div>
           <div className="w-full columns-2 lg:columns-3 gap-4">
