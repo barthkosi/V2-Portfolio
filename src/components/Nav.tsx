@@ -10,7 +10,7 @@ export default function Nav() {
 
   return (
     <motion.nav
-      className="w-full flex md:flex-row flex-col h-[64px] md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
+      className="w-full flex flex-col h-[64px] md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -33,11 +33,87 @@ export default function Nav() {
         }}
       ></div>
        
-      <div className="w-full md:w-fit relative flex flex-row  md:justify-start justify-between items-center z-2">
-        <Link to="/" className="flex flex-row items-center gap-1.5">
+      <div className="w-full relative flex flex-row justify-between items-center">
+      <Link to="/" className="flex flex-row items-center gap-1.5">
           <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>
           <div className="label-l text-[var(--content-primary)]">barth</div>
         </Link>
+
+        {/* Desktop Menu - inline with logo */}
+        <div className="hidden md:flex label-s flex-row gap-6 text-[var(--content-secondary)] items-center">      
+          <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
+          <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
+          
+          <div 
+            className="relative"
+            onMouseEnter={() => setShowVault(true)}
+            onMouseLeave={() => setShowVault(false)}
+          >
+            <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+              Vault
+            </button>
+            
+            <AnimatePresence>
+              {showVault && (
+                <motion.div
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <Link to="/archive" className="hover:text-[var(--content-primary)] whitespace-nowrap">Archive</Link>
+                  <Link to="/reading-list" className="hover:text-[var(--content-primary)] whitespace-nowrap">Reading List</Link>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+
+          <div 
+            className="relative"
+            onMouseEnter={() => setShowSocial(true)}
+            onMouseLeave={() => setShowSocial(false)}
+          >
+            <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+              Social
+            </button>
+            
+            <AnimatePresence>
+              {showSocial && (
+                <motion.div
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  initial={{ opacity: 0, y: -8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  <a href="https://x.com/barthkosi" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                    X(Twitter)
+                  </a>
+                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                    Arena
+                  </a>
+                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                    LinkedIn
+                  </a>
+                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                    Github
+                  </a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          <Button 
+            variant="secondary" 
+            size="sm"
+            href="https://cal.com/barthkosi/intro" 
+            openInNewTab
+            >
+               Contact Me
+            </Button>
+        </div>
+        
+        
 
         <button 
           onClick={() => setIsOpen(!isOpen)}
@@ -67,118 +143,33 @@ export default function Nav() {
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >      
-            <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
-            <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
+            <Link to="/projects">Projects</Link>
+            <Link to="/illustrations">Illustrations</Link>
             
             <div className="flex flex-col gap-1">
               <div className="label-s text-[var(--content-tertiary)]">Vault</div>
-              <Link to="/archive" className="hover:text-[var(--content-primary)]">Archive</Link>
-              <Link to="/reading-list" className="hover:text-[var(--content-primary)]">Reading List</Link>
+              <Link to="/archive">Archive</Link>
+              <Link to="/reading-list">Reading List</Link>
             </div>
 
             <div className="flex flex-col gap-1">
               <div className="label-s text-[var(--content-tertiary)]">Social</div>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+              <a href="https://x.com/barthkosi" target="_blank" rel="noopener noreferrer">
                 X(Twitter)
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                 Arena
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
                 Github
               </a>
             </div>
-
-            <Button 
-                    variant="secondary" 
-                    size="lg"
-                    href="https://cal.com/barthkosi/intro" 
-                    openInNewTab
-                  >
-                    Contact Me
-                  </Button>
-
           </motion.div>
         )}
       </AnimatePresence>
-
-      {/* Desktop Menu */}
-      <div className="hidden justify-end items-center md:flex absolute left-0 w-full px-8 pb-8 label-s flex-row gap-6 text-[var(--content-secondary)]">      
-        <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
-        <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
-        
-        <div 
-          className="relative flex flex-col gap-1"
-          onMouseEnter={() => setShowVault(true)}
-          onMouseLeave={() => setShowVault(false)}
-        >
-          <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
-            Vault
-          </button>
-          
-          <AnimatePresence>
-            {showVault && (
-              <motion.div
-                className="absolute top-full left-0 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-md shadow-lg p-3 flex flex-col gap-2"
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <Link to="/archive" className="hover:text-[var(--content-primary)] whitespace-nowrap">Archive</Link>
-                <Link to="/reading-list" className="hover:text-[var(--content-primary)] whitespace-nowrap">Reading List</Link>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-
-        <div 
-          className="relative flex flex-col gap-1"
-          onMouseEnter={() => setShowSocial(true)}
-          onMouseLeave={() => setShowSocial(false)}
-        >
-          <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
-            Social
-          </button>
-          
-          <AnimatePresence>
-            {showSocial && (
-              <motion.div
-                className="absolute top-full left-0 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-md shadow-lg p-3 flex flex-col gap-2"
-                initial={{ opacity: 0, y: -8 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -8 }}
-                transition={{ duration: 0.2 }}
-              >
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
-                  X(Twitter)
-                </a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
-                  Arena
-                </a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
-                  LinkedIn
-                </a>
-                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
-                  Github
-                </a>
-              </motion.div>
-            )}
-          </AnimatePresence>
-           
-        </div>
-        <Button 
-                    variant="secondary" 
-                    size="sm"
-                    href="https://cal.com/barthkosi/intro" 
-                    openInNewTab
-                  >
-                    Contact Me
-                  </Button>
-      </div>
     </motion.nav>
   );
 }
