@@ -8,19 +8,18 @@ export default function Home() {
               <div className="flex flex-col justify-center gap-4 lg:pl-10">
                 <div className="flex flex-col gap-2 text-left">
                   <h1>Barth creates visual systems and digital experiences</h1>
-                  <p className="body-l-medium text-[var(--content-secondary)]">
+                  <p className="body-m text-[var(--content-secondary)]">
                     Explore my portfolio of web interactions, engineered solutions, 
                     and dynamic motion design that aims to inject joy into the digital world.
                   </p>
                 </div>
                 
                 <div className="flex flex-row items-center gap-3 flex-wrap">
-                  {/* Navigate to projects page */}
+                  
                   <Button to="/projects">
                     View Projects
                   </Button>
-
-                  {/* External link */}
+                  
                   <Button 
                     variant="secondary" 
                     href="https://cal.com/barthkosi/intro" 
