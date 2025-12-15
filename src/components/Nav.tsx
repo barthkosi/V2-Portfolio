@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import Button from "../components/Button";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showVault, setShowVault] = useState(false);
+  const [showSocial, setShowSocial] = useState(false);
 
   return (
     <motion.nav
-      className="w-full flex flex-col p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
+      className="w-full flex md:flex-row flex-col h-[64px] md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
       initial={{ y: -24, opacity: 0 }}
-      animate={{ 
-        y: 0, 
-        opacity: 1,
-        
-      }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
     >
-    <div
+      <div
         className="absolute inset-0 pointer-events-none"
         style={{
           background: isOpen 
@@ -30,20 +29,19 @@ export default function Nav() {
           WebkitMaskImage: isOpen 
             ? 'none' 
             : 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
-  }}
-></div>
-     
-     <div className="w-full relative flex flex-row justify-between items-center">
-     <div className="flex flex-row items-center gap-1.5">
-        <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>
-        <div className="label-l text-[var(--content-primary)]">
-            barth
-        </div>
-      </div>
+          transition: 'all 0.3s ease',
+        }}
+      ></div>
+       
+      <div className="w-full md:w-fit relative flex flex-row  md:justify-start justify-between items-center z-2">
+        <Link to="/" className="flex flex-row items-center gap-1.5">
+          <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>
+          <div className="label-l text-[var(--content-primary)]">barth</div>
+        </Link>
 
         <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="w-[38px] h-[38px] bg-gray-100 rounded-md hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center"
+          className="md:hidden w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <svg 
@@ -59,45 +57,117 @@ export default function Nav() {
         </button>
       </div>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="relative h3 flex flex-col gap-3 text-[var(--content-primary)]"
+            className="md:hidden absolute top-[64px] left-0 w-full h-screen px-4 pb-8 h3 flex flex-col gap-3 text-[var(--content-primary)] bg-[var(--background-primary)]"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >      
-            <a href="/projects" className="hover:text-[var(--content-primary)]">Projects</a>
-            <a href="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</a>
+            <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
+            <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
             
             <div className="flex flex-col gap-1">
-               <div className="label-s text-[var(--content-tertiary)]">Vault</div>
-               
-               <Link to="/archive" className="hover:text-[var(--content-primary)]">Archive</Link>
-               <Link to="/reading-list" className="hover:text-[var(--content-primary)]">Reading List</Link>
-             </div>
+              <div className="label-s text-[var(--content-tertiary)]">Vault</div>
+              <Link to="/archive" className="hover:text-[var(--content-primary)]">Archive</Link>
+              <Link to="/reading-list" className="hover:text-[var(--content-primary)]">Reading List</Link>
+            </div>
 
-          
             <div className="flex flex-col gap-1">
               <div className="label-s text-[var(--content-tertiary)]">Social</div>
-              
               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
-                 X(Twitter)
-                </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
-                    Arena
-                 </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
-                 LinkedIn
+                X(Twitter)
               </a>
               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
-                 Github
+                Arena
+              </a>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+                LinkedIn
+              </a>
+              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)]">
+                Github
               </a>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Desktop Menu */}
+      <div className="hidden justify-end items-center md:flex absolute left-0 w-full px-8 pb-8 label-s flex-row gap-6 text-[var(--content-secondary)]">      
+        <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
+        <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
+        
+        <div 
+          className="relative flex flex-col gap-1"
+          onMouseEnter={() => setShowVault(true)}
+          onMouseLeave={() => setShowVault(false)}
+        >
+          <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+            Vault
+          </button>
+          
+          <AnimatePresence>
+            {showVault && (
+              <motion.div
+                className="absolute top-full left-0 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-md shadow-lg p-3 flex flex-col gap-2"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Link to="/archive" className="hover:text-[var(--content-primary)] whitespace-nowrap">Archive</Link>
+                <Link to="/reading-list" className="hover:text-[var(--content-primary)] whitespace-nowrap">Reading List</Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div 
+          className="relative flex flex-col gap-1"
+          onMouseEnter={() => setShowSocial(true)}
+          onMouseLeave={() => setShowSocial(false)}
+        >
+          <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+            Social
+          </button>
+          
+          <AnimatePresence>
+            {showSocial && (
+              <motion.div
+                className="absolute top-full left-0 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-md shadow-lg p-3 flex flex-col gap-2"
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.2 }}
+              >
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  X(Twitter)
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  Arena
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  LinkedIn
+                </a>
+                <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  Github
+                </a>
+              </motion.div>
+            )}
+          </AnimatePresence>
+           
+        </div>
+        <Button 
+                    variant="secondary" 
+                    href="https://cal.com/barthkosi/intro" 
+                    openInNewTab
+                  >
+                    Contact Me
+                  </Button>
+      </div>
     </motion.nav>
   );
 }
