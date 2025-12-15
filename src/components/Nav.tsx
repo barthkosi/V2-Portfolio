@@ -137,7 +137,7 @@ export default function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="md:hidden absolute top-[80px] left-0 w-full h-screen px-4 pb-8 h3 flex flex-col gap-3 text-[var(--content-primary)] bg-[var(--background-primary)]"
+            className="md:hidden absolute top-[64px] left-0 w-full h-screen px-4 py-4 h3 flex flex-col gap-3 text-[var(--content-primary)] bg-[var(--background-primary)]"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
