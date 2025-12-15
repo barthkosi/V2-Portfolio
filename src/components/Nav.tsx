@@ -91,6 +91,16 @@ export default function Nav() {
                 Github
               </a>
             </div>
+
+            <Button 
+                    variant="secondary" 
+                    size="lg"
+                    href="https://cal.com/barthkosi/intro" 
+                    openInNewTab
+                  >
+                    Contact Me
+                  </Button>
+
           </motion.div>
         )}
       </AnimatePresence>
@@ -162,6 +172,7 @@ export default function Nav() {
         </div>
         <Button 
                     variant="secondary" 
+                    size="sm"
                     href="https://cal.com/barthkosi/intro" 
                     openInNewTab
                   >
