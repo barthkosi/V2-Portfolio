@@ -9,13 +9,12 @@ const images = [
   },
   {
     id: "2",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdKXCM1YMg14hIsVmmu5JOlCKLr8VT3Cvaw&s",
     
   },
   {
     id: "3",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
-    
+    image: "https://d2vbr83hnyiux1.cloudfront.net/image/975050285728/image_4lqdtu00bd17l6jlamum1t4v73/-FWEBP"
   },
   {
     id: "4",
@@ -24,8 +23,12 @@ const images = [
   },
   {
     id: "5",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdKXCM1YMg14hIsVmmu5JOlCKLr8VT3Cvaw&s",
    
+  },
+  {
+    id: "6",
+    image: "https://d2vbr83hnyiux1.cloudfront.net/image/975050285728/image_4lqdtu00bd17l6jlamum1t4v73/-FWEBP"
   },
 ] 
 export default function illustrations() {
@@ -41,17 +44,17 @@ export default function illustrations() {
             description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
           />
           </div>
-      <div className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
-      {images.map((item) => (
-    <div key={item.id} className="w-full">
-      <img
-          src={item.image}
-          alt=""
-          className="w-full h-auto object-cover rounded-lg"
-      />
-        </div>
-          ))}
-        </div>
+          <div className="w-full columns-2 lg:columns-3 gap-4">
+         {images.map((item) => (
+           <div key={item.id} className="mb-4 break-inside-avoid">
+             <img
+               src={item.image}
+               alt=""
+               className="w-full h-auto object-cover rounded-lg"
+             />
+           </div>
+         ))}
+</div>
       </div>
     </main>
   );
