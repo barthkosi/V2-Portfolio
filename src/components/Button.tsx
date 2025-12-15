@@ -19,15 +19,15 @@ const sizeStyles: Record<ButtonSize, {
   text: string
 }> = {
   sm: {
-    padding: 'px-6 py-1',
+    padding: 'px-6 py-2',
     text: 'label-s',
   },
   md: {
-    padding: 'px-6 py-2',
+    padding: 'px-6 py-3',
     text: 'label-m',
   },
   lg: {
-    padding: 'px-6 py-3',
+    padding: 'px-6 py-4',
     text: 'label-l',
   },
 }

@@ -396,8 +396,8 @@
   --border-positive: #002712;
   
   /* Overlay Colors */
-  --opacity-0: rgba(13, 13, 13, 13);
-  --opacity-0-inverse: rgba(255, 255, 255, 0.5);
+  --opacity-0: rgba(13, 13, 13, 0);
+  --opacity-0-inverse: rgba(255, 255, 255, 0);
 
   /* ============================================
      TAILWIND COMPATIBILITY MAPPINGS

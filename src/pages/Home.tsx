@@ -23,24 +23,12 @@ export default function Home() {
                   {/* External link */}
                   <Button 
                     variant="secondary" 
-                    href="https://github.com" 
+                    href="https://cal.com/barthkosi/intro" 
                     openInNewTab
                   >
-                    GitHub
+                    Contact Me
                   </Button>
-
-                  {/* Button with onClick */}
-                  <Button 
-                    size="sm" 
-                    onClick={() => alert('Hello!')}
-                  >
-                    Say Hi
-                  </Button>
-
-                  {/* Navigate to reading list */}
-                  <Button variant="secondary" size="lg" to="/reading-list">
-                    Reading List
-                  </Button>
+                  
                 </div>
               </div>
               
