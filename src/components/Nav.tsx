@@ -1,16 +1,41 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../components/Button";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [showVault, setShowVault] = useState(false);
   const [showSocial, setShowSocial] = useState(false);
+  const location = useLocation();
+
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
+
+  // Close mobile menu only when resizing from mobile to desktop
+  useEffect(() => {
+    let wasMobile = window.innerWidth < 768;
+    
+    const handleResize = () => {
+      const isMobile = window.innerWidth < 768;
+      
+      // Only close if transitioning from mobile to desktop
+      if (wasMobile && !isMobile) {
+        setIsOpen(false);
+      }
+      
+      wasMobile = isMobile;
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   return (
     <motion.nav
-      className="w-full flex flex-col h-[64px] md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible"
+      className={`w-full flex flex-col ${isOpen ? 'h-screen' : 'h-[64px]'} md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible`}
       initial={{ y: -24, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
@@ -34,7 +59,7 @@ export default function Nav() {
       ></div>
        
       <div className="w-full relative flex flex-row justify-between items-center">
-      <Link to="/" className="flex flex-row items-center gap-1.5">
+        <Link to="/" className="flex flex-row items-center gap-1.5">
           <div className="w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md"></div>
           <div className="label-l text-[var(--content-primary)]">barth</div>
         </Link>
@@ -108,12 +133,10 @@ export default function Nav() {
             size="sm"
             href="https://cal.com/barthkosi/intro" 
             openInNewTab
-            >
-               Contact Me
-            </Button>
+          >
+            Contact Me
+          </Button>
         </div>
-        
-        
 
         <button 
           onClick={() => setIsOpen(!isOpen)}
@@ -137,19 +160,19 @@ export default function Nav() {
       <AnimatePresence>
         {isOpen && (
           <motion.div 
-            className="md:hidden absolute top-[64px] left-0 w-full h-screen px-4 py-4 h3 flex flex-col gap-3 text-[var(--content-primary)] bg-[var(--background-primary)]"
+            className="md:hidden absolute top-[64px] left-0 w-full h-screen px-4 py-4 h3 flex flex-col gap-3 text-[var(--content-primary)]"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
           >      
-            <Link to="/projects">Projects</Link>
-            <Link to="/illustrations">Illustrations</Link>
+            <Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
+            <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
             
             <div className="flex flex-col gap-1">
               <div className="label-s text-[var(--content-tertiary)]">Vault</div>
-              <Link to="/archive">Archive</Link>
-              <Link to="/reading-list">Reading List</Link>
+              <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
+              <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
             </div>
 
             <div className="flex flex-col gap-1">
