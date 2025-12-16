@@ -41,19 +41,19 @@ export default function Footer() {
             <div className="w-full flex flex-col gap-3">
              <div className="label-xs text-[var(--content-tertiary)]">Social</div>
               <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
-               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
                <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
                   X (Twitter)
                </a>
-               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
                <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
-                  Arena
+                  Cosmos
                </a>
-               <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
                <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
                   LinkedIn
                </a>
-               <a href="https://github.com/barthkosi" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+               <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
                <div className="w-[16px] h-[16px] bg-[var(--background-primary)] rounded-s"></div>
                GitHub
                </a>
