@@ -4,32 +4,29 @@ import InfoBlock from "../components/InfoBlock";
 const images = [
   {
     id: "1",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899901/Tennis_Illustration_lb6fgp.png",
     
   },
   {
     id: "2",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdKXCM1YMg14hIsVmmu5JOlCKLr8VT3Cvaw&s",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/Jake_illustration_welkzu.png",
     
   },
   {
     id: "3",
-    image: "https://d2vbr83hnyiux1.cloudfront.net/image/975050285728/image_4lqdtu00bd17l6jlamum1t4v73/-FWEBP"
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899894/illustration_f5fi66.png"
   },
   {
     id: "4",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/illustration-1_esjizz.png",
     
   },
   {
     id: "5",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTdKXCM1YMg14hIsVmmu5JOlCKLr8VT3Cvaw&s",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899893/Cassette_illustration_Isometriic_kkvkn8.png",
    
   },
-  {
-    id: "6",
-    image: "https://d2vbr83hnyiux1.cloudfront.net/image/975050285728/image_4lqdtu00bd17l6jlamum1t4v73/-FWEBP"
-  },
+
 ] 
 export default function illustrations() {
   const imageCount = images.length;
@@ -44,7 +41,7 @@ export default function illustrations() {
             description=""
           />
           </div>
-          <div className="w-full columns-2 lg:columns-3 gap-4">
+          <div className="w-full columns-2 lg:columns-3 gap-2 md:gap-4">
          {images.map((item) => (
            <div key={item.id} className="mb-4 break-inside-avoid">
              <img
