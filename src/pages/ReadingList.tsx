@@ -10,7 +10,7 @@ const books = [
   },
   {
     id: "steal-like-an-artist",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/steal-like-an-artist.webp",
     title: "Steal Like an Artist",
     author: "Austin Kleon",
   },
