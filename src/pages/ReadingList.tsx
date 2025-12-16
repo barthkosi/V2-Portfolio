@@ -38,6 +38,12 @@ const books = [
     title: "Penguin Highway",
     author: "Tomihiko Morimi",
   },
+  {
+    id: "native-son",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/native-son.png",
+    title: "Native Son",
+    author: "Richard Wright",
+  },
 ]
 
 export default function ReadingList() {
