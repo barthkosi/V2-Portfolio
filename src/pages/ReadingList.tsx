@@ -22,7 +22,7 @@ const books = [
   },
   {
     id: "drtcw",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/dieter-rams-the-complete-works.avif",
     title: "Dieter Rams: The Complete Works",
     author: "Klaus Klemp",
   },
