@@ -4,7 +4,7 @@ import BookCard from "../components/BookCard";
 const books = [
   {
     id: "the-brand-gap",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/the-brand-gap.webp",
     title: "The Brand Gap",
     author: "Marty Neumeier",
   },
