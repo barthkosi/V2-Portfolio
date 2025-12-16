@@ -76,7 +76,7 @@ export default function Home() {
                   
                 </div>
       </div>
-      <div className="w-full flex flex-col gap-4">
+      <div className="w-full flex flex-col gap-2 md:gap-3">
         {simple.map(simplecard => (
           <SimpleCard
             key={simplecard.id}
