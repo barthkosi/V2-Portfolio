@@ -34,14 +34,14 @@ export default function InfoBlock({
           {title}
         </h2>
 
-        <span
+        <p
           className={[
             'h6 text-[var(--content-primary)]',
             !isCentered ? 'whitespace-nowrap flex-shrink-0' : '',
           ].join(' ')}
         >
           {number}
-        </span>
+        </p>
       </div>
 
       <p
@@ -49,7 +49,7 @@ export default function InfoBlock({
           'text-[var(--content-secondary)]',
           isCentered
             ? 'body-m'
-            : 'body-m-medium md:max-w-[480px] lg:max-w-[335px]',
+            : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
       >
         {description}

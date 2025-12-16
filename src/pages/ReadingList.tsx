@@ -16,9 +16,15 @@ const books = [
   },
   {
     id: "the-alchemist",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
     title: "The Alchemist",
     author: "Paulo Coelho",
+  },
+  {
+    id: "drtcw",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    title: "Dieter Rams: The Complete Works",
+    author: "Klaus Klemp",
   },
   {
     id: "tdoet",
