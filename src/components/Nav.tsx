@@ -130,16 +130,16 @@ export default function Nav() {
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <a href="https://x.com/barthkosi" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
                     X(Twitter)
                   </a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
-                    Arena
+                  <a href="https://cosmos.so/barthkosi" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                    Cosmos
                   </a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="http://linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
                     LinkedIn
                   </a>
-                  <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
                     Github
                   </a>
                 </motion.div>
@@ -195,16 +195,16 @@ export default function Nav() {
 
             <div className="flex flex-col gap-1">
               <div className="label-s text-[var(--content-tertiary)]">Social</div>
-              <a href="https://x.com/barthkosi" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer">
                 X(Twitter)
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-                Arena
+              <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
+                Cosmos
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <a href="http://linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
-              <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
                 Github
               </a>
             </div>

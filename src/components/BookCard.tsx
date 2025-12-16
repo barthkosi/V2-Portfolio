@@ -7,7 +7,7 @@ type BookCardProps = {
 export default function BookCard({ image, title, author }: BookCardProps) {
   return (
     <div className="gap-3 flex flex-col">
-      {/* Container with fixed aspect ratio */}
+  
       <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
         <div className="relative w-full aspect-[2/3] overflow-hidden rounded-xl">
           <img

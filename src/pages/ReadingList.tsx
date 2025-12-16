@@ -28,13 +28,13 @@ const books = [
   },
   {
     id: "tdoet",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.jpg",
     title: "The Design of Everyday Things",
     author: "Don Norman",
   },
   {
     id: "ph",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765758418/penguin-highway-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/penguin-highway-cover.webp",
     title: "Penguin Highway",
     author: "Tomihiko Morimi",
   },

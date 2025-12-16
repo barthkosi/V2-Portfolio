@@ -4,16 +4,10 @@ export default function Projects() {
 
   return (
     <main>
-      <div className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
-          <InfoBlock
-            title="Projects"
-            number="12"
-            description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
-          />
-      
-        <div className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+      <div className="flex flex-col justify-center my-auto items-center w-full gap-7 h-auto">
           
-        </div>
+        <h3>Coming Soon!</h3>
+        
       </div>
     </main>
   );
