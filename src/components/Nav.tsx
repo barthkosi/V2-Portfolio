@@ -99,14 +99,14 @@ export default function Nav() {
             <AnimatePresence>
               {showVault && (
                 <motion.div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <Link to="/archive" className="hover:text-[var(--content-primary)] whitespace-nowrap">Archive</Link>
-                  <Link to="/reading-list" className="hover:text-[var(--content-primary)] whitespace-nowrap">Reading List</Link>
+                  <Link to="/archive" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Archive</Link>
+                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Reading List</Link>
                 </motion.div>
               )}
             </AnimatePresence>
@@ -124,22 +124,22 @@ export default function Nav() {
             <AnimatePresence>
               {showSocial && (
                 <motion.div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
                   initial={{ opacity: 0, y: -8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.2 }}
                 >
-                  <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-secondary)] whitespace-nowrap">
                     X(Twitter)
                   </a>
-                  <a href="https://cosmos.so/barthkosi" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="https://cosmos.so/barthkosi" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-secondary)] whitespace-nowrap">
                     Cosmos
                   </a>
-                  <a href="http://linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-secondary)] whitespace-nowrap">
                     LinkedIn
                   </a>
-                  <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-primary)] whitespace-nowrap">
+                  <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="hover:text-[var(--content-secondary)] whitespace-nowrap">
                     Github
                   </a>
                 </motion.div>
@@ -201,7 +201,7 @@ export default function Nav() {
               <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
                 Cosmos
               </a>
-              <a href="http://linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
+              <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
                 LinkedIn
               </a>
               <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
