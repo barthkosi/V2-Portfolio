@@ -208,6 +208,13 @@ export default function Nav() {
                 Github
               </a>
             </div>
+            <Button 
+                                size="lg" 
+                                href="https://cal.com/barthkosi/intro" 
+                                openInNewTab
+                              >
+                                Contact Me
+                              </Button>
           </motion.div>
         )}
       </AnimatePresence>
