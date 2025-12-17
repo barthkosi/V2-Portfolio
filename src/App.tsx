@@ -11,6 +11,7 @@ const ReadingList = lazy(() => import("./pages/ReadingList"));
 const Writing = lazy(() => import("./pages/Writing"));
 const Archive = lazy(() => import("./pages/Archive"));
 const Illustrations = lazy(() => import("./pages/Illustrations"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 export default function App() {
   // Dark/light system preference
@@ -27,9 +28,9 @@ export default function App() {
 
   return (
     <BrowserRouter>
-     <ScrollToTop /> 
+      <ScrollToTop />
       <Routes>
-        
+
         <Route element={<PageLayout />}>
           <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
           <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
@@ -37,6 +38,7 @@ export default function App() {
           <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
           <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
           <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />
+          <Route path="*" element={<LazyRoute><NotFound /></LazyRoute>} />
         </Route>
       </Routes>
     </BrowserRouter>
