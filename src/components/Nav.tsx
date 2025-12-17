@@ -156,20 +156,43 @@ export default function Nav() {
           </Button>
         </div>
 
-        <button 
+       <button 
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden w-[38px] h-[38px] bg-[var(--background-secondary)] rounded-md hover:opacity-80 transition-opacity cursor-pointer flex items-center justify-center"
+          className="md:hidden w-[38px] h-[38px] cursor-pointer flex items-center justify-center"
           aria-label={isOpen ? "Close menu" : "Open menu"}
         >
           <svg 
-            width="16" 
-            height="16" 
-            viewBox="0 0 16 16" 
-            fill="none" 
-            className="transition-transform duration-300"
-            style={{ transform: isOpen ? 'rotate(180deg)' : 'rotate(0deg)' }}
+            width="32" 
+            height="32" 
+            viewBox="0 0 32 32" 
+            fill="none"
           >
-            <path d="M4 6L8 10L12 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+           
+            <motion.path
+              d={isOpen ? "M8 8L25 25" : "M4 10L28 10"}
+              stroke="var(--content-primary)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              initial={false}
+              animate={{ 
+                d: isOpen ? "M8 8L25 25" : "M4 10L28 10"
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
+    
+            <motion.path
+              d={isOpen ? "M8 25L25 8" : "M4 22L28 22"}
+              stroke="var(--content-primary)"
+              strokeWidth="2"
+              strokeLinecap="round"
+              fill="none"
+              initial={false}
+              animate={{ 
+                d: isOpen ? "M8 25L25 8" : "M4 22L28 22"
+              }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            />
           </svg>
         </button>
       </div>
