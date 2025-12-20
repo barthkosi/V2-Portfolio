@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 type BookCardProps = {
   image: string
   title: string
@@ -6,8 +8,16 @@ type BookCardProps = {
 
 export default function BookCard({ image, title, author }: BookCardProps) {
   return (
-    <div className="gap-3 flex flex-col">
-  
+    <motion.div
+      className="gap-3 flex flex-col"
+      whileHover={{ scale: 1.03 }}
+      transition={{
+        type: 'spring',
+        stiffness: 200,
+        damping: 20
+      }}
+    >
+
       <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
         <div className="relative w-full aspect-[2/3] overflow-hidden rounded-xl">
           <img
@@ -23,6 +33,6 @@ export default function BookCard({ image, title, author }: BookCardProps) {
         <div className="w-full text-[var(--content-primary)] label-m">{title}</div>
         <div className="w-full text-[var(--content-tertiary)] body-s">{author}</div>
       </div>
-    </div>
+    </motion.div>
   )
 }

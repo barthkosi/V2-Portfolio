@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 type InfoBlockVariant = 'default' | 'centered'
 
 type InfoBlockProps = {
@@ -15,14 +17,104 @@ export default function InfoBlock({
 }: InfoBlockProps) {
   const isCentered = variant === 'centered'
 
+  const mainContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.5, // Delay between title finishing and number starting
+      },
+    },
+  }
+
+  const textContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.03,
+        when: "beforeChildren",
+      },
+    },
+  }
+
+  const wordContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.08, // Delay between words
+        when: "beforeChildren",
+      },
+    },
+  }
+
+  const letterVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  }
+
+  const wordVariants = {
+    hidden: {
+      opacity: 0,
+      y: 20,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.4,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  }
+
+  const animateText = (text: string) => {
+    return text.split('').map((char, index) => (
+      <motion.span
+        key={`${char}-${index}`}
+        variants={letterVariants}
+        style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
+      >
+        {char}
+      </motion.span>
+    ))
+  }
+
+  const animateWords = (text: string) => {
+    return text.split(' ').map((word, index) => (
+      <motion.span
+        key={`${word}-${index}`}
+        variants={wordVariants}
+        style={{ display: 'inline-block', marginRight: '0.25em' }}
+      >
+        {word}
+      </motion.span>
+    ))
+  }
+
   return (
-    <div
+    <motion.div
       className={[
         'flex flex-col gap-2',
         isCentered
           ? 'items-center text-center'
           : 'items-center lg:items-start text-center lg:text-left lg:sticky lg:top-[134px] lg:self-start',
       ].join(' ')}
+      variants={mainContainerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
     >
       <div
         className={[
@@ -30,30 +122,35 @@ export default function InfoBlock({
           isCentered ? 'gap-0' : 'gap-2',
         ].join(' ')}
       >
-        <h2 className={!isCentered ? 'whitespace-nowrap flex-shrink-0' : undefined}>
-          {title}
-        </h2>
+        <motion.h2
+          className={!isCentered ? 'whitespace-nowrap flex-shrink-0' : undefined}
+          variants={textContainerVariants}
+        >
+          {animateText(title)}
+        </motion.h2>
 
-        <p
+        <motion.p
           className={[
             'h6 text-[var(--content-primary)]',
             !isCentered ? 'whitespace-nowrap flex-shrink-0' : '',
           ].join(' ')}
+          variants={textContainerVariants}
         >
-          {number}
-        </p>
+          {animateText(String(number))}
+        </motion.p>
       </div>
 
-      <p
+      <motion.p
         className={[
           'text-[var(--content-secondary)]',
           isCentered
             ? 'body-m'
             : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
+        variants={wordContainerVariants}
       >
-        {description}
-      </p>
-    </div>
+        {animateWords(description)}
+      </motion.p>
+    </motion.div>
   )
 }

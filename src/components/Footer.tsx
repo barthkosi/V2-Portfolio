@@ -10,7 +10,7 @@ export default function Footer() {
               <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
                 <div className="flex flex-row gap-2">
                   <Link to="/" className="hover:text-[var(--content-secondary)]">Home</Link>
-                  <div className="label-xs text-[var(--content-secondary)]">An Intro to my mind</div>
+                  <div className="label-xs text-[var(--content-secondary)]">An intro to my mind</div>
                 </div>
                               
                 <div className="flex flex-row gap-2">
@@ -32,7 +32,7 @@ export default function Footer() {
                 <div className="flex flex-row gap-2">
                   <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
             
-                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Books I recommend </div>
                 </div>
                 
               </div>  

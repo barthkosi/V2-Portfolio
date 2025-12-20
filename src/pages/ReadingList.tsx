@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import InfoBlock from "../components/InfoBlock";
 import BookCard from "../components/BookCard";
 
@@ -49,26 +50,64 @@ const books = [
 export default function ReadingList() {
   const bookCount = books.length;
   
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 3.4, // Delay before cards start animating (adjust based on InfoBlock animation duration)
+      },
+    },
+  }
+
+  const cardVariants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1],
+      },
+    },
+  }
+  
   return (
     <main>
-      <div className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
+      <motion.div 
+        className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
           <InfoBlock
             title="Reading List"
             number={bookCount}
             description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
           />
       
-        <div className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+        <motion.div 
+          className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          variants={containerVariants}
+        >
           {books.map(book => (
-            <BookCard
+            <motion.div
               key={book.id}
-              image={book.image}
-              title={book.title}
-              author={book.author}
-            />
+              variants={cardVariants}
+            >
+              <BookCard
+                image={book.image}
+                title={book.title}
+                author={book.author}
+              />
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </main>
   );
 }
