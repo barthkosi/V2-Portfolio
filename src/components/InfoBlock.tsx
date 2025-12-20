@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import { motion, Variants } from 'framer-motion'
 
 type InfoBlockVariant = 'default' | 'centered'
 
@@ -17,17 +17,17 @@ export default function InfoBlock({
 }: InfoBlockProps) {
   const isCentered = variant === 'centered'
 
-  const mainContainerVariants = {
+  const mainContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.5, // Delay between title finishing and number starting
+        staggerChildren: 0.5,
       },
     },
   }
 
-  const textContainerVariants = {
+  const textContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -38,18 +38,18 @@ export default function InfoBlock({
     },
   }
 
-  const wordContainerVariants = {
+  const wordContainerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.08, // Delay between words
+        staggerChildren: 0.08,
         when: "beforeChildren",
       },
     },
   }
 
-  const letterVariants = {
+  const letterVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 20,
@@ -59,12 +59,12 @@ export default function InfoBlock({
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   }
 
-  const wordVariants = {
+  const wordVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 20,
@@ -74,7 +74,7 @@ export default function InfoBlock({
       y: 0,
       transition: {
         duration: 0.4,
-        ease: [0.22, 1, 0.36, 1],
+        ease: [0.22, 1, 0.36, 1] as const,
       },
     },
   }
