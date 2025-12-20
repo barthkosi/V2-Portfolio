@@ -115,7 +115,6 @@ export default function Button({
     },
   }
 
-  // External link
   if (href) {
     const MotionLink = motion.a
     return (
@@ -131,7 +130,6 @@ export default function Button({
     )
   }
 
-  // Internal navigation
   if (to) {
     const MotionDiv = motion.div
     return (
@@ -143,7 +141,6 @@ export default function Button({
     )
   }
 
-  // Regular button with onClick
   const MotionButton = motion.button
   return (
     <MotionButton

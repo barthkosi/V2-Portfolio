@@ -9,19 +9,16 @@ export default function Nav() {
   const [showSocial, setShowSocial] = useState(false);
   const location = useLocation();
 
-  // Close mobile menu when route changes
   useEffect(() => {
     setIsOpen(false);
   }, [location.pathname]);
 
-  // Close mobile menu only when resizing from mobile to desktop
   useEffect(() => {
     let wasMobile = window.innerWidth < 768;
     
     const handleResize = () => {
       const isMobile = window.innerWidth < 768;
       
-      // Only close if transitioning from mobile to desktop
       if (wasMobile && !isMobile) {
         setIsOpen(false);
       }
@@ -33,15 +30,13 @@ export default function Nav() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
   
-  // Prevent body scroll when mobile menu is open
-   useEffect(() => {
+  useEffect(() => {
      if (isOpen) {
        document.body.style.overflow = 'hidden';
      } else {
        document.body.style.overflow = 'unset';
      }
      
-     // Cleanup on unmount
      return () => {
        document.body.style.overflow = 'unset';
   };

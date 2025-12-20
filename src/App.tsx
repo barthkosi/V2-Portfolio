@@ -5,7 +5,6 @@ import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
 import LazyRoute from "./components/LazyRoute";
 
-// Lazy load all pages
 const Home = lazy(() => import("./pages/Home"));
 const Projects = lazy(() => import("./pages/Projects"));
 const ReadingList = lazy(() => import("./pages/ReadingList"));
@@ -15,7 +14,6 @@ const Illustrations = lazy(() => import("./pages/Illustrations"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 export default function App() {
-  // Initialize Lenis smooth scroll
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -35,8 +33,7 @@ export default function App() {
       lenis.destroy();
     };
   }, []);
-
-  // Dark/light system preference
+ 
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
