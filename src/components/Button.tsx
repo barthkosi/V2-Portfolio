@@ -12,6 +12,7 @@ type ButtonProps = {
   href?: string
   to?: string
   openInNewTab?: boolean
+  className?: string
 }
 
 const sizeStyles: Record<ButtonSize, {
@@ -80,6 +81,7 @@ export default function Button({
   href,
   to,
   openInNewTab = false,
+  className = '',
 }: ButtonProps) {
   const variantStyles = motionStyles[variant]
   const sizing = sizeStyles[size]
@@ -95,6 +97,7 @@ export default function Button({
     'cursor-pointer',
     sizing.padding,
     sizing.text,
+    className,
   ].join(' ')
 
   const motionConfig = {
