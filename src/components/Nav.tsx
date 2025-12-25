@@ -197,42 +197,143 @@ export default function Nav() {
         {isOpen && (
           <motion.div 
             className="md:hidden absolute top-[64px] left-0 w-full h-screen px-4 py-4 h4 flex flex-col gap-3 text-[var(--content-primary)]"
-            initial={{ opacity: 0, y: -10 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -10 }}
-            transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-          >  <div className="flex flex-col gap-1">   
-            <Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
-            <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
-            </div> 
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
+            variants={{
+              hidden: { opacity: 0 },
+              visible: {
+                opacity: 1,
+                transition: {
+                  staggerChildren: 0.08,
+                  delayChildren: 0.1,
+                },
+              },
+            }}
+          >  
+            <motion.div 
+              className="flex flex-col gap-1"
+              variants={{
+                hidden: { opacity: 0, y: -10 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+              }}
+            >   
+              <Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
+            </motion.div>
+            
+            <motion.div 
+              className="flex flex-col gap-1"
+              variants={{
+                hidden: { opacity: 0, y: -10 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+              }}
+            >
+              <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
+            </motion.div>
+            
             <div className="flex flex-col gap-1">
-              <div className="label-s text-[var(--content-tertiary)]">Vault</div>
-              <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
-              <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { duration: 0.3, delay: 1.6 } },
+                }}
+              >
+                <div className="label-s text-[var(--content-tertiary)]">Vault</div>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
+              </motion.div>
             </div>
 
             <div className="flex flex-col gap-1">
-              <div className="label-s text-[var(--content-tertiary)]">Social</div>
-              <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer">
-                X(Twitter)
-              </a>
-              <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
-                Cosmos
-              </a>
-              <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
-                LinkedIn
-              </a>
-              <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
-                Github
-              </a>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0 },
+                  visible: { opacity: 1, transition: { duration: 0.3, delay: 1.6 } },
+                }}
+              >
+                <div className="label-s text-[var(--content-tertiary)]">Social</div>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer">
+                  X(Twitter)
+                </a>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
+                  Cosmos
+                </a>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: { duration: 0.3, ease: [0.22, 1, 0.36, 1] } },
+                }}
+              >
+                <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
+                  Github
+                </a>
+              </motion.div>
             </div>
-            <Button 
-                                size="lg" 
-                                href="https://cal.com/barthkosi/intro" 
-                                openInNewTab
-                              >
-                                Contact Me
-                              </Button>
+            
+            <motion.div
+              className="w-full"
+              variants={{
+                hidden: { opacity: 0, scaleX: 0, originX: 0 },
+                visible: { 
+                  opacity: 1, 
+                  scaleX: 1, 
+                  originX: 0,
+                  transition: { 
+                    duration: 0.6, 
+                    ease: [0.22, 1, 0.36, 1],
+                    delay: 1
+                  } 
+                },
+              }}
+            >
+              <Button 
+                className="flex w-full"
+                size="lg" 
+                href="https://cal.com/barthkosi/intro" 
+                openInNewTab
+              >
+                Contact Me
+              </Button>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
