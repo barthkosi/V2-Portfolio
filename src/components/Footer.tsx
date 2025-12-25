@@ -15,18 +15,18 @@ export default function Footer() {
                               
                 <div className="flex flex-row gap-2">
                   <Link to="/projects" className="hover:text-[var(--content-secondary)]">Projects</Link>
-                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Frames I made in Figma</div>
                 </div>
 
                 <div className="flex flex-row gap-2">
                   <Link to="/illustrations" className="hover:text-[var(--content-secondary)]">Illustrations</Link>
-                  <div className="label-xs text-[var(--content-secondary)]">Visual experiments with lines and shapes</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Visual experiments with lines</div>
                 </div>
 
                 <div className="flex flex-row gap-2">
                   <Link to="/archive" className="hover:text-[var(--content-secondary)]">Archive</Link>
             
-                  <div className="label-xs text-[var(--content-secondary)]">Lorem Ipsum dolor</div>
+                  <div className="label-xs text-[var(--content-secondary)]">Gallery of my work</div>
                 </div>
                
                 <div className="flex flex-row gap-2">
