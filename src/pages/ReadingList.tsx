@@ -1,4 +1,5 @@
 import { motion, Variants } from 'framer-motion'
+import { useEffect } from "react";
 import InfoBlock from "../components/InfoBlock";
 import BookCard from "../components/BookCard";
 
@@ -48,8 +49,12 @@ const books = [
 ]
 
 export default function ReadingList() {
+  useEffect(() => {
+    document.title = "barthkosi - reading list";
+  }, []);
+
   const bookCount = books.length;
-  
+
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,22 +80,22 @@ export default function ReadingList() {
       },
     },
   }
-  
+
   return (
     <main>
-      <motion.div 
+      <motion.div
         className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center"
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, margin: "-100px" }}
       >
-          <InfoBlock
-            title="Reading List"
-            number={bookCount}
-            description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
-          />
-      
-        <motion.div 
+        <InfoBlock
+          title="Reading List"
+          number={bookCount}
+          description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
+        />
+
+        <motion.div
           className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
         >
