@@ -87,7 +87,7 @@ export default function Nav() {
             onMouseEnter={() => setShowVault(true)}
             onMouseLeave={() => setShowVault(false)}
           >
-            <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+            <button className="text-left hover:text-[var(--content-primary)]">
               Vault
             </button>
             
@@ -112,7 +112,7 @@ export default function Nav() {
             onMouseEnter={() => setShowSocial(true)}
             onMouseLeave={() => setShowSocial(false)}
           >
-            <button className="text-left hover:text-[var(--content-primary)] cursor-pointer">
+            <button className="text-left hover:text-[var(--content-primary)]">
               Social
             </button>
             

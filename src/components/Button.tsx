@@ -94,7 +94,6 @@ export default function Button({
     'inline-flex items-center justify-center',
     'rounded-xl',
     'select-none',
-    'cursor-pointer',
     sizing.padding,
     sizing.text,
     className,
