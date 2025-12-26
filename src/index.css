@@ -446,8 +446,12 @@
     font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
     cursor: url('/src/assets/cursors/Cursor.svg'), auto;
   }
-   /* Shared properties for all headings */
-   h1, h2, h3, h4, h5, h6 {
+
+  a, button {
+    cursor: url('/src/assets/cursors/Cursor.svg'), auto;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
     color: var(--content-primary);
   }
