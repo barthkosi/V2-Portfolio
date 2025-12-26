@@ -211,6 +211,7 @@ export default function Nav() {
               },
             }}
           >  
+          <div className="flex flex-col gap-1">
             <motion.div 
               className="flex flex-col gap-1"
               variants={{
@@ -230,7 +231,7 @@ export default function Nav() {
             >
               <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
             </motion.div>
-            
+            </div>
             <div className="flex flex-col gap-1">
               <motion.div
                 variants={{
