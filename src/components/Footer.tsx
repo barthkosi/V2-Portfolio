@@ -131,8 +131,8 @@ export default function Footer() {
                       x2="50%" y2="100%" 
                       gradientUnits="objectBoundingBox"
                     >
-                      <stop offset="50%" stopColor="var(--content-tertiary)" />
-                      <stop offset="100%" stopColor="var(--content-primary)" />
+                      <stop offset="0%" stopColor="var(--background-secondary)" />
+                      <stop offset="90%" stopColor="var(--content-tertiary)" />
                     </linearGradient>
                   </defs>
                 </svg>       
@@ -154,8 +154,8 @@ export default function Footer() {
                       x2="50%" y2="100%" 
                       gradientUnits="objectBoundingBox"
                     >
-                      <stop offset="50%" stopColor="var(--content-tertiary)" />
-                      <stop offset="100%" stopColor="var(--content-primary)" />
+                      <stop offset="0%" stopColor="var(--background-secondary)" />
+                      <stop offset="90%" stopColor="var(--content-tertiary)" />
                     </linearGradient>
                   </defs>
                 </svg>
