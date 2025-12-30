@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { motion, Variants } from "framer-motion";
 import InfoBlock from "../components/InfoBlock";
 
 
@@ -36,28 +37,66 @@ export default function illustrations() {
 
   const imageCount = images.length;
 
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.4,
+        delayChildren: 4,
+      },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5,
+        ease: [0.22, 1, 0.36, 1] as const,
+      },
+    },
+  };
+
   return (
     <main>
-      <div className="flex flex-col w-full gap-7 lg:gap-8 h-auto items-center justify-center">
+      <motion.div
+        className="flex flex-col w-full gap-7 lg:gap-8 h-auto items-center justify-center"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}
+      >
         <div className="max-w-[480px]"><InfoBlock
           variant="centered"
           title="Illustrations"
           number={imageCount}
-          description=""
+          description="A visual diary of forms. I believe only in continued iteration. This page is a snapshot of my ever growing dialogue with color, light, and composition."
         />
         </div>
-        <div className="w-full columns-2 lg:columns-3 gap-2 md:gap-4">
+        <motion.div
+          className="w-full columns-2 lg:columns-3 gap-2 md:gap-4"
+          variants={containerVariants}
+        >
           {images.map((item) => (
-            <div key={item.id} className="mb-4 break-inside-avoid">
+            <motion.div
+              key={item.id}
+              className="mb-4 break-inside-avoid"
+              variants={cardVariants}
+            >
               <img
                 src={item.image}
                 alt=""
                 className="w-full h-auto object-cover rounded-lg"
               />
-            </div>
+            </motion.div>
           ))}
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </main>
   );
 }

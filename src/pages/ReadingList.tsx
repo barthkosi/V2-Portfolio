@@ -96,7 +96,7 @@ export default function ReadingList() {
         />
 
         <motion.div
-          className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+          className="w-full gap-3 md:gap-4 grid grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
         >
           {books.map(book => (

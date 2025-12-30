@@ -8,29 +8,29 @@ export default function Footer() {
         <div className='w-full flex flex-col md:flex-row items-start text-left gap-5 p-6 md:p-10'>
           <div className="w-full flex flex-col gap-3">
             <div className="label-xs text-[var(--content-tertiary)]">Links</div>
-            <div className="flex flex-col gap-2 label-s text-[var(--content-primary)]">
-              <div className="flex flex-row gap-2">
+            <div className="flex flex-col gap-2 label-s text-[var(--content-primary)] ">
+              <div className="flex flex-row gap-2 items-end">
                 <Link to="/" className="hover:text-[var(--content-secondary)]">Home</Link>
                 <div className="label-xs text-[var(--content-secondary)]">An intro to my mind</div>
               </div>
 
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 items-end">
                 <Link to="/projects" className="hover:text-[var(--content-secondary)]">Projects</Link>
                 <div className="label-xs text-[var(--content-secondary)]">Frames I made in Figma</div>
               </div>
 
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 items-end">
                 <Link to="/illustrations" className="hover:text-[var(--content-secondary)]">Illustrations</Link>
                 <div className="label-xs text-[var(--content-secondary)]">Visual experiments with lines</div>
               </div>
 
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2  items-end">
                 <Link to="/archive" className="hover:text-[var(--content-secondary)]">Archive</Link>
 
                 <div className="label-xs text-[var(--content-secondary)]">Gallery of my work</div>
               </div>
 
-              <div className="flex flex-row gap-2">
+              <div className="flex flex-row gap-2 items-end">
                 <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
 
                 <div className="label-xs text-[var(--content-secondary)]">Books I recommend </div>

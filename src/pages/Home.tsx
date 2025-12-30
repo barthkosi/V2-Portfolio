@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import {motion} from "motion/react"
 import Button from "../components/Button";
 import SimpleCard from "../components/SimpleCard";
 import Marquee from "react-fast-marquee";
@@ -181,17 +182,25 @@ export default function Home() {
         </div>
         <div className="w-full mx-auto">
           <div className="flex flex-col lg:flex-row p-4 md:p-8 lg:pt-[96px] gap-8">
-            <div className="lg:h-[calc(100vh-102px)] lg:sticky top-[134px] lg:max-w-[380px] flex flex-col gap-4">
+            <motion.div
+              initial={{ y: -24, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4}}
+            className="lg:h-[calc(100vh-102px)] lg:sticky top-[134px] lg:max-w-[380px] flex flex-col gap-4">
               <h2 className="h4 md:h3">Work Examples</h2>
-            </div>
-            <div className="w-full flex flex-col gap-2 md:gap-3">
+            </motion.div>
+            <motion.div
+              initial={{ y: -24, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4}}
+            className="w-full flex flex-col gap-2 md:gap-3">
               {simple.map(simplecard => (
                 <SimpleCard
                   key={simplecard.id}
                   image={simplecard.image}
                 />
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </main>
