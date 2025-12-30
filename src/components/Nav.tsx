@@ -68,13 +68,13 @@ export default function Nav() {
       ></div>
        
       <div className="w-full relative flex flex-row justify-between items-center">
-        <Link to="/" className="flex flex-row items-center gap-2">
+        <Link to="/" className="flex flex-row items-center gap-2 text-[var(--content-primary)] hover:text-[var(--content-secondary)]">
         <img 
           src="https://res.cloudinary.com/barthkosi/image/upload/pfp.webp" 
           alt="Barth logo" 
           className="w-[38px] h-[38px] rounded-[8px] object-cover"
         />
-          <div className="label-l text-[var(--content-primary)]">barth ✶</div>
+          <div className="label-l ">barth ✶</div>
         </Link>
 
         {/* Desktop Menu - inline with logo */}
