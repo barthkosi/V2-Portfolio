@@ -587,9 +587,9 @@
 
   h1 {
     font-weight: 600;
-    font-size: 44px;
-    line-height: 48px;
-    letter-spacing: -1.6px;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1.4px;
   }
 
   h2 {
@@ -737,9 +737,9 @@
   .h1 {
     font-family: var(--font-family-heading);
     font-weight: 600;
-    font-size: 44px;
-    line-height: 48px;
-    letter-spacing: -1.6px;
+    font-size: 40px;
+    line-height: 44px;
+    letter-spacing: -1.4px;
   }
 
   @media (min-width: 768px) {

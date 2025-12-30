@@ -64,8 +64,8 @@ export default function Home() {
         <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8">
           <div className="flex flex-col justify-center gap-4">
             <div className="flex flex-col gap-2 pt-4 lg:pt-0 text-left">
-              <h1>Barth creates visual systems and digital experiences</h1>
-              <p className="body-m text-[var(--content-secondary)]">
+              <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>Barth creates visual systems and digital experiences</h1>
+              <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
                 Explore my portfolio of web interactions, engineered solutions,
                 and dynamic motion design that aims to inject joy into the digital world.
               </p>
@@ -87,7 +87,6 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Responsive Marquee - useMediaQuery switches between horizontal (mobile) and vertical (desktop) */}
           <div className="w-full flex justify-center items-start">
             <div
               className={`flex gap-1 ${isDesktop ? 'flex-row -mt-20' : 'flex-col'}`}
@@ -95,8 +94,7 @@ export default function Home() {
                 transform: 'perspective(500px) rotate(-4deg) rotateX(25deg) skewX(-16deg) skewY(6deg)',
               }}
             >
-              {isDesktop ? (
-                // Desktop: Vertical scrolling columns in a ROW
+              {isDesktop ? (                
                 <>
                   <div
                     className="relative w-[280px] h-[600px] overflow-hidden"
@@ -138,7 +136,6 @@ export default function Home() {
                   </div>
                 </>
               ) : (
-                // Mobile/Tablet: Horizontal scrolling rows in a COLUMN
                 <>
                   <Marquee
                     direction="left"
