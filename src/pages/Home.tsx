@@ -55,29 +55,136 @@ export default function Home() {
 
   return (
     <>
-      <main >
-        <div className="w-full mx-auto">
-          <div className="flex flex-col lg:flex-row gap-8">
+      <main className='flex flex-col items-center gap-8 lg:gap-16' >
+        <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8">
+          <div className="flex flex-col justify-center gap-4">
+            <div className="flex flex-col gap-2 pt-4 lg:pt-0 text-left">
+              <h1>Barth creates visual systems and digital experiences</h1>
+              <p className="body-m text-[var(--content-secondary)]">
+                Explore my portfolio of web interactions, engineered solutions,
+                and dynamic motion design that aims to inject joy into the digital world.
+              </p>
+            </div>
+            <div className="flex flex-row items-center gap-3 flex-wrap">
+              <Button
+                href="https://cal.com/barthkosi/intro"
+                openInNewTab
+              >
+                Schedule a Call
+              </Button>
+
+              <Button to="/projects"
+                variant="secondary"
+              >
+                View Projects
+              </Button>
+
+            </div>
+          </div>
+          {/* Mobile/Tablet: Horizontal Marquee - Hidden on lg+ */}
+          <div className="lg:hidden w-full flex justify-center">
+            <div
+              className="flex flex-col gap-1"
+              style={{
+                transform: 'perspective(500px) rotate(-4deg) rotateX(25deg) skewX(-16deg) skewY(6deg)',
+              }}
+            >
+              <div
+                className="overflow-hidden"
+                style={{
+                  maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
+                }}
+              >
+                <div className="flex gap-1 animate-scroll-left">
+                  {[...simple, ...simple, ...simple].map((item, index) => (
+                    <img
+                      key={`h1-${item.id}-${index}`}
+                      src={item.image}
+                      alt={`Project ${item.id}`}
+                      className="h-40 md:h-52 aspect-video object-cover rounded-lg flex-shrink-0"
+                    />
+                  ))}
+                </div>
+              </div>
+              <div
+                className="overflow-hidden"
+                style={{
+                  maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
+                }}
+              >
+                <div className="flex gap-1 animate-scroll-right">
+                  {[...simple.slice(4), ...simple.slice(0, 4), ...simple.slice(4), ...simple.slice(0, 4), ...simple.slice(4), ...simple.slice(0, 4)].map((item, index) => (
+                    <img
+                      key={`h2-${item.id}-${index}`}
+                      src={item.image}
+                      alt={`Project ${item.id}`}
+                      className="h-40 md:h-52 aspect-video object-cover rounded-lg flex-shrink-0"
+                    />
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop: Vertical Ticker - Hidden below lg */}
+          <div className="hidden lg:flex w-full justify-center items-start">
+            <div
+              className="flex gap-1 -mt-20"
+              style={{
+                transform: 'perspective(500px) rotate(-4deg) rotateX(25deg) skewX(-16deg) skewY(6deg)',
+              }}
+            >
+              {/* Column 1 - Scrolling Up */}
+              <div
+                className="relative w-[280px] h-[600px] overflow-hidden"
+                style={{
+                  maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
+                }}
+              >
+                <div className="flex flex-col gap-1 animate-scroll-up">
+                  {[...simple.slice(0, 5), ...simple.slice(0, 5), ...simple.slice(0, 5)].map((item, index) => (
+                    <div key={`col1-${item.id}-${index}`} className="w-full flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={`Project ${item.id}`}
+                        className="w-full aspect-video object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Column 2 - Scrolling Down */}
+              <div
+                className="relative w-[280px] h-[600px] overflow-hidden"
+                style={{
+                  maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
+                  WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
+                }}
+              >
+                <div className="flex flex-col gap-1 animate-scroll-down">
+                  {[...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3)].map((item, index) => (
+                    <div key={`col2-${item.id}-${index}`} className="w-full flex-shrink-0">
+                      <img
+                        src={item.image}
+                        alt={`Project ${item.id}`}
+                        className="w-full aspect-video object-cover rounded-lg"
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+         <div className="w-full mx-auto">
+          <div className="flex flex-col lg:flex-row p-4 md:p-8 lg:pt-[96px] gap-8">
             <div className="lg:h-[calc(100vh-102px)] lg:sticky top-[134px] lg:max-w-[380px] flex flex-col gap-4">
-              <div className="items-center text-center lg:text-start lg:items-start flex flex-col gap-2">
-                <h1 className="h3">Barth creates visual systems and digital experiences</h1>
-                <p className="body-m max-w-[360px] lg:max-w-full text-[var(--content-secondary)]"> I work with founders who know the best products feel alive.</p>
-              </div>
-              <div className="flex flex-row lg:mx-0 mx-auto items-center start gap-3 flex-wrap">
-
-                <Button to="/projects">
-                  View Projects
-                </Button>
-
-                <Button
-                  variant="secondary"
-                  href="https://cal.com/barthkosi/intro"
-                  openInNewTab
-                >
-                  Contact Me
-                </Button>
-
-              </div>
+                <h1 className="h3">Work Examples</h1>         
             </div>
             <div className="w-full flex flex-col gap-2 md:gap-3">
               {simple.map(simplecard => (

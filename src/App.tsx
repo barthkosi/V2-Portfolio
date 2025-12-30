@@ -3,6 +3,7 @@ import { lazy, useEffect } from "react";
 import Lenis from "lenis";
 import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
+import HomePageLayout from "./components/HomePageLayout";
 import LazyRoute from "./components/LazyRoute";
 
 const Home = lazy(() => import("./pages/Home"));
@@ -33,7 +34,7 @@ export default function App() {
       lenis.destroy();
     };
   }, []);
- 
+
   useEffect(() => {
     const darkModeMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
     const updateDarkMode = (e: MediaQueryListEvent | MediaQueryList) => {
@@ -50,8 +51,11 @@ export default function App() {
       <ScrollToTop />
       <Routes>
 
-        <Route element={<PageLayout />}>
+        <Route element={<HomePageLayout />}>
           <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
+        </Route>
+
+        <Route element={<PageLayout />}>
           <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
           <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
           <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
