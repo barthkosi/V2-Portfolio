@@ -184,7 +184,7 @@ export default function Home() {
          <div className="w-full mx-auto">
           <div className="flex flex-col lg:flex-row p-4 md:p-8 lg:pt-[96px] gap-8">
             <div className="lg:h-[calc(100vh-102px)] lg:sticky top-[134px] lg:max-w-[380px] flex flex-col gap-4">
-                <h1 className="h3">Work Examples</h1>         
+                <h2 className="h4 md:h3">Work Examples</h2>         
             </div>
             <div className="w-full flex flex-col gap-2 md:gap-3">
               {simple.map(simplecard => (
