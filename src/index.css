@@ -575,6 +575,11 @@
     cursor: url('/src/assets/cursors/Cursor.svg'), auto;
   }
 
+  ::selection {
+    background-color: var(--content-brand);
+    color: var(--content-primary-inverse);
+  }
+
   h1,
   h2,
   h3,
@@ -961,6 +966,7 @@
     letter-spacing: 0px;
   }
 }
+
 @keyframes scroll-up {
   0% {
     transform: translateY(0);
