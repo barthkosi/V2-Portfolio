@@ -20,12 +20,12 @@ export default function Projects() {
           <h5 className="w-full max-w-[520px]">An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer
           </h5>
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
-            <div className="w-full flex flex-col">
-             <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
-            </div>
             <div className="w-full flex flex-col gap-1 md:gap-2">
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp" alt="project cover" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+            </div>
+            <div className="w-full flex flex-col">
+             <img src="https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
             </div>
           </div>
          </div>
