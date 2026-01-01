@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { motion, Variants } from "motion/react";
 import Button from "../components/Button";
-import SimpleCard from "../components/SimpleCard";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 
@@ -153,83 +152,7 @@ const marqueeMobileVariants: Variants = {
   },
 };
 
-// Work section - matches InfoBlock mainContainerVariants
-const workTitleContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5,
-    },
-  },
-};
 
-// Work section title text - matches InfoBlock textContainerVariants
-const workTitleTextVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.03,
-      when: "beforeChildren",
-    },
-  },
-};
-
-const letterVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-// Work cards - matches ReadingList stagger
-const workCardsContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.4,
-      delayChildren: 0.5,
-    },
-  },
-};
-
-const cardVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
-  },
-};
-
-// Helper functions for text animation
-const animateText = (text: string) => {
-  return text.split('').map((char, index) => (
-    <motion.span
-      key={`${char}-${index}`}
-      variants={letterVariants}
-      style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
-    >
-      {char}
-    </motion.span>
-  ));
-};
 
 const animateWords = (text: string) => {
   return text.split(' ').map((word, index) => (
