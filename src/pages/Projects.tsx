@@ -47,11 +47,11 @@ export default function Projects() {
           </h5>
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
             <div className="w-full flex flex-col">
-             <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+             <img src="https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp" alt="project screenshot" className="rounded-[8px]"/>
             </div>
             <div className="w-full flex flex-col gap-1 md:gap-2">
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.png" alt="project screenshot" className="rounded-[8px]"/>
             </div>
           </div>
          </div>

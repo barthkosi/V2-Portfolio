@@ -321,7 +321,13 @@ export default function Home() {
 
         </div>
 
-        {/* Work Examples Section */}
+      <div className=" w-full flex flex-row gap-5 p-4 md:p-[120px] h-screen items-center">
+      <h3 className="sticky Top[240px]">I craft</h3>
+      <div className="flex flex-col gap-5">
+        <span className="h3">visual identities</span>
+        <span className="h3">ms</span>
+      </div>
+      </div>
       <div className="flex flex-col gap-12 p-4 md:p-[120px]">
       <div className="flex flex-col gap-12">
          <div className="flex flex-col gap-5">
@@ -355,11 +361,11 @@ export default function Home() {
           </h5>
           <div className="flex flex-col md:flex-row gap-1 md:gap-2">
             <div className="w-full flex flex-col">
-             <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+             <img src="https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp" alt="project screenshot" className="rounded-[8px]"/>
             </div>
             <div className="w-full flex flex-col gap-1 md:gap-2">
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp" alt="project screenshot" className="rounded-[8px] border-[0.44px] border-[var(--border-primary)]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp" alt="project screenshot" className="rounded-[8px]"/>
             </div>
           </div>
          </div>
