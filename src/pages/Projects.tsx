@@ -51,7 +51,7 @@ export default function Projects() {
             </div>
             <div className="w-full flex flex-col gap-1 md:gap-2">
               <img src="https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp" alt="project cover" className="rounded-[8px]"/>
-              <img src="https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.png" alt="project screenshot" className="rounded-[8px]"/>
+              <img src="https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp" alt="project screenshot" className="rounded-[8px]"/>
             </div>
           </div>
          </div>
