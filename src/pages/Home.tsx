@@ -250,7 +250,8 @@ export default function Home() {
                           <img
                             src={item.image}
                             alt={`Project ${item.id}`}
-                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]                         />
+                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]"
+                          />
                         </div>
                       ))}
                     </div>
@@ -268,7 +269,8 @@ export default function Home() {
                           <img
                             src={item.image}
                             alt={`Project ${item.id}`}
-                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]                         />
+                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]"
+                          />
                         </div>
                       ))}
                     </div>
@@ -290,7 +292,7 @@ export default function Home() {
                         key={item.id}
                         src={item.image}
                         alt={`Project ${item.id}`}
-                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)]-[2px]"
+                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px]"
                       />
                     ))}
                   </Marquee>
@@ -308,7 +310,7 @@ export default function Home() {
                         key={item.id}
                         src={item.image}
                         alt={`Project ${item.id}`}
-                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)]-[2px]"
+                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px]"
                       />
                     ))}
                   </Marquee>
