@@ -45,7 +45,7 @@ const siteImages = [
 function AppContent() {
   const location = useLocation();
   const { isContentReady, completeLoading, startLoading } = useLoading();
-  const { progress, isComplete, reset: resetImagePreloader } = useImagePreloader(siteImages);
+  const { progress, reset: resetImagePreloader } = useImagePreloader(siteImages);
   const [showLoader, setShowLoader] = useState(true);
   const previousPathRef = useRef(location.pathname);
   const isFirstLoad = useRef(true);

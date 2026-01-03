@@ -34,9 +34,7 @@ export default function LoadingScreen({ progress: targetProgress, onComplete }: 
             if (nextProgress < 100) {
                 rafRef.current = requestAnimationFrame(animate);
             } else {
-                // We reached 100.
-                // Start exit sequence.
-                // Small buffer to ensure user sees 100
+ 
                 setTimeout(() => {
                     setIsExiting(true);
                 }, 200);
@@ -50,7 +48,6 @@ export default function LoadingScreen({ progress: targetProgress, onComplete }: 
         };
     }, [targetProgress]);
 
-    // Handle exit completion
     useEffect(() => {
         if (isExiting) {
             const timer = setTimeout(() => {
