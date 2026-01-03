@@ -1,7 +1,8 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, Variants } from "motion/react"
 import InfoBlock from "../components/InfoBlock";
 import SimpleCard from "../components/SimpleCard";
+import { springTransition } from "../lib/transitions";
 
 const card = [
   {
@@ -43,6 +44,8 @@ const card = [
 ];
 
 export default function Archive() {
+  const [areCardsVisible, setAreCardsVisible] = useState(false);
+
   useEffect(() => {
     document.title = "barthkosi - archive";
   }, []);
@@ -55,8 +58,7 @@ export default function Archive() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
-        delayChildren: 1.4,
+        staggerChildren: 0.1,
       },
     },
   }
@@ -69,30 +71,28 @@ export default function Archive() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
+      transition: springTransition,
     },
   }
 
   return (
     <main>
-      <motion.div
+      <div
         className="flex flex-col my-auto items-center w-full gap-7"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}>
+      >
 
         <InfoBlock
           variant='centered'
           title="Archive"
           number={cardCount}
           description=""
+          onComplete={() => setAreCardsVisible(true)}
         />
         <motion.div
           className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3"
           variants={containerVariants}
+          initial="hidden"
+          animate={areCardsVisible ? "visible" : "hidden"}
         >
           {card.map(card => (
             <motion.div
@@ -106,7 +106,7 @@ export default function Archive() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </main>
   );
 }

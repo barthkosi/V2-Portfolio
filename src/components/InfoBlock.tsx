@@ -1,5 +1,6 @@
 import { motion, Variants } from "motion/react"
-import { springTransition } from "../lib/transitions"
+import { springSnappy } from "../lib/transitions"
+import { useLoading } from "../context/LoadingContext"
 
 type InfoBlockVariant = 'default' | 'centered'
 
@@ -8,6 +9,7 @@ type InfoBlockProps = {
   number: string | number
   description: string
   variant?: InfoBlockVariant
+  onComplete?: () => void
 }
 
 export default function InfoBlock({
@@ -15,8 +17,10 @@ export default function InfoBlock({
   number,
   description,
   variant = 'default',
+  onComplete,
 }: InfoBlockProps) {
   const isCentered = variant === 'centered'
+  const { isContentReady } = useLoading()
 
   const mainContainerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -58,7 +62,7 @@ export default function InfoBlock({
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springSnappy,
     },
   }
 
@@ -70,7 +74,7 @@ export default function InfoBlock({
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springSnappy,
     },
   }
 
@@ -87,11 +91,17 @@ export default function InfoBlock({
   }
 
   const animateWords = (text: string) => {
-    return text.split(' ').map((word, index) => (
+    const words = text.split(' ')
+    return words.map((word, index) => (
       <motion.span
         key={`${word}-${index}`}
         variants={wordVariants}
         style={{ display: 'inline-block', marginRight: '0.25em' }}
+        onAnimationComplete={(definition) => {
+          if (definition === 'visible' && index === words.length - 1) {
+            onComplete?.()
+          }
+        }}
       >
         {word}
       </motion.span>
@@ -108,10 +118,9 @@ export default function InfoBlock({
       ].join(' ')}
       variants={mainContainerVariants}
       initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}
+      animate={isContentReady ? "visible" : "hidden"}
     >
-      <div
+      <motion.div
         className={[
           'flex items-start',
           isCentered ? 'gap-0' : 'gap-2',
@@ -133,7 +142,7 @@ export default function InfoBlock({
         >
           {animateText(String(number))}
         </motion.p>
-      </div>
+      </motion.div>
 
       <motion.p
         className={[

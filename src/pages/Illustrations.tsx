@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion, Variants } from "motion/react";
 import { springTransition } from "../lib/transitions";
 import InfoBlock from "../components/InfoBlock";
@@ -32,6 +32,8 @@ const images = [
 
 ]
 export default function illustrations() {
+  const [areImagesVisible, setAreImagesVisible] = useState(false);
+
   useEffect(() => {
     document.title = "barthkosi - illustrations";
   }, []);
@@ -43,8 +45,7 @@ export default function illustrations() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
-        delayChildren: 4,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -63,22 +64,22 @@ export default function illustrations() {
 
   return (
     <main>
-      <motion.div
+      <div
         className="flex flex-col w-full gap-7 lg:gap-8 h-auto items-center justify-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
       >
         <div className="max-w-[480px]"><InfoBlock
           variant="centered"
           title="Illustrations"
           number={imageCount}
           description="A visual diary of forms. I believe only in continued iteration. This page is a snapshot of my ever growing dialogue with color, light, and composition."
+          onComplete={() => setAreImagesVisible(true)}
         />
         </div>
         <motion.div
           className="w-full columns-2 lg:columns-3 gap-2 md:gap-4"
           variants={containerVariants}
+          initial="hidden"
+          animate={areImagesVisible ? "visible" : "hidden"}
         >
           {images.map((item) => (
             <motion.div
@@ -94,7 +95,7 @@ export default function illustrations() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </main>
   );
 }

@@ -1,6 +1,6 @@
 import { motion, Variants } from "motion/react"
 import { springTransition } from "../lib/transitions"
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import InfoBlock from "../components/InfoBlock";
 import BookCard from "../components/BookCard";
 
@@ -50,6 +50,8 @@ const books = [
 ]
 
 export default function ReadingList() {
+  const [areBooksVisible, setAreBooksVisible] = useState(false);
+
   useEffect(() => {
     document.title = "barthkosi - reading list";
   }, []);
@@ -61,8 +63,7 @@ export default function ReadingList() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.4,
-        delayChildren: 3.4,
+        staggerChildren: 0.2, // Reduced stagger slightly for snappier feel once started
       },
     },
   }
@@ -81,21 +82,21 @@ export default function ReadingList() {
 
   return (
     <main>
-      <motion.div
+      <div
         className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
       >
         <InfoBlock
           title="Reading List"
           number={bookCount}
           description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands"
+          onComplete={() => setAreBooksVisible(true)}
         />
 
         <motion.div
           className="w-full gap-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
           variants={containerVariants}
+          initial="hidden"
+          animate={areBooksVisible ? "visible" : "hidden"}
         >
           {books.map(book => (
             <motion.div
@@ -110,7 +111,7 @@ export default function ReadingList() {
             </motion.div>
           ))}
         </motion.div>
-      </motion.div>
+      </div>
     </main>
   );
 }

@@ -3,12 +3,14 @@ import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import Button from "../components/Button";
 import { springTransition } from "../lib/transitions";
+import { useLoading } from "../context/LoadingContext";
 
 export default function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const [showVault, setShowVault] = useState(false);
   const [showSocial, setShowSocial] = useState(false);
   const location = useLocation();
+  const { isContentReady } = useLoading();
 
   useEffect(() => {
     setIsOpen(false);
@@ -47,7 +49,7 @@ export default function Nav() {
     <motion.nav
       className={`w-full flex flex-col ${isOpen ? 'h-screen' : 'h-[64px]'} md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible`}
       initial={{ y: -24, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      animate={isContentReady ? { y: 0, opacity: 1 } : { y: -24, opacity: 0 }}
       transition={{ type: "spring", stiffness: 265, damping: 22, mass: 1 }}
     >
       <div
