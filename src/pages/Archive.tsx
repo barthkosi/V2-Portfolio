@@ -1,9 +1,9 @@
 import { useEffect } from "react";
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from "motion/react"
 import InfoBlock from "../components/InfoBlock";
 import SimpleCard from "../components/SimpleCard";
 
- const card = [
+const card = [
   {
     id: "1",
     image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png",
@@ -48,20 +48,20 @@ export default function Archive() {
   }, []);
 
 
-const cardCount = card.length;
+  const cardCount = card.length;
 
-const containerVariants: Variants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
         staggerChildren: 0.4,
-        delayChildren: 3.4,
+        delayChildren: 1.4,
       },
     },
   }
 
-    const cardVariants: Variants = {
+  const cardVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 30,
@@ -78,34 +78,34 @@ const containerVariants: Variants = {
 
   return (
     <main>
-      <motion.div 
-      className="flex flex-col my-auto items-center w-full gap-7"
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, margin: "-100px" }}>
+      <motion.div
+        className="flex flex-col my-auto items-center w-full gap-7"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-100px" }}>
 
-              <InfoBlock
-              variant = 'centered'
-                title="Archive"
-                number={cardCount}
-                description=""
-              />
+        <InfoBlock
+          variant='centered'
+          title="Archive"
+          number={cardCount}
+          description=""
+        />
+        <motion.div
+          className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3"
+          variants={containerVariants}
+        >
+          {card.map(card => (
             <motion.div
-            className="w-full grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-3"
-            variants={containerVariants}
+              key={card.id}
+              variants={cardVariants}
             >
-              {card.map(card => (
-                <motion.div  
-                 key={card.id}    
-                 variants={cardVariants}
-                >
-                <SimpleCard
+              <SimpleCard
 
-                  image={card.image}
-                />
-                </motion.div>
-              ))}
+                image={card.image}
+              />
             </motion.div>
+          ))}
+        </motion.div>
       </motion.div>
     </main>
   );

@@ -1,4 +1,5 @@
-import { motion, Variants } from 'framer-motion'
+import { motion, Variants } from "motion/react"
+import { springTransition } from "../lib/transitions"
 import { useEffect } from "react";
 import InfoBlock from "../components/InfoBlock";
 import BookCard from "../components/BookCard";
@@ -74,10 +75,7 @@ export default function ReadingList() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: {
-        duration: 0.5,
-        ease: [0.22, 1, 0.36, 1] as const,
-      },
+      transition: springTransition,
     },
   }
 
