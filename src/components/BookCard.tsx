@@ -4,11 +4,15 @@ type BookCardProps = {
   image: string
   title: string
   author: string
+  link?: string
 }
 
-export default function BookCard({ image, title, author }: BookCardProps) {
+export default function BookCard({ image, title, author, link }: BookCardProps) {
   return (
-    <motion.div
+    <motion.a
+      href={link}
+      target={link ? "_blank" : undefined}
+      rel={link ? "noopener noreferrer" : undefined}
       className="gap-3 flex flex-col"
       whileHover={{ scale: 1.03 }}
       transition={{
@@ -33,6 +37,6 @@ export default function BookCard({ image, title, author }: BookCardProps) {
         <div className="w-full text-[var(--content-primary)] label-m">{title}</div>
         <div className="w-full text-[var(--content-tertiary)] body-s">{author}</div>
       </div>
-    </motion.div>
+    </motion.a>
   )
 }

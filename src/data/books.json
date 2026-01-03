@@ -1,0 +1,45 @@
+[
+    {
+        "id": "the-brand-gap",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/the-brand-gap.webp",
+        "title": "The Brand Gap",
+        "author": "Marty Neumeier",
+        "link": "https://www.goodreads.com/book/show/290733"
+    },
+    {
+        "id": "steal-like-an-artist",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/steal-like-an-artist.webp",
+        "title": "Steal Like an Artist",
+        "author": "Austin Kleon"
+    },
+    {
+        "id": "the-alchemist",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
+        "title": "The Alchemist",
+        "author": "Paulo Coelho"
+    },
+    {
+        "id": "drtcw",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/dieter-rams-the-complete-works.avif",
+        "title": "Dieter Rams: The Complete Works",
+        "author": "Klaus Klemp"
+    },
+    {
+        "id": "tdoet",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.jpg",
+        "title": "The Design of Everyday Things",
+        "author": "Don Norman"
+    },
+    {
+        "id": "ph",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/penguin-highway-cover.webp",
+        "title": "Penguin Highway",
+        "author": "Tomihiko Morimi"
+    },
+    {
+        "id": "native-son",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/native-son.png",
+        "title": "Native Son",
+        "author": "Richard Wright"
+    }
+]

@@ -7,6 +7,7 @@ export const springTransition = {
     mass: 3,
 } as const;
 
+
 export const springMarquee = {
     type: "spring",
     delay: 2.4,

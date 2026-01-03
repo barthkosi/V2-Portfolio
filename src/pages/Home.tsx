@@ -314,6 +314,10 @@ export default function Home() {
         <div className="w-full flex flex-col gap-5 p-4 md:p-[120px] h-screen justify-center">
           <h2 className="display">I craft</h2>
           <div className="flex flex-row gap-5">
+           <div className="min-w-[80%] w-[80%] h-[400px] bg-[var(--background-secondary)]"> </div>
+           <div className="min-w-[80%] w-[80%] h-[400px] bg-[var(--background-secondary)]"> </div>
+          </div>
+          <div className="flex flex-row gap-5">
             <p className="display whitespace-nowrap">visual identities</p>
             <p className="display whitespace-nowrap">brands identities</p>
           </div>

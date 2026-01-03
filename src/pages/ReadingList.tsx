@@ -3,51 +3,7 @@ import { springTransition } from "../lib/transitions"
 import { useEffect, useState } from "react";
 import InfoBlock from "../components/InfoBlock";
 import BookCard from "../components/BookCard";
-
-const books = [
-  {
-    id: "the-brand-gap",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/the-brand-gap.webp",
-    title: "The Brand Gap",
-    author: "Marty Neumeier",
-  },
-  {
-    id: "steal-like-an-artist",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/steal-like-an-artist.webp",
-    title: "Steal Like an Artist",
-    author: "Austin Kleon",
-  },
-  {
-    id: "the-alchemist",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
-    title: "The Alchemist",
-    author: "Paulo Coelho",
-  },
-  {
-    id: "drtcw",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/dieter-rams-the-complete-works.avif",
-    title: "Dieter Rams: The Complete Works",
-    author: "Klaus Klemp",
-  },
-  {
-    id: "tdoet",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.jpg",
-    title: "The Design of Everyday Things",
-    author: "Don Norman",
-  },
-  {
-    id: "ph",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/penguin-highway-cover.webp",
-    title: "Penguin Highway",
-    author: "Tomihiko Morimi",
-  },
-  {
-    id: "native-son",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/native-son.png",
-    title: "Native Son",
-    author: "Richard Wright",
-  },
-]
+import books from "../data/books.json";
 
 export default function ReadingList() {
   const [areBooksVisible, setAreBooksVisible] = useState(false);
@@ -63,7 +19,7 @@ export default function ReadingList() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2, // Reduced stagger slightly for snappier feel once started
+        staggerChildren: 0.2,
       },
     },
   }
@@ -107,6 +63,7 @@ export default function ReadingList() {
                 image={book.image}
                 title={book.title}
                 author={book.author}
+                link={book.link}
               />
             </motion.div>
           ))}
