@@ -52,16 +52,16 @@ export default function LoadingScreen({ progress: targetProgress, onComplete }: 
         if (isExiting) {
             const timer = setTimeout(() => {
                 onComplete?.();
-            }, 800); // Wait for exit animation
+            }, 800);
             return () => clearTimeout(timer);
         }
     }, [isExiting, onComplete]);
 
-    if (displayProgress >= 100 && !isExiting && !onComplete) return null; // Safety
+    if (displayProgress >= 100 && !isExiting && !onComplete) return null; 
 
     return (
         <motion.div
-            className="fixed inset-0 z-[9999] flex items-end justify-start p-8 bg-[var(--background-secondary)]"
+            className="fixed inset-0 z-[9999] flex items-end justify-start p-8 bg-[var(--background-primary)]"
             initial={{ x: '-100%' }}
             animate={{ x: isExiting ? '100%' : 0 }}
             transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
