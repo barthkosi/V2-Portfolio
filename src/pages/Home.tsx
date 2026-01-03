@@ -5,6 +5,7 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
+import { springMarquee, springTransition } from "@/lib/transitions";
 
 const simple = [
   {
@@ -87,10 +88,7 @@ const wordVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
+    transition: springTransition ,
   },
 };
 
@@ -113,10 +111,7 @@ const buttonVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.4,
-      ease: [0.22, 1, 0.36, 1] as const,
-    },
+    transition: springTransition,
   },
 };
 
@@ -129,11 +124,7 @@ const marqueeDesktopVariants: Variants = {
   visible: {
     opacity: 1,
     x: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-      delay: 2.2,
-    },
+    transition: springMarquee,
   },
 };
 
@@ -146,11 +137,7 @@ const marqueeMobileVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: {
-      duration: 0.8,
-      ease: [0.22, 1, 0.36, 1] as const,
-      delay: 2.2,
-    },
+    transition: springMarquee,
   },
 };
 
@@ -179,8 +166,8 @@ export default function Home() {
 
   return (
     <>
-      <main className='flex flex-col items-center gap-8 lg:gap-16'>
-        <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8">
+      <main className='overflow-hidden flex flex-col items-center gap-8 lg:gap-16'>
+        <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center ">
           {/* Hero Content */}
           <motion.div
             className="flex flex-col justify-center gap-4"
@@ -227,7 +214,7 @@ export default function Home() {
 
           {/* Marquee Section - slides from right on desktop, bottom on mobile */}
           <motion.div
-            className="w-full flex justify-center items-start"
+            className="w-[140%] lg:w-[100%] flex justify-center items-start"
             initial="hidden"
             animate={isContentReady ? "visible" : "hidden"}
             variants={isDesktop ? marqueeDesktopVariants : marqueeMobileVariants}
@@ -327,8 +314,8 @@ export default function Home() {
         <div className="w-full flex flex-col gap-5 p-4 md:p-[120px] h-screen justify-center">
           <h2 className="display">I craft</h2>
           <div className="flex flex-row gap-5">
-            <span className="display">visual identities</span>
-            <span className="display">brands identities</span>
+            <p className="display whitespace-nowrap">visual identities</p>
+            <p className="display whitespace-nowrap">brands identities</p>
           </div>
         </div>
         <div className="flex flex-col gap-12 p-4 md:p-[120px]">
