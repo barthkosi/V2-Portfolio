@@ -12,7 +12,7 @@ export default function Filter({ tags, activeTag, onTagSelect }: FilterProps) {
             <button
                 onClick={() => onTagSelect(null)}
                 className={`px-4 py-2 rounded-full label-s transition-colors ${activeTag === null
-                    ? "bg-[var(--content-primary)] text-[var(--content-primary-inverse)]"
+                    ? "bg-[var(--background-inverse)] text-[var(--content-primary-inverse)]"
                     : "bg-[var(--background-secondary)] text-[var(--content-secondary)] hover:bg-[var(--background-tertiary)]"
                     }`}
             >
@@ -23,7 +23,7 @@ export default function Filter({ tags, activeTag, onTagSelect }: FilterProps) {
                     key={tag}
                     onClick={() => onTagSelect(tag === activeTag ? null : tag)}
                     className={`px-4 py-2 rounded-full label-s transition-colors ${activeTag === tag
-                        ? "bg-[var(--content-primary)] text-[var(--content-primary-inverse)]"
+                        ? "bg-[var(--background-inverse)] text-[var(--content-primary-inverse)]"
                         : "bg-[var(--background-secondary)] text-[var(--content-secondary)] hover:bg-[var(--background-tertiary)]"
                         }`}
                 >

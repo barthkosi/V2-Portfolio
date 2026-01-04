@@ -398,14 +398,21 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div>
-          <div className="w-full gap-3 flex flex-row">
-           <div className="flex flex-col">
-            <h4>Explrar</h4>
-            <div className="label-s text-[var(--content-secondary)]">2024</div>
+        <div className="w-full p-4 gap-3 flex flex-col md:flex-row items-center">
+          <div className="w-full gap-3 flex flex-col md:flex-row hover:opacity-70 transition-opacity items-center">
+            <img src="https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png" className="aspect-video md:max-w-[300px] rounded-[12px] h-auto bg-[var(--background-secondary)]">
+           </img>
+           <div className="w-full flex flex-col gap-1">
+            <h4>Bookworms</h4>
+            <div className="label-m text-[var(--content-secondary)] ">Description</div>
            </div>
-           <div>
-            
+           <div className="w-full flex flex-wrap justify-start md:justify-end gap-2">
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">UI/UX Design</div>
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Graphic Design</div>
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Motion Design</div>
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Branding</div>
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Illustration</div>
+            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Creative Development</div>
            </div>
           </div>
                  </div>

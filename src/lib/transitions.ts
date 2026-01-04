@@ -23,3 +23,11 @@ export const springSnappy = {
     damping: 22,
     mass: 1,
 } as const;
+
+// Lighter/snappier version (mass: 1)
+export const springBase = {
+    type: 'spring',
+    stiffness: 200,
+    damping: 20
+} as const;
+

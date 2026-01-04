@@ -1,3 +1,4 @@
+import { springBase } from "@/lib/transitions"
 import { motion } from "motion/react"
 import { Link } from "react-router-dom"
 
@@ -6,6 +7,8 @@ type CardProps = {
     title?: string
     description?: string
     link?: string
+    tags?: string[]
+    variant?: 'default' | 'list'
     aspectRatio?: string
 }
 
@@ -14,9 +17,12 @@ export default function Card({
     title,
     description,
     link,
+    tags,
+    variant = "default",
     aspectRatio = "aspect-video"
 }: CardProps) {
-    const content = (
+    // Default Card Content
+    const DefaultContent = (
         <>
             <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
                 <div className={`relative w-full ${aspectRatio === "auto" ? "" : aspectRatio} overflow-hidden rounded-xl`}>
@@ -36,9 +42,43 @@ export default function Card({
                 </div>
             )}
         </>
-    )
+    );
 
-    const wrapperClass = "gap-3 flex flex-col"
+    // List Card Content
+    const ListContent = (
+        <div className="w-full gap-3 flex flex-col md:flex-row items-center group">
+            <img
+                src={image}
+                alt={title || ""}
+                className="aspect-video w-full md:max-w-[240px] rounded-[12px] h-auto object-cover bg-[var(--background-secondary)]"
+            />
+            <div className="w-full flex flex-col gap-1">
+                {title && <h4 className="text-[var(--content-primary)]">{title}</h4>}
+                {description && <div className="label-m text-[var(--content-secondary)]">{description}</div>}
+            </div>
+            {tags && tags.length > 0 && (
+                <div className="w-full lg:max-w-[320px] flex flex-wrap justify-start md:justify-end gap-2">
+                    {tags.map((tag) => (
+                        <div key={tag} className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">
+                            {tag}
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+
+    // Determines which content to render
+    const content = variant === "list" ? ListContent : DefaultContent;
+
+    // For list view, we don't want the default flex-col gap-3 wrapper from the original card if it interferes, 
+    // but the original had `wrapperClass = "gap-3 flex flex-col"`. 
+    // The list view manages its own flex layout.
+    // However, the wrapping Link or motion.div needs to handle the click.
+
+    // We'll use a simpler wrapper for the list variant if needed, or share if possible.
+    // The default card has a specific container style. The list card has its own "w-full ..." class on the root div.
+    // So we should let the content be the main container and just wrap it with Link/motion.
 
     if (link) {
         // Check if link is external (starts with http)
@@ -50,13 +90,9 @@ export default function Card({
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={wrapperClass}
-                    whileHover={{ scale: 1.03 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 200,
-                        damping: 20
-                    }}
+                    className="w-full block"
+                    whileHover={{ scale: variant === "list" ? 1.01 : 1.03 }} // LEss scale for list items
+                    transition={springBase}
                 >
                     {content}
                 </motion.a>
@@ -64,13 +100,9 @@ export default function Card({
         } else {
             return (
                 <motion.div
-                    className={wrapperClass}
-                    whileHover={{ scale: 1.03 }}
-                    transition={{
-                        type: 'spring',
-                        stiffness: 200,
-                        damping: 20
-                    }}
+                    className="w-full"
+                    whileHover={{ scale: variant === "list" ? 1.01 : 1.03 }}
+                    transition={springBase}
                 >
                     <Link to={link}>
                         {content}
@@ -81,7 +113,7 @@ export default function Card({
     }
 
     return (
-        <div className={wrapperClass}>
+        <div className="w-full">
             {content}
         </div>
     )

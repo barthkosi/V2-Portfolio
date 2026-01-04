@@ -4,13 +4,14 @@ import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { getContent, getAllTags, ContentItem } from "../lib/content";
+import { springTransition } from "@/lib/transitions";
 
 export default function Writing() {
   const [posts, setPosts] = useState<ContentItem[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<ContentItem[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [isVisible, setIsVisible] = useState(false);
+  const [isIntroComplete, setIsIntroComplete] = useState(false);
 
   useEffect(() => {
     document.title = "barthkosi - writing";
@@ -40,15 +41,24 @@ export default function Writing() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.2,
       },
     },
   };
 
   const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: springTransition,
+    },
   };
+
+  const shouldShow = isIntroComplete && posts.length > 0;
 
   return (
     <main>
@@ -57,7 +67,7 @@ export default function Writing() {
           title="Writing"
           number={posts.length}
           description="Thoughts, tutorials, and tales from my journey."
-          onComplete={() => setIsVisible(true)}
+          onComplete={() => setIsIntroComplete(true)}
         />
 
         <div className="w-full items-center lg:items-start flex flex-col">
@@ -67,7 +77,7 @@ export default function Writing() {
             className="w-full gap-4 flex flex-col"
             variants={containerVariants}
             initial="hidden"
-            animate={isVisible ? "visible" : "hidden"}
+            animate={shouldShow ? "visible" : "hidden"}
           >
             {filteredPosts.map((post) => (
               <motion.div key={post.slug} variants={cardVariants}>
@@ -76,6 +86,8 @@ export default function Writing() {
                   title={post.title}
                   description={post.description}
                   link={`/writing/${post.slug}`}
+                  tags={post.tags}
+                  variant="list"
                   aspectRatio="aspect-video"
                 />
               </motion.div>
