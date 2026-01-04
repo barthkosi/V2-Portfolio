@@ -3,7 +3,7 @@ import { lazy, useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
 import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
-import HomePageLayout from "./components/HomePageLayout";
+import PageLayoutAlt from "./components/PageLayoutAlt";
 import LazyRoute from "./components/LazyRoute";
 import LoadingScreen from "./components/LoadingScreen";
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
@@ -47,7 +47,12 @@ function AppContent() {
   const location = useLocation();
   const { isContentReady, completeLoading, startLoading } = useLoading();
   const { progress, reset: resetImagePreloader } = useImagePreloader(siteImages);
-  const [showLoader, setShowLoader] = useState(true);
+
+  const checkSkipLoader = (path: string) =>
+    (path.startsWith('/projects/') && path !== '/projects') ||
+    (path.startsWith('/writing/') && path !== '/writing');
+
+  const [showLoader, setShowLoader] = useState(!checkSkipLoader(location.pathname));
   const previousPathRef = useRef(location.pathname);
   const isFirstLoad = useRef(true);
 
@@ -84,6 +89,13 @@ function AppContent() {
     return () => darkModeMediaQuery.removeEventListener('change', updateDarkMode);
   }, []);
 
+  // Handle initial load skip
+  useEffect(() => {
+    if (checkSkipLoader(location.pathname)) {
+      completeLoading();
+    }
+  }, []);
+
   // Handle route changes - show loader on navigation
   useEffect(() => {
     if (isFirstLoad.current) {
@@ -93,12 +105,17 @@ function AppContent() {
 
     if (location.pathname !== previousPathRef.current) {
       previousPathRef.current = location.pathname;
-      // Show loader on route change
-      setShowLoader(true);
-      startLoading();
-      resetImagePreloader();
+
+      if (!checkSkipLoader(location.pathname)) {
+        setShowLoader(true);
+        startLoading();
+        resetImagePreloader();
+      } else {
+        // Ensure content is ready if we skip loader
+        completeLoading();
+      }
     }
-  }, [location.pathname, startLoading, resetImagePreloader]);
+  }, [location.pathname, startLoading, resetImagePreloader, completeLoading]);
 
 
 
@@ -106,6 +123,8 @@ function AppContent() {
     setShowLoader(false);
     completeLoading();
   };
+
+  const isVisible = isContentReady || (!showLoader && checkSkipLoader(location.pathname));
 
   return (
     <>
@@ -116,10 +135,10 @@ function AppContent() {
           onComplete={handleLoadingComplete}
         />
       )}
-      <div style={{ visibility: isContentReady ? 'visible' : 'hidden' }}>
+      <div style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
         <ScrollToTop />
         <Routes>
-          <Route element={<HomePageLayout />}>
+          <Route element={<PageLayoutAlt />}>
             <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
             <Route path="/projects/:slug" element={<LazyRoute><Post type="projects" /></LazyRoute>} />
             <Route path="/writing/:slug" element={<LazyRoute><Post type="writing" /></LazyRoute>} />

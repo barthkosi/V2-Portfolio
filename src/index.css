@@ -1109,6 +1109,19 @@
     letter-spacing: var(--letter-spacing-none);
     /* 0px */
   }
+
+    /* BLOG TEXT */
+  .blog-text {
+    font-family: var(--font-family-body);
+    @apply font-normal;
+    font-size: var(--font-size-m);
+    /* 16px */
+    line-height: var(--line-height-xl);
+    /* 24px */
+    letter-spacing: var(--letter-spacing-xs);
+    /* -0.2px */
+  }
+
 }
 
 @keyframes scroll-up {

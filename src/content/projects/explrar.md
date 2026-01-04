@@ -2,9 +2,9 @@
 title: "Explrar"
 date: "2023-11-20"
 description: "Designing an AI-powered trip planner that simplifies travel logistics."
-coverImage: "https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp"
+coverImage: "https://res.cloudinary.com/barthkosi/image/upload/explrar-banner.png"
 author: "Bartholomew"
-tags: ["Design", "Development", "AI"]
+tags: ["Case Study"]
 ---
 
 # Explrar: AI Trip Planner

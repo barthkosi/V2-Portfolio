@@ -80,7 +80,7 @@ export default function Projects() {
 
         {projects.length === 0 && (
           <div className="flex flex-col my-auto items-center w-full gap-7">
-            <h3 className="my-auto h-full text-[var(--content-tertiary)]">Coming Soon!</h3>
+            <h3 className="my-auto h-full text-[var(--content-tertiary)]">.</h3>
           </div>
         )}
       </div>

@@ -322,7 +322,7 @@ export default function Home() {
             <p className="display whitespace-nowrap">brands identities</p>
           </div>
         </div>
-        <div className="flex flex-col gap-12 p-4 md:p-[120px]">
+        <div className="flex flex-col gap-12 p-4 md:px-[120px]">
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-5">
               <h5 className="w-full max-w-[520px]">An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer

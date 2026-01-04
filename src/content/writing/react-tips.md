@@ -7,27 +7,14 @@ author: "Bartholomew"
 tags: ["Development", "React", "Tips"]
 ---
 
-# 5 React Tips for 2024
+> the belief that by naming a goal you are closer to achieving it, that by storing a >thought you have understood it, that by filing a fact you have earned the right to >deploy it and this is productivity as performance.
 
-React continues to evolve. Here are five tips to keep your codebase clean and performant this year.
+I watched a YouTube video recently (link here) where the author spoke about deleting his second brain and it is something I have recently started doing, getting rid of my notion boards that track everything, my increased automation seems to be killing my memory, my ability to think deeply, my ability to understand, productivity is a cult and a very dangerous one. I spend time crafting the systems over and over again just to realize it doesn't work a week or two later, time blocking over an over again, if my calendar is always filled with events, I loose the ability to spontaneously choose things to do. I give up my ability to decide, I give up agency.
 
-## 1. Use the `use` Hook
-The new `use` hook simplifies data fetching. You can now use promises directly in your components (with Suspense).
+## The beauty of spontaneity
 
-## 2. Server Components
-If you are using Next.js or a compatible framework, lean into Server Components (RSC) to reduce the bundle size sent to the client.
+We as humans should seek to look outside the trap of overly automated systems, convenience conventions and thinking structures, agentic thinking greatly diminishes creativity, if you always think in the same structure, you will not be able to see or think outside of it. 
 
-## 3. Tailwind for Styling
-Utility classes might look messy at first, but they speed up development significantly and ensure consistency.
+You can’t think outside the box if you're thinking in straight lines.
 
-```jsx
-<button className="bg-blue-500 text-white px-4 py-2 rounded">
-  Click Me
-</button>
-```
-
-## 4. Custom Hooks
-Don't repeat logic. Extract stateful logic into custom hooks. `useForm`, `useToggle`, `useAuth` are classic candidates.
-
-## 5. TypeScript is King
-If you aren't using TypeScript yet, start now. The strict typing saves you from entire classes of bugs.
+Your mind will follow the same straight forward path over and over again, what is worse is over-documentation puts your mind in a sort of retrieval and processing state…where you abandon things like active recall and you remember great ideas less frequently till the system prompts you to, you also lose the ability to think deeply about your ideas, if you compulsively scurry to quickly file ideas away the second you get them till later, you lose your ability to think about it deeply till it is time for retrieval, repeated enough times you completely lose the ability to think about things deeply, and while this might seem like an over-exaggeration it is a growing risk we face with our compulsive automation on our quest for convenience.

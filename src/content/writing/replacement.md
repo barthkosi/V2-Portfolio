@@ -1,19 +1,17 @@
 ---
 title: "What is the benchmark for replacement?"
 date: "Dec 07, 2025"
-description: "On taste, agency and the death of average. AI is radically redefining what it means to be good."
+description: "On taste, agency and the death of average."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.png"
 author: "Barth"
-tags: ["Design", "AI"]
+tags: ["Taste", "AI"]
 ---
 
 > “The only real power AI provides is up-skilling.
-> 
-> 
-> A mediocre person with AI will produce better-than-average results… at best.
-> 
+>
+> A mediocre person with AI will produce better-than-average results…at best.
+>
 > But a master of a craft with AI?… that’s the real danger.”
-> 
 
 I keep returning to those lines, we have spent years asking whether the machines will take our seats. This question is simpler: **Whose hands are on the handles and will they continue to stay that way?**
 
