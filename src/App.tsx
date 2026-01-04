@@ -111,6 +111,7 @@ function AppContent() {
     <>
       {showLoader && (
         <LoadingScreen
+          key={location.pathname}
           progress={progress}
           onComplete={handleLoadingComplete}
         />
