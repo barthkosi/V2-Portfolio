@@ -137,7 +137,7 @@ export default function LoadingScreen({ progress: targetProgress, onComplete }: 
             <AnimatePresence>
                 {!isExiting && (
                     <motion.div
-                        className="flex text-[clamp(4rem,15vw,12rem)] font-bold leading-none tabular-nums"
+                        className="flex text-[clamp(4rem,25vw,12rem)] font-bold leading-none tabular-nums"
                         initial={{ opacity: 0, x: -30 }}
                         animate={{ opacity: 1, x: 0 }}
                         exit={{ opacity: 0 }}
