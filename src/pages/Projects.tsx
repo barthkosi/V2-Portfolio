@@ -13,7 +13,8 @@ export default function Projects() {
   const [tags, setTags] = useState<string[]>([]);
   const [activeTag, setActiveTag] = useState<string | null>(null);
   // InfoBlock triggers this when ready
-  const [isIntroComplete, setIsIntroComplete] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
+  const [showCards, setShowCards] = useState(false);
 
   useEffect(() => {
     document.title = "barthkosi - projects";
@@ -53,26 +54,30 @@ export default function Projects() {
     },
   };
 
-  const shouldShow = isIntroComplete && projects.length > 0;
-
   return (
     <main className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
       <InfoBlock
         title="Projects"
         number={projects.length}
         description="I craft visual identities and brand systems, from logos and campaigns to print and packaging."
-        onComplete={() => setIsIntroComplete(true)}
+        onComplete={() => setIntroFinished(true)}
       />
 
       <div className="w-full flex flex-col">
-        <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
+        <Filter
+          tags={tags}
+          activeTag={activeTag}
+          onTagSelect={setActiveTag}
+          animate={introFinished}
+          onAnimationComplete={() => setShowCards(true)}
+        />
 
-        {shouldShow && (
+        {projects.length > 0 && (
           <motion.div
             className="w-full flex flex-col gap-4"
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
+            animate={introFinished && showCards ? "visible" : "hidden"}
           >
             {Object.entries(
               filteredProjects.reduce((acc, project) => {

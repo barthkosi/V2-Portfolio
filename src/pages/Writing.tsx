@@ -12,7 +12,8 @@ export default function Writing() {
   const [filteredPosts, setFilteredPosts] = useState<ContentItem[]>([]);
   const [tags, setTags] = useState<string[]>([]);
   const [activeTag, setActiveTag] = useState<string | null>(null);
-  const [isIntroComplete, setIsIntroComplete] = useState(false);
+  const [introFinished, setIntroFinished] = useState(false);
+  const [showCards, setShowCards] = useState(false);
 
   useEffect(() => {
     document.title = "barthkosi - writing";
@@ -59,8 +60,6 @@ export default function Writing() {
     },
   };
 
-  const shouldShow = isIntroComplete && posts.length > 0;
-
   return (
     <main>
       <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
@@ -68,17 +67,23 @@ export default function Writing() {
           title="Writing"
           number={posts.length}
           description="Thoughts, tutorials, and tales from my journey."
-          onComplete={() => setIsIntroComplete(true)}
+          onComplete={() => setIntroFinished(true)}
         />
 
         <div className="w-full items-center lg:items-start flex flex-col">
-          <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
-          {shouldShow && (
+          <Filter
+            tags={tags}
+            activeTag={activeTag}
+            onTagSelect={setActiveTag}
+            animate={introFinished}
+            onAnimationComplete={() => setShowCards(true)}
+          />
+          {posts.length > 0 && (
             <motion.div
               className="w-full flex flex-col gap-4"
               variants={containerVariants}
               initial="hidden"
-              animate="visible"
+              animate={introFinished && showCards ? "visible" : "hidden"}
             >
               {Object.entries(
                 filteredPosts.reduce((acc, post) => {
