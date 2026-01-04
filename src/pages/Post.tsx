@@ -49,8 +49,8 @@ export default function Post({ type }: PostProps) {
             <div className="flex flex-col lg:flex-row items-start w-full p-4 md:p-8 mx-auto gap-8">
 
             {/* Header */}
-            <div className="w-full flex flex-col  md:max-w-[320px] gap-4 items-start lg:sticky lg:top-[134px]">
-                <h1 className="h2 text-[var(--content-primary)]">{post.title}</h1>
+            <div className="w-full lg:max-w-1/3 flex flex-col gap-4 items-start lg:sticky lg:top-[134px]">
+                <h1 className="h3 text-[var(--content-primary)]">{post.title}</h1>
                 <div className="flex flex-col gap-1 text-[var(--content-tertiary)] body-s">
                     <span>{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     {post.author && <span>• {post.author}</span>}
