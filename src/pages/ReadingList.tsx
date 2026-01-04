@@ -2,7 +2,7 @@ import { motion, Variants } from "motion/react"
 import { springTransition } from "../lib/transitions"
 import { useEffect, useState } from "react";
 import InfoBlock from "../components/InfoBlock";
-import BookCard from "../components/BookCard";
+import Card from "../components/Card";
 import books from "../data/books.json";
 
 export default function ReadingList() {
@@ -59,11 +59,12 @@ export default function ReadingList() {
               key={book.id}
               variants={cardVariants}
             >
-              <BookCard
+              <Card
                 image={book.image}
                 title={book.title}
                 author={book.author}
                 link={book.link}
+                aspectRatio="aspect-[2/3]"
               />
             </motion.div>
           ))}

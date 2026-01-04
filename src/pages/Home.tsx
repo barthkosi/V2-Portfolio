@@ -170,7 +170,7 @@ export default function Home() {
         <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center ">
           {/* Hero Content */}
           <motion.div
-            className="flex flex-col justify-center gap-4"
+            className="w-full items-start flex flex-col justify-center gap-4"
             initial="hidden"
             animate={isContentReady ? "visible" : "hidden"}
             variants={mainContainerVariants}

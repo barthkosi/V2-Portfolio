@@ -2,43 +2,17 @@ import { useEffect, useState } from "react";
 import { motion, Variants } from "motion/react";
 import { springTransition } from "../lib/transitions";
 import InfoBlock from "../components/InfoBlock";
+import Card from "../components/Card";
+import illustrations from "../data/illustrations.json";
 
-
-const images = [
-  {
-    id: "1",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899901/Tennis_Illustration_lb6fgp.png",
-
-  },
-  {
-    id: "2",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/Jake_illustration_welkzu.png",
-
-  },
-  {
-    id: "3",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899894/illustration_f5fi66.png"
-  },
-  {
-    id: "4",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/illustration-1_esjizz.png",
-
-  },
-  {
-    id: "5",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1765899893/Cassette_illustration_Isometriic_kkvkn8.png",
-
-  },
-
-]
-export default function illustrations() {
+export default function Illustrations() {
   const [areImagesVisible, setAreImagesVisible] = useState(false);
 
   useEffect(() => {
     document.title = "barthkosi - illustrations";
   }, []);
 
-  const imageCount = images.length;
+  const imageCount = illustrations.length;
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -76,21 +50,20 @@ export default function illustrations() {
         />
         </div>
         <motion.div
-          className="w-full columns-2 lg:columns-3 gap-2 md:gap-4"
+          className="w-full columns-1 md:columns-2 lg:columns-3 gap-2 md:gap-4"
           variants={containerVariants}
           initial="hidden"
           animate={areImagesVisible ? "visible" : "hidden"}
         >
-          {images.map((item) => (
+          {illustrations.map((item) => (
             <motion.div
               key={item.id}
               className="mb-4 break-inside-avoid"
               variants={cardVariants}
             >
-              <img
-                src={item.image}
-                alt=""
-                className="w-full h-auto object-cover rounded-lg"
+              <Card
+                image={item.image}
+                aspectRatio="auto"
               />
             </motion.div>
           ))}
