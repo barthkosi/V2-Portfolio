@@ -7,7 +7,7 @@ author: "Bartholomew"
 tags: ["Case Study"]
 ---
 
-# Explrar: AI Trip Planner
+## Explrar: AI Trip Planner
 
 **Explrar** is an application designed to take the stress out of travel planning. By leveraging AI, it helps users generate itineraries, organize documents, and discover new destinations.
 

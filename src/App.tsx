@@ -20,25 +20,6 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 // All critical images to preload across the site
 const siteImages = [
-  // Marquee images
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756359979/file_cover_-_1_l75xvi.png",
-  "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.png",
-  // Project showcase images
-  "https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp",
-  "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp",
   // Nav profile image
   "https://res.cloudinary.com/barthkosi/image/upload/pfp.webp",
 ];

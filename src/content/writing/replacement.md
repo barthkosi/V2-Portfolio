@@ -7,10 +7,8 @@ author: "Barth"
 tags: ["Taste", "AI"]
 ---
 
-> “The only real power AI provides is up-skilling.
->
-> A mediocre person with AI will produce better-than-average results…at best.
->
+> “The only real power AI provides is up-skilling.\
+> A mediocre person with AI will produce better-than-average results…at best.\
 > But a master of a craft with AI?… that’s the real danger.”
 
 I keep returning to those lines, we have spent years asking whether the machines will take our seats. This question is simpler: **Whose hands are on the handles and will they continue to stay that way?**

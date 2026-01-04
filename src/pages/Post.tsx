@@ -40,7 +40,7 @@ export default function Post({ type }: PostProps) {
         <main className="flex flex-col">
 
             {post.coverImage && (
-                <div className="w-full overflow-hidden bg-[var(--background-primary)]">
+                <div className="w-full overflow-hidden bg-[var(--background-primary)] -mt-[64px] md:-mt-[102px]">
                     <img src={post.coverImage} alt={post.title} className="w-full h-auto" />
                 </div>
             )}
@@ -51,9 +51,9 @@ export default function Post({ type }: PostProps) {
                 <div className="w-full flex flex-col gap-4 items-start md:items-center">
                     <h1 className="text-start md:text-center text-[var(--content-primary)]">{post.title}</h1>
                     <div className="flex flex-col items-start md:items-center gap-4 text-[var(--content-tertiary)] label-s">
-                        <div className="flex flex-wrap gap-1">
+                        <div className="flex flex-col items-start md:items-center gap-2">
                             <span className='label-m'>{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-                            {post.author && <span className='label-m'>◦ {post.author}</span>}
+                            {post.author && <span className='label-m'>{post.author}</span>}
                         </div>
                         <div className="flex flex-wrap gap-1">
                             {post.tags && post.tags.length > 0 && post.tags.map(tag => (
@@ -67,7 +67,7 @@ export default function Post({ type }: PostProps) {
                 <article className="w-full">
                     <ReactMarkdown
                         components={{
-                            p: (props) => <p className="blog-text mb-6 text-[var(--content-primary)]" {...props} />,
+                            p: (props) => <p className="blog-text mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             a: (props) => <a className="label-m text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
                             img: (props) => <img className="rounded-[var(--radius-lg)] w-full my-8" {...props} />,
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
@@ -76,7 +76,7 @@ export default function Post({ type }: PostProps) {
                             ul: (props) => <ul className="list-disc pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
                             ol: (props) => <ol className="list-decimal pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
                             li: (props) => <li className="mb-2 pl-1" {...props} />,
-                            blockquote: (props) => <blockquote className="border-m-4 border-[var(--content-primary)] pl-4 italic mb-6 text-[var(--content-tertiary)]" {...props} />,
+                            blockquote: (props) => <blockquote className="border-l-5 border-[var(--border-primary)] pl-3 italic mb-6 text-[var(--content-tertiary)]" {...props} />,
                         }}
                     >
                         {post.content}
