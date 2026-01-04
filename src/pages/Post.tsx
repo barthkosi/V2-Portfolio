@@ -73,7 +73,7 @@ export default function Post({ type }: PostProps) {
                         ul: (props) => <ul className="list-disc pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
                         ol: (props) => <ol className="list-decimal pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
                         li: (props) => <li className="mb-2 pl-1" {...props} />,
-                        blockquote: (props) => <blockquote className="border-l-4 border-[var(--content-tertiary)] pl-4 italic my-8 text-[var(--content-tertiary)]" {...props} />,
+                        blockquote: (props) => <blockquote className="border-l-4 border-[var(--content-primary)] pl-4 italic mb-8 text-[var(--content-tertiary)]" {...props} />,
                     }}
                 >
                     {post.content}

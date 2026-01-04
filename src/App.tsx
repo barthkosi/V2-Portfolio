@@ -120,15 +120,14 @@ function AppContent() {
         <Routes>
           <Route element={<HomePageLayout />}>
             <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
+            <Route path="/projects/:slug" element={<LazyRoute><Post type="projects" /></LazyRoute>} />
             <Route path="/writing/:slug" element={<LazyRoute><Post type="writing" /></LazyRoute>} />
           </Route>
 
           <Route element={<PageLayout />}>
             <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
-            <Route path="/projects/:slug" element={<LazyRoute><Post type="projects" /></LazyRoute>} />
             <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
             <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
-            
             <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
             <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />
             <Route path="*" element={<LazyRoute><NotFound /></LazyRoute>} />
