@@ -49,8 +49,8 @@ export default function Post({ type }: PostProps) {
             <div className="flex flex-col lg:flex-row items-start w-full p-4 md:p-8 mx-auto gap-8">
 
             {/* Header */}
-            <div className="w-full flex flex-col  max-w-[320px] gap-4 items-start lg:sticky lg:top-[134px]">
-                <h1 className="text-[var(--content-primary)]">{post.title}</h1>
+            <div className="w-full flex flex-col  md:max-w-[320px] gap-4 items-start lg:sticky lg:top-[134px]">
+                <h1 className="h2 text-[var(--content-primary)]">{post.title}</h1>
                 <div className="flex flex-col gap-1 text-[var(--content-tertiary)] body-s">
                     <span>{new Date(post.date).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                     {post.author && <span>• {post.author}</span>}
@@ -68,8 +68,8 @@ export default function Post({ type }: PostProps) {
                         a: (props) => <a className="text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
                         img: (props) => <img className="rounded-[var(--radius-lg)] w-full my-8" {...props} />,
                         h1: (props) => <h1 className="text-[var(--content-primary)]" {...props} />,
-                        h2: (props) => <h2 className="mb-5 mt-10 text-[var(--content-primary)]" {...props} />,
-                        h3: (props) => <h3 className="mb-4 mt-8 text-[var(--content-primary)]" {...props} />,
+                        h2: (props) => <h2 className="h2 mb-5 mt-10 text-[var(--content-primary)]" {...props} />,
+                        h3: (props) => <h3 className="h3 mb-4 mt-8 text-[var(--content-primary)]" {...props} />,
                         ul: (props) => <ul className="list-disc pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
                         ol: (props) => <ol className="list-decimal pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
                         li: (props) => <li className="mb-2 pl-1" {...props} />,
