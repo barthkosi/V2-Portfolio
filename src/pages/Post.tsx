@@ -64,16 +64,16 @@ export default function Post({ type }: PostProps) {
             <article className="w-full max-w-[720px]">
                 <ReactMarkdown
                     components={{
-                        p: (props) => <p className="text-[var(--content-primary)]" {...props} />,
+                        p: (props) => <p className="mb-6 text-[var(--content-primary)]" {...props} />,
                         a: (props) => <a className="text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
                         img: (props) => <img className="rounded-[var(--radius-lg)] w-full my-8" {...props} />,
                         h1: (props) => <h1 className="text-[var(--content-primary)]" {...props} />,
-                        h2: (props) => <h2 className="h2 mb-5 mt-10 text-[var(--content-primary)]" {...props} />,
-                        h3: (props) => <h3 className="h3 mb-4 mt-8 text-[var(--content-primary)]" {...props} />,
-                        ul: (props) => <ul className="list-disc pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
-                        ol: (props) => <ol className="list-decimal pl-6 mb-8 text-[var(--content-primary)]" {...props} />,
+                        h2: (props) => <h2 className="h2 mb-6 text-[var(--content-primary)]" {...props} />,
+                        h3: (props) => <h3 className="h3 mb-6 text-[var(--content-primary)]" {...props} />,
+                        ul: (props) => <ul className="list-disc pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
+                        ol: (props) => <ol className="list-decimal pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
                         li: (props) => <li className="mb-2 pl-1" {...props} />,
-                        blockquote: (props) => <blockquote className="border-l-4 border-[var(--content-primary)] pl-4 italic mb-8 text-[var(--content-tertiary)]" {...props} />,
+                        blockquote: (props) => <blockquote className="border-l-4 border-[var(--content-primary)] pl-4 italic mb-6 text-[var(--content-tertiary)]" {...props} />,
                     }}
                 >
                     {post.content}
