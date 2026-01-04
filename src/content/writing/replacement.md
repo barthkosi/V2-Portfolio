@@ -1,6 +1,6 @@
 ---
 title: "What is the benchmark for replacement?"
-date: "Dec 07, 2025"
+date: "2025-12-07" 
 description: "On taste, agency and the death of average."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.png"
 author: "Barth"

@@ -69,24 +69,51 @@ export default function Projects() {
 
         {shouldShow && (
           <motion.div
-            className="w-full gap-4 flex flex-col"
+            className="w-full flex flex-col gap-4"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            {filteredProjects.map((project) => (
-              <motion.div key={project.slug} variants={cardVariants}>
-                <Card
-                  image={project.coverImage || ""}
-                  title={project.title}
-                  description={project.description}
-                  link={`/projects/${project.slug}`}
-                  tags={project.tags}
-                  variant="list"
-                  aspectRatio="aspect-video"
-                />
-              </motion.div>
-            ))}
+            {Object.entries(
+              filteredProjects.reduce((acc, project) => {
+                const year = project.date ? `${project.date.substring(2, 4)}'` : "Unknown";
+                if (!acc[year]) acc[year] = [];
+                acc[year].push(project);
+                return acc;
+              }, {} as Record<string, typeof projects>)
+            )
+              .sort((a, b) => b[0].localeCompare(a[0])) // Sort years descending
+              .map(([year, yearProjects]) => (
+                <div key={year} className="w-full flex flex-col md:flex-row gap-4 relative">
+                  {/* Desktop Year Label */}
+                  <div className="md:w-[0px] shrink-0 z-[2]">
+                    <span className="h3 text-[var(--content-primary)] sticky top-[134px] hidden md:block">
+                      {year}
+                    </span>
+                  </div>
+
+                  <div className="w-full flex flex-col gap-4">
+                    {/* Mobile Year Label */}
+                    <div className="md:hidden pb-2 select-none">
+                      <span className="h3 text-[var(--content-primary)]">{year}</span>
+                    </div>
+
+                    {yearProjects.map((project) => (
+                      <motion.div key={project.slug} variants={cardVariants}>
+                        <Card
+                          image={project.coverImage || ""}
+                          title={project.title}
+                          description={project.description}
+                          link={`/projects/${project.slug}`}
+                          tags={project.tags}
+                          variant="list"
+                          aspectRatio="aspect-video"
+                        />
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+              ))}
           </motion.div>
         )}
 

@@ -6,6 +6,7 @@ import Filter from "../components/Filter";
 import { getContent, getAllTags, ContentItem } from "../lib/content";
 import { springTransition } from "@/lib/transitions";
 
+
 export default function Writing() {
   const [posts, setPosts] = useState<ContentItem[]>([]);
   const [filteredPosts, setFilteredPosts] = useState<ContentItem[]>([]);
@@ -72,37 +73,64 @@ export default function Writing() {
 
         <div className="w-full items-center lg:items-start flex flex-col">
           <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
-
           {shouldShow && (
             <motion.div
-              className="w-full gap-4 flex flex-col"
+              className="w-full flex flex-col gap-4"
               variants={containerVariants}
               initial="hidden"
               animate="visible"
             >
-              {filteredPosts.map((post) => (
-                <motion.div key={post.slug} variants={cardVariants}>
-                  <Card
-                    image={post.coverImage || ""}
-                    title={post.title}
-                    description={post.description}
-                    link={`/writing/${post.slug}`}
-                    tags={post.tags}
-                    variant="list"
-                    aspectRatio="aspect-video"
-                  />
-                </motion.div>
-              ))}
+              {Object.entries(
+                filteredPosts.reduce((acc, post) => {
+                  const year = post.date ? `${post.date.substring(2, 4)}'` : "Unknown";
+                  if (!acc[year]) acc[year] = [];
+                  acc[year].push(post);
+                  return acc;
+                }, {} as Record<string, typeof posts>)
+              )
+                .sort((a, b) => b[0].localeCompare(a[0])) // Sort years descending
+                .map(([year, yearPosts]) => (
+                  <div key={year} className="w-full flex flex-col md:flex-row gap-4 relative">
+                    {/* Desktop Year Label */}
+                    <div className="md:w-[0px] shrink-0 z-[2]">
+                      <span className="h3 text-[var(--content-primary)] sticky top-[134px] hidden md:block">
+                        {year}
+                      </span>
+                    </div>
+
+                    <div className="w-full flex flex-col gap-4">
+                      {/* Mobile Year Label */}
+                      <div className="md:hidden pb-2 select-none">
+                        <span className="h3 text-[var(--content-primary)]">{year}</span>
+                      </div>
+
+                      {yearPosts.map((post) => (
+                        <motion.div key={post.slug} variants={cardVariants}>
+                          <Card
+                            image={post.coverImage || ""}
+                            title={post.title}
+                            description={post.description}
+                            link={`/writing/${post.slug}`}
+                            tags={post.tags}
+                            variant="list"
+                            aspectRatio="aspect-video"
+                          />
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+                ))}
             </motion.div>
           )}
-
-          {posts.length === 0 && (
-            <div className="flex flex-col my-auto items-center w-full gap-4">
-              <h3 className="my-auto h-full text-[var(--content-tertiary)]"></h3>
-            </div>
-          )}
         </div>
+        {posts.length === 0 && (
+          <div className="flex flex-col my-auto items-center w-full gap-4">
+            <h3 className="my-auto h-full text-[var(--content-tertiary)]"></h3>
+          </div>
+        )}
       </div>
-    </main>
+
+
+    </main >
   );
 }

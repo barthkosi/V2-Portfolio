@@ -1,6 +1,6 @@
 ---
 title: "Productivity as performance"
-date: "Nov 22, 2025"
+date: "2025-11-22"
 description: "Level up your React code with these modern practices."
 coverImage: ""
 author: "Bartholomew"
