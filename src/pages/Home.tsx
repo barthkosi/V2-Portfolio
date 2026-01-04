@@ -311,17 +311,6 @@ export default function Home() {
 
         </div>
 
-        <div className="w-full flex flex-col gap-5 p-4 md:p-[120px] h-screen justify-center">
-          <h2 className="display">I craft</h2>
-          <div className="flex flex-row gap-5">
-           <div className="min-w-[80%] w-[80%] h-[400px] bg-[var(--background-secondary)]"> </div>
-           <div className="min-w-[80%] w-[80%] h-[400px] bg-[var(--background-secondary)]"> </div>
-          </div>
-          <div className="flex flex-row gap-5">
-            <p className="display whitespace-nowrap">visual identities</p>
-            <p className="display whitespace-nowrap">brands identities</p>
-          </div>
-        </div>
         <div className="flex flex-col gap-12 p-4 md:px-[120px]">
           <div className="flex flex-col gap-12">
             <div className="flex flex-col gap-5">
@@ -398,24 +387,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="w-full p-4 gap-3 flex flex-col md:flex-row items-center">
-          <div className="w-full gap-3 flex flex-col md:flex-row hover:opacity-70 transition-opacity items-center">
-            <img src="https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png" className="aspect-video md:max-w-[300px] rounded-[12px] h-auto bg-[var(--background-secondary)]">
-           </img>
-           <div className="w-full flex flex-col gap-1">
-            <h4>Bookworms</h4>
-            <div className="label-m text-[var(--content-secondary)] ">Description</div>
-           </div>
-           <div className="w-full flex flex-wrap justify-start md:justify-end gap-2">
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">UI/UX Design</div>
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Graphic Design</div>
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Motion Design</div>
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Branding</div>
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Illustration</div>
-            <div className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">Creative Development</div>
-           </div>
-          </div>
-                 </div>
+
       </main>
     </>
   );
