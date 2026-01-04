@@ -314,6 +314,14 @@ export default function Nav() {
                   visible: { opacity: 1, y: 0, transition: springTransition },
                 }}
               >
+                <Link to="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
+              </motion.div>
+              <motion.div
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: springTransition },
+                }}
+              >
                 <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
               </motion.div>
             </div>
