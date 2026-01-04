@@ -1,6 +1,6 @@
 ---
-title: "5 React Tips for 2024"
-date: "2024-01-25"
+title: "Productivity as performance"
+date: "Dec 22, 2025"
 description: "Level up your React code with these modern practices."
 coverImage: ""
 author: "Bartholomew"
