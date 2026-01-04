@@ -73,26 +73,28 @@ export default function Writing() {
         <div className="w-full items-center lg:items-start flex flex-col">
           <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
 
-          <motion.div
-            className="w-full gap-4 flex flex-col"
-            variants={containerVariants}
-            initial="hidden"
-            animate={shouldShow ? "visible" : "hidden"}
-          >
-            {filteredPosts.map((post) => (
-              <motion.div key={post.slug} variants={cardVariants}>
-                <Card
-                  image={post.coverImage || ""}
-                  title={post.title}
-                  description={post.description}
-                  link={`/writing/${post.slug}`}
-                  tags={post.tags}
-                  variant="list"
-                  aspectRatio="aspect-video"
-                />
-              </motion.div>
-            ))}
-          </motion.div>
+          {shouldShow && (
+            <motion.div
+              className="w-full gap-4 flex flex-col"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {filteredPosts.map((post) => (
+                <motion.div key={post.slug} variants={cardVariants}>
+                  <Card
+                    image={post.coverImage || ""}
+                    title={post.title}
+                    description={post.description}
+                    link={`/writing/${post.slug}`}
+                    tags={post.tags}
+                    variant="list"
+                    aspectRatio="aspect-video"
+                  />
+                </motion.div>
+              ))}
+            </motion.div>
+          )}
 
           {posts.length === 0 && (
             <div className="flex flex-col my-auto items-center w-full gap-4">

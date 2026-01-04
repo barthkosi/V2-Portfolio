@@ -67,26 +67,28 @@ export default function Projects() {
       <div className="w-full flex flex-col">
         <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
 
-        <motion.div
-          className="w-full gap-4 flex flex-col"
-          variants={containerVariants}
-          initial="hidden"
-          animate={shouldShow ? "visible" : "hidden"}
-        >
-          {filteredProjects.map((project) => (
-            <motion.div key={project.slug} variants={cardVariants}>
-              <Card
-                image={project.coverImage || ""}
-                title={project.title}
-                description={project.description}
-                link={`/projects/${project.slug}`}
-                tags={project.tags}
-                variant="list"
-                aspectRatio="aspect-video"
-              />
-            </motion.div>
-          ))}
-        </motion.div>
+        {shouldShow && (
+          <motion.div
+            className="w-full gap-4 flex flex-col"
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {filteredProjects.map((project) => (
+              <motion.div key={project.slug} variants={cardVariants}>
+                <Card
+                  image={project.coverImage || ""}
+                  title={project.title}
+                  description={project.description}
+                  link={`/projects/${project.slug}`}
+                  tags={project.tags}
+                  variant="list"
+                  aspectRatio="aspect-video"
+                />
+              </motion.div>
+            ))}
+          </motion.div>
+        )}
 
         {projects.length === 0 && (
           <div className="flex flex-col my-auto items-center w-full gap-7">
