@@ -62,7 +62,7 @@ export default function ReadingList() {
               <Card
                 image={book.image}
                 title={book.title}
-                author={book.author}
+                description={book.author}
                 link={book.link}
                 aspectRatio="aspect-[2/3]"
               />

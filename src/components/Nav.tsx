@@ -314,7 +314,7 @@ export default function Nav() {
                   visible: { opacity: 1, y: 0, transition: springTransition },
                 }}
               >
-                <Link to="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
+                <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
               </motion.div>
               <motion.div
                 variants={{
@@ -322,7 +322,7 @@ export default function Nav() {
                   visible: { opacity: 1, y: 0, transition: springTransition },
                 }}
               >
-                <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
+                <Link to="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
               </motion.div>
             </div>
 

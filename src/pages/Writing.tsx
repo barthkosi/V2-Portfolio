@@ -52,7 +52,7 @@ export default function Writing() {
 
   return (
     <main>
-      <div className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
+      <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
         <InfoBlock
           title="Writing"
           number={posts.length}
@@ -60,7 +60,7 @@ export default function Writing() {
           onComplete={() => setIsVisible(true)}
         />
 
-        <div className="w-full flex flex-col">
+        <div className="w-full items-center lg:items-start flex flex-col">
           <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
 
           <motion.div
@@ -74,7 +74,7 @@ export default function Writing() {
                 <Card
                   image={post.coverImage || ""}
                   title={post.title}
-                  author={post.date ? new Date(post.date).toLocaleDateString() : ""}
+                  description={post.date ? new Date(post.date).toLocaleDateString() : ""}
                   link={`/writing/${post.slug}`}
                   aspectRatio="aspect-video"
                 />
@@ -83,8 +83,8 @@ export default function Writing() {
           </motion.div>
 
           {posts.length === 0 && (
-            <div className="flex flex-col my-auto items-center w-full gap-7">
-              <h3 className="my-auto h-full text-[var(--content-tertiary)]">Coming Soon!</h3>
+            <div className="flex flex-col my-auto items-center w-full gap-4">
+              <h3 className="my-auto h-full text-[var(--content-tertiary)]"></h3>
             </div>
           )}
         </div>

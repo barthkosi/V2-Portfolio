@@ -49,7 +49,7 @@ export default function Projects() {
 
   return (
     <main className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
-      <InfoBlock 
+      <InfoBlock
         title="Projects"
         number={projects.length}
         description="I craft visual identities and brand systems, from logos and campaigns to print and packaging."
@@ -70,7 +70,7 @@ export default function Projects() {
               <Card
                 image={project.coverImage || ""}
                 title={project.title}
-                author={project.description} // Using description as secondary text
+                description={project.description} // Using description as secondary text
                 link={`/projects/${project.slug}`}
                 aspectRatio="aspect-video"
               />

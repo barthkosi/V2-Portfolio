@@ -1,5 +1,5 @@
 ---
-title: "Explrar Case Study"
+title: "Explrar"
 date: "2023-11-20"
 description: "Designing an AI-powered trip planner that simplifies travel logistics."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp"

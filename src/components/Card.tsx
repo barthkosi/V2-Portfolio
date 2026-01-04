@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 type CardProps = {
     image: string
     title?: string
-    author?: string
+    description?: string
     link?: string
     aspectRatio?: string
 }
@@ -12,7 +12,7 @@ type CardProps = {
 export default function Card({
     image,
     title,
-    author,
+    description,
     link,
     aspectRatio = "aspect-video"
 }: CardProps) {
@@ -29,10 +29,10 @@ export default function Card({
                 </div>
             </div>
 
-            {(title || author) && (
+            {(title || description) && (
                 <div className="w-full flex flex-col p-4 gap-1 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
                     {title && <div className="w-full text-[var(--content-primary)] label-m">{title}</div>}
-                    {author && <div className="w-full text-[var(--content-tertiary)] body-s">{author}</div>}
+                    {description && <div className="w-full text-[var(--content-tertiary)] body-s">{description}</div>}
                 </div>
             )}
         </>

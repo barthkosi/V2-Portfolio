@@ -2,7 +2,7 @@
 title: "5 React Tips for 2024"
 date: "2024-01-25"
 description: "Level up your React code with these modern practices."
-coverImage: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.png"
+coverImage: ""
 author: "Bartholomew"
 tags: ["Development", "React", "Tips"]
 ---
