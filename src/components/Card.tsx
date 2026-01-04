@@ -53,7 +53,7 @@ export default function Card({
                 className="aspect-video w-full md:max-w-[240px] rounded-[12px] h-auto object-cover bg-[var(--background-secondary)]"
             />
             <div className="w-full flex flex-col gap-1">
-                {title && <h4 className="text-[var(--content-primary)]">{title}</h4>}
+                {title && <h5 className="text-[var(--content-primary)]">{title}</h5>}
                 {description && <div className="label-m text-[var(--content-secondary)]">{description}</div>}
             </div>
             {tags && tags.length > 0 && (
