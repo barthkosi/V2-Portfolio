@@ -1,4 +1,5 @@
 import { motion } from "motion/react"
+import { Link } from "react-router-dom"
 
 type CardProps = {
     image: string
@@ -40,22 +41,43 @@ export default function Card({
     const wrapperClass = "gap-3 flex flex-col"
 
     if (link) {
-        return (
-            <motion.a
-                href={link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={wrapperClass}
-                whileHover={{ scale: 1.03 }}
-                transition={{
-                    type: 'spring',
-                    stiffness: 200,
-                    damping: 20
-                }}
-            >
-                {content}
-            </motion.a>
-        )
+        // Check if link is external (starts with http)
+        const isExternal = link.startsWith('http');
+
+        if (isExternal) {
+            return (
+                <motion.a
+                    href={link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={wrapperClass}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 20
+                    }}
+                >
+                    {content}
+                </motion.a>
+            )
+        } else {
+            return (
+                <motion.div
+                    className={wrapperClass}
+                    whileHover={{ scale: 1.03 }}
+                    transition={{
+                        type: 'spring',
+                        stiffness: 200,
+                        damping: 20
+                    }}
+                >
+                    <Link to={link}>
+                        {content}
+                    </Link>
+                </motion.div>
+            )
+        }
     }
 
     return (

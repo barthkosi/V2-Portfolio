@@ -105,6 +105,7 @@ export default function Nav() {
                 >
                   <Link to="/archive" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Archive</Link>
                   <Link to="/reading-list" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Reading List</Link>
+                  <Link to="/writing" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Writing</Link>
                 </motion.div>
               )}
             </AnimatePresence>

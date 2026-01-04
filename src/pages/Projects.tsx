@@ -1,95 +1,89 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { motion, Variants } from "motion/react";
 import InfoBlock from "../components/InfoBlock";
-import ProjectShowcase from "../components/ProjectShowcase";
+import Card from "../components/Card";
+import Filter from "../components/Filter";
+import { getContent, getAllTags, ContentItem } from "../lib/content";
 
 export default function Projects() {
+  const [projects, setProjects] = useState<ContentItem[]>([]);
+  const [filteredProjects, setFilteredProjects] = useState<ContentItem[]>([]);
+  const [tags, setTags] = useState<string[]>([]);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+  // InfoBlock triggers this when ready
+  const [isVisible, setIsVisible] = useState(false);
+
   useEffect(() => {
     document.title = "barthkosi - projects";
+
+    const loadProjects = async () => {
+      const items = await getContent('projects');
+      setProjects(items);
+      setFilteredProjects(items);
+      setTags(getAllTags(items));
+    };
+
+    loadProjects();
   }, []);
 
+  useEffect(() => {
+    if (activeTag) {
+      setFilteredProjects(projects.filter(p => p.tags?.includes(activeTag)));
+    } else {
+      setFilteredProjects(projects);
+    }
+  }, [activeTag, projects]);
+
+  const containerVariants: Variants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const cardVariants: Variants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0 },
+  };
+
   return (
-    <main className="flex flex-col lg:flex-row gap-7">
-
-      <InfoBlock
-
+    <main className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
+      <InfoBlock 
         title="Projects"
-        number="3"
+        number={projects.length}
         description="I craft visual identities and brand systems, from logos and campaigns to print and packaging."
+        onComplete={() => setIsVisible(true)}
+      />
+
+      <div className="w-full flex flex-col">
+        <Filter tags={tags} activeTag={activeTag} onTagSelect={setActiveTag} />
+
+        <motion.div
+          className="w-full gap-4 flex flex-col"
+          variants={containerVariants}
+          initial="hidden"
+          animate={isVisible ? "visible" : "hidden"}
+        >
+          {filteredProjects.map((project) => (
+            <motion.div key={project.slug} variants={cardVariants}>
+              <Card
+                image={project.coverImage || ""}
+                title={project.title}
+                author={project.description} // Using description as secondary text
+                link={`/projects/${project.slug}`}
+                aspectRatio="aspect-video"
               />
-          <div className="flex flex-col gap-12">
-            <div className="flex flex-col gap-5">
-              <h5 className="w-full max-w-[520px]">An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer
-              </h5>
-              <ProjectShowcase
-                variant="left"
-                items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp',
-                    alt: 'project cover',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
-                ]}
-              />
-            </div>
-            <div className="flex flex-col gap-5">
-              <h5 className="w-full max-w-[520px]">A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.
-              </h5>
-              <ProjectShowcase
-                variant="right"
-                items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp',
-                    alt: 'project cover',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp',
-                    alt: 'project screenshot',
-                  },
-                ]}
-              />
-            </div>
-            <div className="flex flex-col gap-5">
-              <h5 className="w-full max-w-[520px]">Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.
-              </h5>
-              <ProjectShowcase
-                variant="right"
-                items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.png',
-                    alt: 'suiXaxelar collab logo',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp',
-                    alt: 'project screenshot',
-                  },
-                ]}
-              />
-            </div>
+            </motion.div>
+          ))}
+        </motion.div>
+
+        {projects.length === 0 && (
+          <div className="flex flex-col my-auto items-center w-full gap-7">
+            <h3 className="my-auto h-full text-[var(--content-tertiary)]">Coming Soon!</h3>
           </div>
+        )}
+      </div>
     </main>
   );
 }

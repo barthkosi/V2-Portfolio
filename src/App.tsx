@@ -15,6 +15,7 @@ const ReadingList = lazy(() => import("./pages/ReadingList"));
 const Writing = lazy(() => import("./pages/Writing"));
 const Archive = lazy(() => import("./pages/Archive"));
 const Illustrations = lazy(() => import("./pages/Illustrations"));
+const Post = lazy(() => import("./pages/Post"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // All critical images to preload across the site
@@ -119,12 +120,15 @@ function AppContent() {
         <Routes>
           <Route element={<HomePageLayout />}>
             <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
+            <Route path="/writing/:slug" element={<LazyRoute><Post type="writing" /></LazyRoute>} />
           </Route>
 
           <Route element={<PageLayout />}>
             <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
+            <Route path="/projects/:slug" element={<LazyRoute><Post type="projects" /></LazyRoute>} />
             <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
             <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
+            
             <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
             <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />
             <Route path="*" element={<LazyRoute><NotFound /></LazyRoute>} />
