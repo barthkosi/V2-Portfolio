@@ -1,9 +1,9 @@
 ---
 title: "What is the benchmark for replacement?"
-date: "2024-02-10"
-description: "How to approach problems with a user-first mindset."
+date: "Dec 07, 2025"
+description: "On taste, agency and the death of average. AI is radically redefining what it means to be good."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.png"
-author: "Bartholomew"
+author: "Barth"
 tags: ["Design", "AI"]
 ---
 

@@ -74,7 +74,7 @@ export default function Writing() {
                 <Card
                   image={post.coverImage || ""}
                   title={post.title}
-                  description={post.date ? new Date(post.date).toLocaleDateString() : ""}
+                  description={post.description}
                   link={`/writing/${post.slug}`}
                   aspectRatio="aspect-video"
                 />
