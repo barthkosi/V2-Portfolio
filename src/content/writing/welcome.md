@@ -3,7 +3,7 @@ title: "Welcome to My Blog"
 date: "2024-03-15"
 description: "A friendly introduction to my new writing space."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png"
-author: "Bartholomew"
+author: "Barth"
 tags: ["Personal", "Life"]
 ---
 

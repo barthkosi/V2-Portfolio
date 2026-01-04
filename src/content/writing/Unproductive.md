@@ -1,10 +1,10 @@
 ---
 title: "Productivity as performance"
 date: "2025-11-22"
-description: "Level up your React code with these modern practices."
+description: "The Intricacies of perfomative success"
 coverImage: ""
-author: "Bartholomew"
-tags: ["Development", "React", "Tips"]
+author: "Barth"
+tags: ["Self"]
 ---
 
 > the belief that by naming a goal you are closer to achieving it, that by storing a >thought you have understood it, that by filing a fact you have earned the right to >deploy it and this is productivity as performance.

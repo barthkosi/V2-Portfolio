@@ -48,7 +48,7 @@ const itemVariants: Variants = {
     visible: {
         opacity: 1,
         x: 0,
-        transition: springTransition
+        transition: springTransition,
     }
 };
 
