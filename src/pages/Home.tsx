@@ -398,6 +398,17 @@ export default function Home() {
             </div>
           </div>
         </div>
+        <div>
+          <div className="w-full gap-3 flex flex-row">
+           <div className="flex flex-col">
+            <h4>Explrar</h4>
+            <div className="label-s text-[var(--content-secondary)]">2024</div>
+           </div>
+           <div>
+            
+           </div>
+          </div>
+                 </div>
       </main>
     </>
   );
