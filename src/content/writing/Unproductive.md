@@ -7,7 +7,7 @@ author: "Barth"
 tags: ["Self"]
 ---
 
-> the belief that by naming a goal you are closer to achieving it, that by storing a >thought you have understood it, that by filing a fact you have earned the right to >deploy it and this is productivity as performance.
+> the belief that by naming a goal you are closer to achieving it, that by storing a thought you have understood it, that by filing a fact you have earned the right to deploy it and this is productivity as performance.
 
 I watched a YouTube video recently (link here) where the author spoke about deleting his second brain and it is something I have recently started doing, getting rid of my notion boards that track everything, my increased automation seems to be killing my memory, my ability to think deeply, my ability to understand, productivity is a cult and a very dangerous one. I spend time crafting the systems over and over again just to realize it doesn't work a week or two later, time blocking over an over again, if my calendar is always filled with events, I loose the ability to spontaneously choose things to do. I give up my ability to decide, I give up agency.
 
