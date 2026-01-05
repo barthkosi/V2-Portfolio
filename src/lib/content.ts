@@ -9,6 +9,7 @@ export interface ContentItem {
     date: string;
     description: string;
     coverImage?: string;
+    bannerImage?: string;
     author?: string;
     tags?: string[];
     content: string; // The raw markdown body
@@ -59,6 +60,7 @@ const parseFile = (path: string, content: string, type: ContentType): ContentIte
         date: data.date || new Date().toISOString(),
         description: data.description || '',
         coverImage: data.coverImage,
+        bannerImage: data.bannerImage,
         author: data.author,
         tags: data.tags || [],
         content: body || '',

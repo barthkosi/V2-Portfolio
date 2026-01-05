@@ -1,8 +1,8 @@
 ---
 title: "Productivity as performance"
 date: "2025-11-22"
-description: "The Intricacies of perfomative success"
-coverImage: ""
+description: "The intricacies of perfomative success"
+coverImage: "https://res.cloudinary.com/barthkosi/image/upload/productivity-as-performance-cover.png"
 author: "Barth"
 tags: ["Self"]
 ---

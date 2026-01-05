@@ -3,8 +3,9 @@ title: "What is the benchmark for replacement?"
 date: "2025-12-07" 
 description: "On taste, agency and the death of average."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/replacement-cover.webp"
+bannerImage: "https://res.cloudinary.com/barthkosi/image/upload/productivity-as-performance-cover.png"
 author: "Barth"
-tags: ["AI", "Agency", "Taste"]
+tags: ["Agency"]
 ---
 
 > “The only real power AI provides is up-skilling.\
