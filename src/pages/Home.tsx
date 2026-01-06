@@ -311,8 +311,9 @@ export default function Home() {
 
         </div>
 
-        <div className="flex flex-col gap-12 p-4 md:px-[120px]">
-          <div className="flex flex-col gap-12">
+        <div className="flex flex-col gap-12 p-4 md:px-[80px]">
+          <div className="flex flex-col gap-8">
+            <h6 className="label-l rounded-xl border-[var(--border-primary)] border-[0.4px]">Select Work</h6>
             <div className="flex flex-col gap-5">
               <motion.h5 
               initial={{ opacity: 0, x: 20 }}
@@ -400,6 +401,13 @@ export default function Home() {
                 ]}
               />
             </div>
+            <div className="w-full flex justify-center">
+               <Button to="/projects"
+                  variant="secondary"
+                  >
+                  View All Projects
+                </Button>
+             </div>
           </div>
         </div>
 

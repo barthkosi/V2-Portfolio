@@ -107,6 +107,21 @@ export default function Archive() {
   const lastMouse = useRef({ x: 0, y: 0 });
   const isDragging = useRef(false);
   const animationFrameId = useRef<number | null>(null);
+  const hasInitialized = useRef(false);
+
+  // Center the grid on initial load
+  useEffect(() => {
+    if (!hasInitialized.current && totalDimensions.width > 0 && totalDimensions.height > 0) {
+      const viewportWidth = window.innerWidth;
+      const viewportHeight = window.innerHeight;
+
+      // Center the grid by offsetting position so the middle of the grid is in the middle of the viewport
+      position.current.x = (viewportWidth - totalDimensions.width) / 2;
+      position.current.y = (viewportHeight - totalDimensions.height) / 2;
+
+      hasInitialized.current = true;
+    }
+  }, [totalDimensions]);
 
   useEffect(() => {
     document.title = "barthkosi - archive";
