@@ -3,6 +3,18 @@
         "id": "1",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png"
     },
+
+    
+    {
+        "id": "explrar-explorations-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp"
+    },
+    {
+        "id": "explrar-add-widget",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-add-widget.webp"
+    },
+
+
     {
         "id": "2",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp"
@@ -101,5 +113,14 @@
     {
         "id": "25",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp"
+    },
+
+    {
+        "id": "image-cards",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
+    },
+    {
+        "id": "pixel-site-in-dev",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/pixel-site-in-dev.webp"
     }
 ]
