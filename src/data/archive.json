@@ -5,7 +5,7 @@
     },
     {
         "id": "2",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.png"
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp"
     },
     {
         "id": "3",
@@ -25,7 +25,7 @@
     },
     {
         "id": "7",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.png"
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/Jake_illustration_welkzu.png"
     },
     {
         "id": "8",
@@ -34,5 +34,69 @@
     {
         "id": "9",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.png"
+    },
+    {
+        "id": "10",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/Jake_illustration_welkzu.png"
+    },
+    {
+        "id": "11",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp"
+    },
+    {
+        "id": "12",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899901/Tennis_Illustration_lb6fgp.png"
+    },
+    {
+        "id": "13",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899894/illustration_f5fi66.png"
+    },
+    {
+        "id": "14",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/illustration-1_esjizz.png"
+    },
+    {
+        "id": "15",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899893/Cassette_illustration_Isometriic_kkvkn8.png"
+    },
+    {
+        "id": "16",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.png"
+    },
+    {
+        "id": "17",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.png"
+    },
+    {
+        "id": "18",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp"
+    },
+    {
+        "id": "19",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp"
+    },
+    {
+        "id": "20",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp"
+    },
+    {
+        "id": "21",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp"
+    },
+    {
+        "id": "22",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp"
+    },
+    {
+        "id": "23",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp"
+    },
+    {
+        "id": "24",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.png"
+    },
+    {
+        "id": "25",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp"
     }
 ]

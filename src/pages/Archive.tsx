@@ -1,115 +1,152 @@
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState, useMemo } from "react";
 import Card from "../components/Card";
 import archive from "../data/archive.json";
 
-// 1. SETUP: Create a grid of items
-const MIN_ROWS = 6;
-const MIN_COLS = 6;
-const GAP = 20;
-
-// Dynamic Grid Calculation
-const count = archive.length;
-// Calculate the side length needed to fit all unique items in a roughly square grid
-// For 100 items -> sqrt(100) = 10 -> 10x10 grid
-// For 9 items -> sqrt(9) = 3 -> but we enforce MIN 6x6 for smooth infinite wrapping
-const neededSide = Math.ceil(Math.sqrt(count));
-const ROWS = Math.max(MIN_ROWS, neededSide);
-const COLS = Math.max(MIN_COLS, neededSide);
-
-// Generate data grid
-// If archive.length is small (e.g. 9), we repeat it to fill the MIN_ROWS*MIN_COLS (36)
-// If archive.length is large (e.g. 100), we fill the 10x10 (100) with unique items (plus maybe a few repeats if row*col > count)
-const ITEMS = Array.from({ length: ROWS * COLS }, (_, i) => {
-  const archiveItem = archive[i % archive.length];
-  return {
-    ...archiveItem,
-    uniqueId: `item-${i}` // Unique ID for React key
-  };
-});
-
+const GAP = 32;
+const MIN_COLS = 4;
 
 export default function Archive() {
-  // 2. STATE: Refs for 2D Physics
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Responsive Item Size
   const [isMobile, setIsMobile] = useState(false);
+  const [imageHeights, setImageHeights] = useState<Record<string, number>>({});
 
+  // Responsive sizing
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile(); // Check on mount
+    checkMobile();
     window.addEventListener('resize', checkMobile);
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
-  // Determine size based on state
-  const ITEM_SIZE = isMobile ? 250 : 400;
+  const ITEM_WIDTH = isMobile ? 250 : 400;
+  const COLS = Math.max(MIN_COLS, Math.ceil(Math.sqrt(archive.length)));
 
-  // Total dimensions need to be recalculated when sizing changes
-  const TOTAL_WIDTH = COLS * (ITEM_SIZE + GAP);
-  const TOTAL_HEIGHT = ROWS * (ITEM_SIZE + GAP);
+  // Preload images to get their natural dimensions
+  useEffect(() => {
+    const loadedHeights: Record<string, number> = {};
+    let loadedCount = 0;
 
-  // We track X and Y separately
+    archive.forEach((item) => {
+      const img = new Image();
+      img.onload = () => {
+        // Calculate height based on aspect ratio at ITEM_WIDTH
+        const aspectRatio = img.naturalHeight / img.naturalWidth;
+        loadedHeights[item.id] = ITEM_WIDTH * aspectRatio;
+        loadedCount++;
+        if (loadedCount === archive.length) {
+          setImageHeights({ ...loadedHeights });
+        }
+      };
+      img.onerror = () => {
+        // Fallback to square if image fails
+        loadedHeights[item.id] = ITEM_WIDTH;
+        loadedCount++;
+        if (loadedCount === archive.length) {
+          setImageHeights({ ...loadedHeights });
+        }
+      };
+      img.src = item.image;
+    });
+  }, [ITEM_WIDTH]);
+
+  // Calculate masonry positions for each item
+  const itemPositions = useMemo(() => {
+    if (Object.keys(imageHeights).length < archive.length) {
+      return null; // Not ready yet
+    }
+
+    const positions: { id: string; x: number; y: number; height: number; image: string; colIndex: number }[] = [];
+    const columnHeights = Array(COLS).fill(0);
+
+    archive.forEach((item) => {
+      // Find the column index for this item (fill columns sequentially)
+      const colIndex = positions.length % COLS;
+      const x = colIndex * (ITEM_WIDTH + GAP);
+      const y = columnHeights[colIndex];
+      const height = imageHeights[item.id] || ITEM_WIDTH;
+
+      positions.push({
+        id: item.id,
+        x,
+        y,
+        height,
+        image: item.image,
+        colIndex
+      });
+
+      columnHeights[colIndex] += height + GAP;
+    });
+
+    return positions;
+  }, [imageHeights, COLS, ITEM_WIDTH]);
+
+  // Calculate total dimensions based on actual content - track per-column heights
+  const { totalDimensions, columnTotalHeights } = useMemo(() => {
+    if (!itemPositions) return { totalDimensions: { width: 0, height: 0 }, columnTotalHeights: [] };
+
+    const colHeights = Array(COLS).fill(0);
+    itemPositions.forEach((pos) => {
+      colHeights[pos.colIndex] = Math.max(colHeights[pos.colIndex], pos.y + pos.height + GAP);
+    });
+
+    return {
+      totalDimensions: {
+        width: COLS * (ITEM_WIDTH + GAP),
+        height: Math.max(...colHeights)
+      },
+      columnTotalHeights: colHeights
+    };
+  }, [itemPositions, COLS, ITEM_WIDTH]);
+
+  // Physics refs
   const position = useRef({ x: 0, y: 0 });
   const velocity = useRef({ x: 0, y: 0 });
   const lastMouse = useRef({ x: 0, y: 0 });
   const isDragging = useRef(false);
   const animationFrameId = useRef<number | null>(null);
 
-
   useEffect(() => {
     document.title = "barthkosi - archive";
   }, []);
 
-  // 3. CORE LOGIC: The Physics Loop
+  // Physics loop
   useEffect(() => {
+    if (!itemPositions || columnTotalHeights.length === 0) return;
+
+    const { width: TOTAL_WIDTH } = totalDimensions;
+    if (TOTAL_WIDTH === 0) return;
+
     const loop = () => {
-      // A. Inertia (Friction)
       if (!isDragging.current) {
-        // Friction: 0.92 provides a smooth "Lenis-like" glide. 
-        // 0.6 is too abrupt (stops instantly).
         velocity.current.x *= 0.92;
         velocity.current.y *= 0.92;
-
         position.current.x += velocity.current.x;
         position.current.y += velocity.current.y;
       }
 
-      // Stop if velocity is negligible (optimization)
       if (Math.abs(velocity.current.x) < 0.01) velocity.current.x = 0;
       if (Math.abs(velocity.current.y) < 0.01) velocity.current.y = 0;
 
-      // B. Rendering & Wrapping
       if (containerRef.current) {
         const children = containerRef.current.children;
 
         for (let i = 0; i < children.length; i++) {
           const item = children[i] as HTMLElement;
+          const pos = itemPositions[i];
+          if (!pos) continue;
 
-          // Calculate grid position (Row/Col) based on index
-          const row = Math.floor(i / COLS);
-          const col = i % COLS;
+          // Use per-column height for Y wrapping
+          const colHeight = columnTotalHeights[pos.colIndex] || totalDimensions.height;
 
-          // Base offsets
-          const startX = col * (ITEM_SIZE + GAP);
-          const startY = row * (ITEM_SIZE + GAP);
-
-          // 1. Add scroll position
-          // 2. Modulo by total size to wrap
-          // 3. Handle negative numbers logic
-
-          let currentX = (startX + position.current.x) % TOTAL_WIDTH;
-          let currentY = (startY + position.current.y) % TOTAL_HEIGHT;
+          let currentX = (pos.x + position.current.x) % TOTAL_WIDTH;
+          let currentY = (pos.y + position.current.y) % colHeight;
 
           if (currentX < 0) currentX += TOTAL_WIDTH;
-          if (currentY < 0) currentY += TOTAL_HEIGHT;
+          if (currentY < 0) currentY += colHeight;
 
-          // CENTER OFFSET: 
-          // Shifts the wrap-around point so items don't pop exactly at x=0 but off-screen.
-          if (currentX > TOTAL_WIDTH - ITEM_SIZE) currentX -= TOTAL_WIDTH;
-          if (currentY > TOTAL_HEIGHT - ITEM_SIZE) currentY -= TOTAL_HEIGHT;
+          if (currentX > TOTAL_WIDTH - ITEM_WIDTH) currentX -= TOTAL_WIDTH;
+          if (currentY > colHeight - pos.height) currentY -= colHeight;
 
-          // Apply translation
           item.style.transform = `translate3d(${currentX}px, ${currentY}px, 0)`;
         }
       }
@@ -120,8 +157,8 @@ export default function Archive() {
     animationFrameId.current = requestAnimationFrame(loop);
     return () => {
       if (animationFrameId.current) cancelAnimationFrame(animationFrameId.current);
-    }
-  }, [ITEM_SIZE, TOTAL_WIDTH, TOTAL_HEIGHT]);
+    };
+  }, [itemPositions, totalDimensions, columnTotalHeights, ITEM_WIDTH]);
 
   // 4. EVENTS: 2D Dragging Handlers
   const handleStart = (clientX: number, clientY: number) => {
@@ -165,27 +202,19 @@ export default function Archive() {
     >
       {/* Container is just a reference point, items are absolutely positioned */}
       <div ref={containerRef} className="w-full h-full pointer-events-none overflow-visible">
-        {ITEMS.map((item) => (
+        {itemPositions?.map((pos) => (
           <div
-            key={item.uniqueId}
+            key={pos.id}
             className="absolute flex items-center justify-center overflow-visible"
             style={{
-              width: `${ITEM_SIZE}px`,
-              // Height will be determined by Card aspect ratio, but we set a base here or let CSS handle it
-              // Since card handles its own aspect ratio, we just position the container
-              // But for wrapping logic, we treated it as square-ish or fixed grid. 
-              // Let's assume ITEM_SIZE equates to the 'cell' size.
-              // If Card is aspect-video (16:9), and ITEM_SIZE is width, height might be smaller.
-              // Let's stick to using ITEM_SIZE as the cell width/height for placement logic.
-
-              // top/left 0 is important as translate3d moves it relative to this
+              width: `${ITEM_WIDTH}px`,
               top: 0,
               left: 0,
               willChange: 'transform'
             }}
           >
             <Card
-              image={item.image}
+              image={pos.image}
               aspectRatio="auto"
             />
           </div>
