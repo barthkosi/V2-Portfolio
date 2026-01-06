@@ -66,7 +66,7 @@ export default function Writing() {
         <InfoBlock
           title="Writing"
           number={posts.length}
-          description="Thoughts, tutorials, and tales from my journey."
+          description="This is a collection of my internal monologues expressed outward, covering everything from tech to my philosophies on life and the messy ideologies of the human condition."
           onComplete={() => setIntroFinished(true)}
         />
 
