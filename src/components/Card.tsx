@@ -24,6 +24,7 @@ export default function Card({
     // Default Card Content
     const DefaultContent = (
         <>
+        <div className="flex flex-col gap-2">
             <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
                 <div className={`relative w-full ${aspectRatio === "auto" ? "" : aspectRatio} overflow-hidden rounded-xl`}>
                     <img
@@ -41,6 +42,7 @@ export default function Card({
                     {description && <div className="w-full text-[var(--content-tertiary)] body-s">{description}</div>}
                 </div>
             )}
+         </div>   
         </>
     );
 
