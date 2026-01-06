@@ -10,39 +10,47 @@ import { springMarquee, springTransition } from "@/lib/transitions";
 const simple = [
   {
     id: "1",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.webp",
   },
   {
     id: "2",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.webp",
   },
   {
     id: "3",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.webp",
   },
   {
     id: "4",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.webp",
   },
   {
     id: "5",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.webp",
   },
   {
     id: "6",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.webp",
   },
   {
     id: "7",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.webp",
   },
   {
-    id: "8",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359979/file_cover_-_1_l75xvi.png",
+      "id": "metal-logo",
+      "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
+  },
+   {
+       "id": "explrar-explorations-2025",
+       "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp"
+   },
+  {
+      "id": "image-cards",
+      "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
   },
   {
     id: "9",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.png",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.webp",
   },
 ];
 
@@ -393,7 +401,7 @@ export default function Home() {
                   },
                   {
                     type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.png',
+                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.webp',
                     alt: 'suiXaxelar collab logo',
                   },
                   {
