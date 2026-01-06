@@ -22,6 +22,9 @@ export default function Archive() {
   const COLS = Math.max(MIN_COLS, Math.ceil(Math.sqrt(archive.length)));
 
   // Preload images to get their natural dimensions
+  // Card has p-2 (8px) padding on top and bottom = 16px total
+  const CARD_PADDING = 16;
+
   useEffect(() => {
     const loadedHeights: Record<string, number> = {};
     let loadedCount = 0;
@@ -29,9 +32,9 @@ export default function Archive() {
     archive.forEach((item) => {
       const img = new Image();
       img.onload = () => {
-        // Calculate height based on aspect ratio at ITEM_WIDTH
+        // Calculate height based on aspect ratio at ITEM_WIDTH + Card padding
         const aspectRatio = img.naturalHeight / img.naturalWidth;
-        loadedHeights[item.id] = ITEM_WIDTH * aspectRatio;
+        loadedHeights[item.id] = ITEM_WIDTH * aspectRatio + CARD_PADDING;
         loadedCount++;
         if (loadedCount === archive.length) {
           setImageHeights({ ...loadedHeights });
@@ -39,7 +42,7 @@ export default function Archive() {
       };
       img.onerror = () => {
         // Fallback to square if image fails
-        loadedHeights[item.id] = ITEM_WIDTH;
+        loadedHeights[item.id] = ITEM_WIDTH + CARD_PADDING;
         loadedCount++;
         if (loadedCount === archive.length) {
           setImageHeights({ ...loadedHeights });
