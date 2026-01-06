@@ -1,22 +1,30 @@
 [
     {
-        "id": "1",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899901/Tennis_Illustration_lb6fgp.png"
+        "id": "explrar-otp-illustration",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-otp-illustration.webp"
     },
     {
-        "id": "2",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/Jake_illustration_welkzu.png"
+        "id": "tennis-illustration-05-Nov-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/tennis-illustration-05-Nov-2025.webp"
     },
     {
-        "id": "3",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899894/illustration_f5fi66.png"
-    },
-    {
-        "id": "4",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899899/illustration-1_esjizz.png"
-    },
-    {
-        "id": "5",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1765899893/Cassette_illustration_Isometriic_kkvkn8.png"
+        "id": "cassette-illustration-isometric-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-isometric-2025.webp"
     }
+    {
+        "id": "cassette-illustration-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-2025.webp"
+    }
+    {
+        "id": "jake-illustration",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-illustration-5-Nov-2025.webp"
+    },
+    {
+        "id": "red-building-illustration-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/red-building-illustration-2025.webp"
+    },
+    {
+        "id": "face-with-glasses-illustration-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/face-with-glasses-illustration-2025.webp"
+    },
 ]
