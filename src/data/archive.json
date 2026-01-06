@@ -53,10 +53,8 @@
         "id": "red-building-illustration-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/red-building-illustration-2025.webp"
     }, 
-    {
-        "id": "8",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756359979/file_cover_-_1_l75xvi.png"
-    },
+
+    
     {
         "id": "9",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.png"
@@ -66,6 +64,7 @@
         "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp"
     },
 
+
     {
         "id": "cassette-illustration-isometric-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-isometric-2025.webp"
@@ -74,10 +73,8 @@
         "id": "face-with-glasses-illustration-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/face-with-glasses-illustration-2025.webp"
     },
-    {
-        "id": "16",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.png"
-    },
+
+
     {
         "id": "17",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.png"
@@ -107,14 +104,19 @@
         "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp"
     },
     {
-        "id": "jake-illustration",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-illustration-5-Nov-2025.webp"
-    },
-    {
         "id": "25",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp"
     },
 
+
+    {
+        "id": "jake-illustration",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-illustration-5-Nov-2025.webp"
+    },
+    {
+        "id": "metal-logo",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
+    },
     {
         "id": "image-cards",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
@@ -122,5 +124,9 @@
     {
         "id": "pixel-site-in-dev",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/pixel-site-in-dev.webp"
+    },  
+    {
+        "id": "explrar-modals-2024",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-modals-2024.webp"
     }
 ]
