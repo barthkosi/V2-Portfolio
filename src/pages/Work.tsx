@@ -59,7 +59,7 @@ export default function Work() {
             <InfoBlock
                 title="Work"
                 number={projects.length}
-                description="I craft visual identities and brand systems, from logos and campaigns to print and packaging."
+                description="These entries document my process of building and refining tools that serve a purpose."
                 onComplete={() => setIntroFinished(true)}
             />
 
