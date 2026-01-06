@@ -26,7 +26,7 @@
     },
     {
         "id": "tdoet",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.jpg",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.webp",
         "title": "The Design of Everyday Things",
         "author": "Don Norman"
     },
@@ -38,7 +38,7 @@
     },
     {
         "id": "native-son",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/native-son.png",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/native-son.webp",
         "title": "Native Son",
         "author": "Richard Wright"
     }
