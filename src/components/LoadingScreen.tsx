@@ -18,8 +18,8 @@ export default function LoadingScreen({ onComplete, progress }: LoadingScreenPro
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
     >
-      <div className="flex flex-col items-center gap-4">
-        <span className="display tracking-widest text-[var(--content-primary)] animate-pulse">
+      <div className="flex flex-col items-center gap-4 p-4 md:p-8">
+        <span className="display text-[var(--content-primary)] animate-pulse">
           Loading...
         </span>
       </div>
