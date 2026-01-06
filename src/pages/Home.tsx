@@ -88,7 +88,7 @@ const wordVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: springTransition ,
+    transition: springTransition,
   },
 };
 
@@ -203,10 +203,10 @@ export default function Home() {
               </motion.div>
 
               <motion.div variants={buttonVariants}>
-                <Button to="/projects"
+                <Button to="/work"
                   variant="secondary"
                 >
-                  View Projects
+                  View Work
                 </Button>
               </motion.div>
             </motion.div>
@@ -313,14 +313,17 @@ export default function Home() {
 
         <div className="flex flex-col gap-12 p-4 md:px-[80px]">
           <div className="flex flex-col gap-8">
-            <h6 className="label-l rounded-xl border-[var(--border-primary)] border-[0.4px]">Select Work</h6>
+            <h6 className="label-l">
+              Select Work
+            </h6>
             <div className="flex flex-col gap-5">
-              <motion.h5 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={springTransition}
-              className="w-full max-w-[520px]">An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
+              <motion.h5
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={springTransition}
+                className="w-full max-w-[520px]">
+                  An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
               </motion.h5>
               <ProjectShowcase
                 variant="left"
@@ -344,12 +347,12 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-5">
-              <motion.h5 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={springTransition}
-              className="w-full max-w-[520px]">A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.
+              <motion.h5
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={springTransition}
+                className="w-full max-w-[520px]">A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.
               </motion.h5>
               <ProjectShowcase
                 variant="right"
@@ -373,12 +376,12 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-5">
-              <motion.h5 
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={springTransition}
-              className="w-full max-w-[520px]">Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.
+              <motion.h5
+                initial={{ opacity: 0, x: 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={springTransition}
+                className="w-full max-w-[520px]">Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.
               </motion.h5>
               <ProjectShowcase
                 variant="right"
@@ -402,12 +405,12 @@ export default function Home() {
               />
             </div>
             <div className="w-full flex justify-center">
-               <Button to="/projects"
-                  variant="secondary"
-                  >
-                  View All Projects
-                </Button>
-             </div>
+              <Button to="/work"
+                variant="secondary"
+              >
+                View All Work
+              </Button>
+            </div>
           </div>
         </div>
 

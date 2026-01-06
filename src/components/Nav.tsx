@@ -82,7 +82,8 @@ export default function Nav() {
 
         {/* Desktop Menu - inline with logo */}
         <div className="hidden md:flex label-s flex-row gap-6 text-[var(--content-secondary)] items-center">
-          <Link to="/projects" className="hover:text-[var(--content-primary)]">Projects</Link>
+          <Link to="/work" className="hover:text-[var(--content-primary)]">Work</Link>
+          <Link to="/explorations" className="hover:text-[var(--content-primary)]">Explorations</Link>
           <Link to="/illustrations" className="hover:text-[var(--content-primary)]">Illustrations</Link>
 
           <div
@@ -278,7 +279,17 @@ export default function Nav() {
                   visible: { opacity: 1, y: 0, transition: springTransition },
                 }}
               >
-                <Link to="/projects" onClick={() => setIsOpen(false)}>Projects</Link>
+                <Link to="/work" onClick={() => setIsOpen(false)}>Work</Link>
+              </motion.div>
+
+              <motion.div
+                className="flex flex-col gap-1"
+                variants={{
+                  hidden: { opacity: 0, y: -10 },
+                  visible: { opacity: 1, y: 0, transition: springTransition },
+                }}
+              >
+                <Link to="/explorations" onClick={() => setIsOpen(false)}>Explorations</Link>
               </motion.div>
 
               <motion.div

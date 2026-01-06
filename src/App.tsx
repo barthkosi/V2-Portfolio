@@ -11,7 +11,8 @@ import { LoadingProvider, useLoading } from "./context/LoadingContext";
 import { useImagePreloader } from "./hooks/useImagePreloader";
 
 const Home = lazy(() => import("./pages/Home"));
-const Projects = lazy(() => import("./pages/Projects"));
+const Work = lazy(() => import("./pages/Work"));
+const Explorations = lazy(() => import("./pages/Explorations"));
 const ReadingList = lazy(() => import("./pages/ReadingList"));
 const Writing = lazy(() => import("./pages/Writing"));
 const Archive = lazy(() => import("./pages/Archive"));
@@ -31,7 +32,8 @@ function AppContent() {
   const { progress, reset: resetImagePreloader } = useImagePreloader(siteImages);
 
   const checkSkipLoader = (path: string) =>
-    (path.startsWith('/projects/') && path !== '/projects') ||
+    (path.startsWith('/work/') && path !== '/work') ||
+    (path.startsWith('/explorations/') && path !== '/explorations') ||
     (path.startsWith('/writing/') && path !== '/writing');
 
   const [showLoader, setShowLoader] = useState(!checkSkipLoader(location.pathname));
@@ -122,7 +124,8 @@ function AppContent() {
         <Routes>
           <Route element={<PageLayoutAlt />}>
             <Route path="/" element={<LazyRoute><Home /></LazyRoute>} />
-            <Route path="/projects/:slug" element={<LazyRoute><Post type="projects" /></LazyRoute>} />
+            <Route path="/work/:slug" element={<LazyRoute><Post type="work" /></LazyRoute>} />
+            <Route path="/explorations/:slug" element={<LazyRoute><Post type="explorations" /></LazyRoute>} />
             <Route path="/writing/:slug" element={<LazyRoute><Post type="writing" /></LazyRoute>} />
           </Route>
 
@@ -131,7 +134,8 @@ function AppContent() {
           </Route>
 
           <Route element={<PageLayout />}>
-            <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
+            <Route path="/work" element={<LazyRoute><Work /></LazyRoute>} />
+            <Route path="/explorations" element={<LazyRoute><Explorations /></LazyRoute>} />
             <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
             <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
             <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />

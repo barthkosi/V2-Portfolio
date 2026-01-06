@@ -1,6 +1,6 @@
 // import matter from 'gray-matter';
 
-export type ContentType = 'writing' | 'projects';
+export type ContentType = 'writing' | 'projects' | 'work' | 'explorations';
 
 export interface ContentItem {
     slug: string;
@@ -72,6 +72,10 @@ export const getContent = async (type: ContentType): Promise<ContentItem[]> => {
 
     if (type === 'writing') {
         files = import.meta.glob('@/content/writing/*.md', { eager: true, query: '?raw', import: 'default' });
+    } else if (type === 'work') {
+        files = import.meta.glob('@/content/work/*.md', { eager: true, query: '?raw', import: 'default' });
+    } else if (type === 'explorations') {
+        files = import.meta.glob('@/content/explorations/*.md', { eager: true, query: '?raw', import: 'default' });
     } else {
         files = import.meta.glob('@/content/projects/*.md', { eager: true, query: '?raw', import: 'default' });
     }
