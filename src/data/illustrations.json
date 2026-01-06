@@ -12,12 +12,20 @@
         "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-isometric-2025.webp"
     },
     {
+        "id": "landscape-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/landscape-2025.webp"
+    },
+    {
         "id": "cassette-illustration-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-2025.webp"
     },
     {
         "id": "jake-illustration",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-illustration-5-Nov-2025.webp"
+    },
+    {
+        "id": "face-blue-dark-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/face-blue-dark-2025.webp"
     },
     {
         "id": "red-building-illustration-2025",

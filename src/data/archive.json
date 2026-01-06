@@ -48,7 +48,10 @@
         "id": "cassette-illustration-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/cassette-illustration-2025.webp"
     },
-
+    {
+        "id": "landscape-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/landscape-2025.webp"
+    },
     {
         "id": "red-building-illustration-2025",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/red-building-illustration-2025.webp"
@@ -125,6 +128,10 @@
         "id": "pixel-site-in-dev",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/pixel-site-in-dev.webp"
     },  
+    {
+        "id": "face-blue-dark-2025",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/face-blue-dark-2025.webp"
+    },
     {
         "id": "explrar-modals-2024",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-modals-2024.webp"
