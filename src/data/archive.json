@@ -121,11 +121,15 @@
 
     {
         "id": "jake-illustration",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-illustration-5-Nov-2025.webp"
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/jake-animated.gif"
     },
     {
         "id": "metal-logo",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
+    },
+    {
+        "id": "sincere",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/sincere-cover-exploration-2025.webp"
     },
     {
         "id": "image-cards",
