@@ -20,7 +20,7 @@ export default function LoadingScreen({ onComplete, progress }: LoadingScreenPro
     >
       <div className="flex flex-col items-center gap-4 p-4 md:p-8">
         <span className="display text-[var(--content-primary)] animate-pulse">
-          Loading...
+          loading...
         </span>
       </div>
     </motion.div>
