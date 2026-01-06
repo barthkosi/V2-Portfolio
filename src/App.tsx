@@ -4,6 +4,7 @@ import Lenis from "lenis";
 import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
 import PageLayoutAlt from "./components/PageLayoutAlt";
+import PageLayoutFull from "./components/PageLayoutFull";
 import LazyRoute from "./components/LazyRoute";
 import LoadingScreen from "./components/LoadingScreen";
 import { LoadingProvider, useLoading } from "./context/LoadingContext";
@@ -125,11 +126,14 @@ function AppContent() {
             <Route path="/writing/:slug" element={<LazyRoute><Post type="writing" /></LazyRoute>} />
           </Route>
 
+          <Route element={<PageLayoutFull />}>
+            <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
+          </Route>
+
           <Route element={<PageLayout />}>
             <Route path="/projects" element={<LazyRoute><Projects /></LazyRoute>} />
             <Route path="/reading-list" element={<LazyRoute><ReadingList /></LazyRoute>} />
             <Route path="/writing" element={<LazyRoute><Writing /></LazyRoute>} />
-            <Route path="/archive" element={<LazyRoute><Archive /></LazyRoute>} />
             <Route path="/illustrations" element={<LazyRoute><Illustrations /></LazyRoute>} />
             <Route path="*" element={<LazyRoute><NotFound /></LazyRoute>} />
           </Route>
