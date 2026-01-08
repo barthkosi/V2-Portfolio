@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, Navigate } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import Head from '../components/Head';
 import { getPostBySlug, ContentItem, ContentType } from '../lib/content';
 
 interface PostProps {
@@ -24,11 +25,7 @@ export default function Post({ type }: PostProps) {
         loadPost();
     }, [slug, type]);
 
-    useEffect(() => {
-        if (post) {
-            document.title = `barthkosi - ${post.title.toLowerCase()}`;
-        }
-    }, [post]);
+
 
     if (loading) return null; // Or a mini spinner if prefered, but main loader covers first load
 
@@ -38,6 +35,11 @@ export default function Post({ type }: PostProps) {
 
     return (
         <main className="flex flex-col">
+            <Head
+                title={`barthkosi - ${post.title.toLowerCase()}`}
+                description={post.description}
+                image={post.bannerImage || post.coverImage}
+            />
 
             {(post.bannerImage || post.coverImage) && (
                 <div className="w-full overflow-hidden bg-[var(--background-primary)] -mt-[64px] md:-mt-[102px]">

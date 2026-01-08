@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, Variants } from "motion/react";
+import Head from "../components/Head";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
@@ -16,7 +17,7 @@ export default function Writing() {
   const [showCards, setShowCards] = useState(false);
 
   useEffect(() => {
-    document.title = "barthkosi - writing";
+
 
     // Load posts
     const loadPosts = async () => {
@@ -62,6 +63,7 @@ export default function Writing() {
 
   return (
     <main>
+      <Head title="barthkosi - writing" description="My internal monologues externalized, covering everything from tech to the messy human condition." />
       <div className="flex flex-col lg:flex-row w-full gap-6 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
         <InfoBlock
           title="Writing"

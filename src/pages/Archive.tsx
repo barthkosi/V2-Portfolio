@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState, useMemo } from "react";
+import Head from "../components/Head";
 import Card from "../components/Card";
 import archive from "../data/archive.json";
 import { useLoading } from "../context/LoadingContext";
@@ -135,9 +136,7 @@ export default function Archive() {
     }
   }, [totalDimensions]);
 
-  useEffect(() => {
-    document.title = "barthkosi - archive";
-  }, []);
+
 
   // Physics loop
   useEffect(() => {
@@ -230,6 +229,7 @@ export default function Archive() {
         velocity.current.y -= e.deltaY * 0.1;
       }}
     >
+      <Head title="barthkosi - archive" description="A comprehensive archive of my work and experiments." />
       {/* Container is just a reference point, items are absolutely positioned */}
       <div ref={containerRef} className="w-full h-full pointer-events-none overflow-visible">
         {itemPositions?.map((pos) => (

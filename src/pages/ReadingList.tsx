@@ -1,6 +1,7 @@
 import { motion, Variants } from "motion/react"
 import { springTransition } from "../lib/transitions"
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import Head from "../components/Head";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import books from "../data/books.json";
@@ -8,9 +9,7 @@ import books from "../data/books.json";
 export default function ReadingList() {
   const [areBooksVisible, setAreBooksVisible] = useState(false);
 
-  useEffect(() => {
-    document.title = "barthkosi - reading list";
-  }, []);
+
 
   const bookCount = books.length;
 
@@ -41,6 +40,7 @@ export default function ReadingList() {
       <div
         className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center"
       >
+        <Head title="barthkosi - reading list" description="Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands" />
         <InfoBlock
           title="Reading List"
           number={bookCount}

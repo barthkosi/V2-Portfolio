@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, Variants } from "motion/react";
+import Head from "../components/Head";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
@@ -17,7 +18,7 @@ export default function Work() {
     const [showCards, setShowCards] = useState(false);
 
     useEffect(() => {
-        document.title = "barthkosi - work";
+
 
         const loadProjects = async () => {
             const items = await getContent('work');
@@ -56,6 +57,7 @@ export default function Work() {
 
     return (
         <main className="flex flex-col lg:flex-row w-full gap-7 lg:gap-8 h-auto lg:justify-left lg:row justify-center">
+            <Head title="barthkosi - work" description="These entries document my process of building and refining tools that serve a purpose." />
             <InfoBlock
                 title="Work"
                 number={projects.length}

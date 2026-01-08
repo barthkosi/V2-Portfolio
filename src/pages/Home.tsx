@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import Head from "../components/Head";
 import { motion, Variants } from "motion/react";
 import Button from "../components/Button";
 import Marquee from "react-fast-marquee";
@@ -37,16 +37,16 @@ const simple = [
     image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.webp",
   },
   {
-      "id": "metal-logo",
-      "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
+    "id": "metal-logo",
+    "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
   },
-   {
-       "id": "explrar-explorations-2025",
-       "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp"
-   },
   {
-      "id": "image-cards",
-      "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
+    "id": "explrar-explorations-2025",
+    "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp"
+  },
+  {
+    "id": "image-cards",
+    "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
   },
   {
     id: "9",
@@ -168,13 +168,15 @@ export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { isContentReady } = useLoading();
 
-  useEffect(() => {
-    document.title = "barthkosi - design & engineering";
-  }, []);
+
 
   return (
     <>
       <main className='overflow-hidden flex flex-col items-center gap-8 lg:gap-16'>
+        <Head
+          title="barthkosi - design & engineering"
+          description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
+        />
         <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center ">
           {/* Hero Content */}
           <motion.div
@@ -331,7 +333,7 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={springTransition}
                 className="w-full max-w-[520px]">
-                  An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
+                An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
               </motion.h5>
               <ProjectShowcase
                 variant="left"

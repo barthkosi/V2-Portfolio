@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { motion, Variants } from "motion/react";
+import Head from "../components/Head";
 import { springTransition } from "../lib/transitions";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
@@ -8,9 +9,7 @@ import illustrations from "../data/illustrations.json";
 export default function Illustrations() {
   const [areImagesVisible, setAreImagesVisible] = useState(false);
 
-  useEffect(() => {
-    document.title = "barthkosi - illustrations";
-  }, []);
+
 
   const imageCount = illustrations.length;
 
@@ -41,6 +40,7 @@ export default function Illustrations() {
       <div
         className="flex flex-col w-full gap-7 lg:gap-8 h-auto items-center justify-center"
       >
+        <Head title="barthkosi - illustrations" description="A visual diary of forms. I believe only in continued iteration." />
         <div className="max-w-[480px]"><InfoBlock
           variant="centered"
           title="Illustrations"
