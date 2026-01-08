@@ -665,8 +665,8 @@
     /* 48px */
     line-height: var(--line-height-8xl);
     /* 52px */
-    letter-spacing: var(--letter-spacing-5xl);
-    /* -1.8px */
+    letter-spacing: var(--letter-spacing-2xl);
+    /* */
     color: var(--content-primary);
   }
 
@@ -676,8 +676,8 @@
       /* 64px */
       line-height: var(--line-height-12xl);
       /* 68px */
-      letter-spacing: var(--letter-spacing-8xl);
-      /* -2.4px */
+      letter-spacing: var(--letter-spacing-6xl);
+      /* */
     }
   }
 
@@ -685,9 +685,9 @@
     .display {
       font-size: var(--font-size-14xl);
       /* 72px */
-      line-height: var(--line-height-14xl);
+      line-height: var(--line-height-10xl);
       /* 80px */
-      letter-spacing: -3.6px;
+      letter-spacing: -2px;
     }
   }
 
