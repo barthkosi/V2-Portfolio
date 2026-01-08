@@ -13,7 +13,7 @@ export default function Head({
     image = "https://res.cloudinary.com/barthkosi/image/upload/opengraph.webp",
     url = "https://barthkosi.xyz"
 }: HeadProps) {
-    const fullTitle = title === "Barth - Portfolio" ? title : `${title} | Barth`;
+    const fullTitle = title === "Barth - Portfolio" ? title : `${title} `;
 
     return (
         <Helmet>
