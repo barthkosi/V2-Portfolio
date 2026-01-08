@@ -28,7 +28,7 @@ const siteImages = [
 
 function AppContent() {
   const location = useLocation();
-  const { isContentReady, completeLoading, startLoading } = useLoading();
+  const { isContentReady, completeLoading, startLoading, isBlocked } = useLoading();
   const { progress, reset: resetImagePreloader } = useImagePreloader(siteImages);
 
   const checkSkipLoader = (path: string) =>
@@ -102,7 +102,6 @@ function AppContent() {
   }, [location.pathname, startLoading, resetImagePreloader, completeLoading]);
 
 
-
   const handleLoadingComplete = () => {
     setShowLoader(false);
     completeLoading();
@@ -110,12 +109,15 @@ function AppContent() {
 
   const isVisible = isContentReady || (!showLoader && checkSkipLoader(location.pathname));
 
+  // Determine the actual progress to show. If blocked, cap at 90%.
+  const effectiveProgress = isBlocked ? Math.min(progress, 90) : progress;
+
   return (
     <>
       {showLoader && (
         <LoadingScreen
           key={location.pathname}
-          progress={progress}
+          progress={effectiveProgress}
           onComplete={handleLoadingComplete}
         />
       )}

@@ -3,10 +3,11 @@ import { createContext, useContext, useState, ReactNode, useCallback } from 'rea
 interface LoadingContextType {
     isLoading: boolean;
     isContentReady: boolean;
-    progress: number;
-    setProgress: (progress: number) => void;
     completeLoading: () => void;
     startLoading: () => void;
+    addBlocker: (key: string) => void;
+    removeBlocker: (key: string) => void;
+    isBlocked: boolean;
 }
 
 const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
@@ -14,12 +15,27 @@ const LoadingContext = createContext<LoadingContextType | undefined>(undefined);
 export function LoadingProvider({ children }: { children: ReactNode }) {
     const [isLoading, setIsLoading] = useState(true);
     const [isContentReady, setIsContentReady] = useState(false);
-    const [progress, setProgress] = useState(0);
+    const [activeBlockers, setActiveBlockers] = useState<Set<string>>(new Set());
 
     const startLoading = useCallback(() => {
         setIsLoading(true);
         setIsContentReady(false);
-        setProgress(0);
+    }, []);
+
+    const addBlocker = useCallback((key: string) => {
+        setActiveBlockers(prev => {
+            const newSet = new Set(prev);
+            newSet.add(key);
+            return newSet;
+        });
+    }, []);
+
+    const removeBlocker = useCallback((key: string) => {
+        setActiveBlockers(prev => {
+            const newSet = new Set(prev);
+            newSet.delete(key);
+            return newSet;
+        });
     }, []);
 
     const completeLoading = useCallback(() => {
@@ -34,10 +50,11 @@ export function LoadingProvider({ children }: { children: ReactNode }) {
         <LoadingContext.Provider value={{
             isLoading,
             isContentReady,
-            progress,
-            setProgress,
             completeLoading,
-            startLoading
+            startLoading,
+            addBlocker,
+            removeBlocker,
+            isBlocked: activeBlockers.size > 0
         }}>
             {children}
         </LoadingContext.Provider>

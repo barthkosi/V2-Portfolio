@@ -1,6 +1,7 @@
 import { useRef, useEffect, useState, useMemo } from "react";
 import Card from "../components/Card";
 import archive from "../data/archive.json";
+import { useLoading } from "../context/LoadingContext";
 
 const GAP = 32;
 const MIN_COLS = 4;
@@ -9,6 +10,7 @@ export default function Archive() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
   const [imageHeights, setImageHeights] = useState<Record<string, number>>({});
+  const { addBlocker, removeBlocker } = useLoading();
 
   // Responsive sizing
   useEffect(() => {
@@ -26,8 +28,15 @@ export default function Archive() {
   const CARD_PADDING = 16;
 
   useEffect(() => {
+    addBlocker('archive-layout');
+
     const loadedHeights: Record<string, number> = {};
     let loadedCount = 0;
+
+    const finishLoading = () => {
+      setImageHeights({ ...loadedHeights });
+      removeBlocker('archive-layout');
+    };
 
     archive.forEach((item) => {
       const img = new Image();
@@ -37,7 +46,7 @@ export default function Archive() {
         loadedHeights[item.id] = ITEM_WIDTH * aspectRatio + CARD_PADDING;
         loadedCount++;
         if (loadedCount === archive.length) {
-          setImageHeights({ ...loadedHeights });
+          finishLoading();
         }
       };
       img.onerror = () => {
@@ -45,11 +54,14 @@ export default function Archive() {
         loadedHeights[item.id] = ITEM_WIDTH + CARD_PADDING;
         loadedCount++;
         if (loadedCount === archive.length) {
-          setImageHeights({ ...loadedHeights });
+          finishLoading();
         }
       };
       img.src = item.image;
     });
+
+    // Cleanup in case of unmount before finish
+    return () => removeBlocker('archive-layout');
   }, [ITEM_WIDTH]);
 
   // Calculate masonry positions for each item
