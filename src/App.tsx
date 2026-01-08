@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { lazy, useEffect, useState, useRef } from "react";
+import { AnimatePresence } from "motion/react";
 import Lenis from "lenis";
 import ScrollToTop from "./components/ScrollToTop"
 import PageLayout from "./components/PageLayout";
@@ -114,13 +115,15 @@ function AppContent() {
 
   return (
     <>
-      {showLoader && (
-        <LoadingScreen
-          key={location.pathname}
-          progress={effectiveProgress}
-          onComplete={handleLoadingComplete}
-        />
-      )}
+      <AnimatePresence mode="wait">
+        {showLoader && (
+          <LoadingScreen
+            key={location.pathname}
+            progress={effectiveProgress}
+            onComplete={handleLoadingComplete}
+          />
+        )}
+      </AnimatePresence>
       <div style={{ visibility: isVisible ? 'visible' : 'hidden' }}>
         <ScrollToTop />
         <Routes>
