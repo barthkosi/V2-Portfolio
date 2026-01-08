@@ -78,7 +78,7 @@ function AppContent() {
   useEffect(() => {
     if (checkSkipLoader(location.pathname)) {
       completeLoading();
-    }
+    } 
   }, []);
 
   // Handle route changes - show loader on navigation
