@@ -68,14 +68,14 @@ export default function Post({ type }: PostProps) {
                     <ReactMarkdown
                         components={{
                             p: (props) => <p className="blog-text mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
-                            a: (props) => <a className="label-m text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
+                            a: (props) => <a className="blog-text mb-4 lg:mb-6 text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
                             img: (props) => <img className="rounded-[var(--radius-lg)] w-full my-8" {...props} />,
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h3: (props) => <h3 className="h5 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             ul: (props) => <ul className="list-disc pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
                             ol: (props) => <ol className="list-decimal pl-6 mb-6 text-[var(--content-primary)]" {...props} />,
-                            li: (props) => <li className="mb-2 pl-1" {...props} />,
+                            li: (props) => <li className="mb-4 lg:mb-6 pl-1" {...props} />,
                             blockquote: (props) => <blockquote className="border-l-5 border-[var(--border-primary)] pl-3 italic mb-6 text-[var(--content-tertiary)]" {...props} />,
                         }}
                     >
