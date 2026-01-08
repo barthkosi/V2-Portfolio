@@ -30,3 +30,4 @@ export default function LoadingScreen({ onComplete, progress }: LoadingScreenPro
         </motion.div>
     );
 }
+
