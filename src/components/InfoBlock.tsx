@@ -149,7 +149,7 @@ export default function InfoBlock({
           'text-[var(--content-secondary)]',
           isCentered
             ? 'body-m'
-            : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
+            : 'body-m max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
         variants={wordContainerVariants}
       >
