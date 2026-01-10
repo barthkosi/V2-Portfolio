@@ -16,12 +16,12 @@ export default function Footer() {
 
               <div className="flex flex-row gap-2 items-end">
                 <Link to="/work" className="hover:text-[var(--content-secondary)]">Work</Link>
-                <div className="label-xs text-[var(--content-secondary)]">Professional projects and case studies</div>
+                <div className="label-xs text-[var(--content-secondary)]">Projects and case studies</div>
               </div>
 
               <div className="flex flex-row gap-2 items-end">
                 <Link to="/explorations" className="hover:text-[var(--content-secondary)]">Explorations</Link>
-                <div className="label-xs text-[var(--content-secondary)]">Personal experiments and creative explorations</div>
+                <div className="label-xs text-[var(--content-secondary)]">Personal experiments</div>
               </div>
 
               <div className="flex flex-row gap-2 items-end">
