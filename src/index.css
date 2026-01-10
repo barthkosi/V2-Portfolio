@@ -16,6 +16,8 @@
   --font-family-label: "Instrument Sans", ui-sans-serif, system-ui, sans-serif;
   --font-family-blog: "Source Serif 4", ui-sans-serif, system-ui, sans-serif;
 
+  --font-sans: var(--font-family-body);
+
   /* Font Sizes (Primitives) */
   --font-size-xs: 0.75rem;
   /* 12px */
