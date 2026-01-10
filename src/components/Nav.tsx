@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import Button from "../components/Button";
-import { springTransition } from "../lib/transitions";
+import { springBouncy } from "../lib/transitions";
 import { useLoading } from "../context/LoadingContext";
 
 export default function Nav() {
@@ -233,7 +233,7 @@ export default function Nav() {
               animate={{
                 d: isOpen ? "M8 8L25 25" : "M4 10L28 10"
               }}
-              transition={springTransition}
+              transition={springBouncy}
             />
 
             <motion.path
@@ -276,7 +276,7 @@ export default function Nav() {
                 className="flex flex-col gap-1"
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/work" onClick={() => setIsOpen(false)}>Work</Link>
@@ -286,7 +286,7 @@ export default function Nav() {
                 className="flex flex-col gap-1"
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/explorations" onClick={() => setIsOpen(false)}>Explorations</Link>
@@ -296,7 +296,7 @@ export default function Nav() {
                 className="flex flex-col gap-1"
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
@@ -314,7 +314,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
@@ -322,7 +322,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
@@ -330,7 +330,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <Link to="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
@@ -349,7 +349,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -359,7 +359,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -369,7 +369,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -379,7 +379,7 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springTransition },
+                  visible: { opacity: 1, y: 0, transition: springBouncy },
                 }}
               >
                 <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -396,7 +396,7 @@ export default function Nav() {
                   opacity: 1,
                   scaleX: 1,
                   originX: 0,
-                  transition: springTransition
+                  transition: springBouncy
                 },
               }}
             >

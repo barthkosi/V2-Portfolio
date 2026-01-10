@@ -1,5 +1,5 @@
 import { motion, Variants } from "motion/react"
-import { springTransition } from "../lib/transitions"
+import { springBouncy } from "../lib/transitions"
 import { useState } from "react";
 import Head from "../components/Head";
 import InfoBlock from "../components/InfoBlock";
@@ -31,7 +31,7 @@ export default function ReadingList() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springBouncy,
     },
   }
 

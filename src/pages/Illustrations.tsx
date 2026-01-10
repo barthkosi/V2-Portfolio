@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, Variants } from "motion/react";
 import Head from "../components/Head";
-import { springTransition } from "../lib/transitions";
+import { springBouncy } from "../lib/transitions";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import illustrations from "../data/illustrations.json";
@@ -31,7 +31,7 @@ export default function Illustrations() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springBouncy,
     },
   };
 
