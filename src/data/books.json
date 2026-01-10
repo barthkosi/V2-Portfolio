@@ -19,22 +19,49 @@
         "author": "Paulo Coelho"
     },
     {
-        "id": "drtcw",
+        "id": "dieter-rams-the-complete-works",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/dieter-rams-the-complete-works.avif",
         "title": "Dieter Rams: The Complete Works",
         "author": "Klaus Klemp"
     },
     {
-        "id": "tdoet",
+        "id": "the-design-of-everyday-things",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.webp",
         "title": "The Design of Everyday Things",
         "author": "Don Norman"
     },
     {
-        "id": "ph",
+        "id": "penguin-highway",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/penguin-highway-cover.webp",
         "title": "Penguin Highway",
         "author": "Tomihiko Morimi"
+    },
+    {
+        "id": "the-creative-act",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/The-Creative-Act-A-Way-of-Being.webp",
+        "title": "The Creative Act A Way of Being",
+        "author": "Rick Rubin"
+    },
+    {
+        "id": "my-sister-the-serial-killer",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/My-Sister%2C-the-Serial-Killer.webp",
+        "title": "My Sister, the Serial Killer",
+        "author": "Oyinkan Braithwaite",
+        "link": "https://www.goodreads.com/book/show/38819868"
+    },
+    {
+        "id": "no-longer-human",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/no-longer-human.webp",
+        "title": "No Longer Human",
+        "author": "Osamu Dazai",
+        "link": "https://www.goodreads.com/book/show/194746"
+    },
+    {
+        "id": "all-tomorrows",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/all-tomorrows.webp",
+        "title": "All Tomorrows: The Myriad Species and Mixed Fortunes of Man",
+        "author": "Nemo Ramjet",
+        "link": "https://www.goodreads.com/book/show/16143402"
     },
     {
         "id": "native-son",
