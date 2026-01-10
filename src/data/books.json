@@ -10,36 +10,70 @@
         "id": "steal-like-an-artist",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/steal-like-an-artist.webp",
         "title": "Steal Like an Artist",
-        "author": "Austin Kleon"
+        "author": "Austin Kleon",
+        "link": "https://www.goodreads.com/book/show/13099738"
     },
     {
         "id": "the-alchemist",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
         "title": "The Alchemist",
-        "author": "Paulo Coelho"
+        "author": "Paulo Coelho",
+        "link": "https://www.goodreads.com/book/show/18144590"
     },
     {
-        "id": "drtcw",
+        "id": "dieter-rams-the-complete-works",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/dieter-rams-the-complete-works.avif",
         "title": "Dieter Rams: The Complete Works",
-        "author": "Klaus Klemp"
+        "author": "Klaus Klemp",
+        "link": "https://www.goodreads.com/book/show/53288155"
     },
     {
-        "id": "tdoet",
+        "id": "the-design-of-everyday-things",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/the-design-of-everyday-things.webp",
         "title": "The Design of Everyday Things",
-        "author": "Don Norman"
+        "author": "Don Norman",
+        "link": "https://www.goodreads.com/book/show/85686691"
     },
     {
-        "id": "ph",
+        "id": "penguin-highway",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/penguin-highway-cover.webp",
         "title": "Penguin Highway",
-        "author": "Tomihiko Morimi"
+        "author": "Tomihiko Morimi",
+        "link": "https://www.goodreads.com/book/show/41825397"
+    },
+    {
+        "id": "the-creative-act",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/The-Creative-Act-A-Way-of-Being.webp",
+        "title": "The Creative Act A Way of Being",
+        "author": "Rick Rubin",
+        "link": "https://www.goodreads.com/book/show/60965426"
+    },
+    {
+        "id": "my-sister-the-serial-killer",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/My-Sister%2C-the-Serial-Killer.webp",
+        "title": "My Sister, the Serial Killer",
+        "author": "Oyinkan Braithwaite",
+        "link": "https://www.goodreads.com/book/show/38819868"
+    },
+    {
+        "id": "no-longer-human",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/no-longer-human.webp",
+        "title": "No Longer Human",
+        "author": "Osamu Dazai",
+        "link": "https://www.goodreads.com/book/show/194746"
+    },
+    {
+        "id": "all-tomorrows",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/all-tomorrows.webp",
+        "title": "All Tomorrows: The Myriad Species and Mixed Fortunes of Man",
+        "author": "Nemo Ramjet",
+        "link": "https://www.goodreads.com/book/show/16143402"
     },
     {
         "id": "native-son",
         "image": "https://res.cloudinary.com/barthkosi/image/upload/native-son.webp",
         "title": "Native Son",
-        "author": "Richard Wright"
+        "author": "Richard Wright",
+        "link": "https://www.goodreads.com/book/show/15622"
     }
 ]

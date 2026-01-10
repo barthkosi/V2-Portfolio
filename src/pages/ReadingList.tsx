@@ -1,15 +1,26 @@
 import { motion, Variants } from "motion/react"
-import { springTransition } from "../lib/transitions"
-import { useState } from "react";
+import { springBouncy } from "../lib/transitions"
+import { useState, useMemo } from "react";
 import Head from "../components/Head";
 import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import books from "../data/books.json";
 
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function ReadingList() {
   const [areBooksVisible, setAreBooksVisible] = useState(false);
 
-
+  // Shuffle books once when component mounts
+  const shuffledBooks = useMemo(() => shuffleArray(books), []);
 
   const bookCount = books.length;
 
@@ -31,7 +42,7 @@ export default function ReadingList() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springBouncy,
     },
   }
 
@@ -54,7 +65,7 @@ export default function ReadingList() {
           initial="hidden"
           animate={areBooksVisible ? "visible" : "hidden"}
         >
-          {books.map(book => (
+          {shuffledBooks.map(book => (
             <motion.div
               key={book.id}
               variants={cardVariants}

@@ -5,7 +5,7 @@ import InfoBlock from "../components/InfoBlock";
 import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { getContent, getAllTags, ContentItem } from "../lib/content";
-import { springTransition } from "@/lib/transitions";
+import { springBouncy } from "@/lib/transitions";
 
 
 export default function Writing() {
@@ -57,7 +57,7 @@ export default function Writing() {
     visible: {
       opacity: 1,
       y: 0,
-      transition: springTransition,
+      transition: springBouncy,
     },
   };
 

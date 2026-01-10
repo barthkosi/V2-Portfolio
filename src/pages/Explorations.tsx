@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { getContent, getAllTags, ContentItem } from "../lib/content";
 
-import { springTransition } from "@/lib/transitions";
+import { springBouncy } from "@/lib/transitions";
 
 export default function Explorations() {
     const [explorations, setExplorations] = useState<ContentItem[]>([]);
@@ -51,7 +51,7 @@ export default function Explorations() {
         visible: {
             opacity: 1,
             y: 0,
-            transition: springTransition
+            transition: springBouncy
         },
     };
 

@@ -1,6 +1,6 @@
 // Shared transition configurations for Framer Motion
 
-export const springTransition = {
+export const springBouncy = {
     type: "spring",
     stiffness: 265,
     damping: 22,
@@ -29,4 +29,3 @@ export const springMarquee = {
     damping: 22,
     mass: 3,
 } as const;
- 

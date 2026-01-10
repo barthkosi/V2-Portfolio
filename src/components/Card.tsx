@@ -39,7 +39,7 @@ export default function Card({
             {(title || description) && (
                 <div className="w-full flex flex-col p-4 gap-1 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
                     {title && <div className="w-full text-[var(--content-primary)] label-m">{title}</div>}
-                    {description && <div className="w-full text-[var(--content-tertiary)] body-s">{description}</div>}
+                    {description && <div className="w-full text-[var(--content-tertiary)] body-s-medium">{description}</div>}
                 </div>
             )}
          </div>   

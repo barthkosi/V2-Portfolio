@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
-import { springMarquee, springTransition } from "@/lib/transitions";
+import { springMarquee, springBouncy } from "@/lib/transitions";
 
 const simple = [
   {
@@ -96,7 +96,7 @@ const wordVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: springTransition,
+    transition: springBouncy,
   },
 };
 
@@ -119,7 +119,7 @@ const buttonVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: springTransition,
+    transition: springBouncy,
   },
 };
 
@@ -177,7 +177,7 @@ export default function Home() {
           title="barthkosi - design & engineering"
           description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
         />
-        <div className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center ">
+        <section className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center ">
           {/* Hero Content */}
           <motion.div
             className="w-full items-start flex flex-col justify-center gap-4"
@@ -319,9 +319,9 @@ export default function Home() {
             </div>
           </motion.div>
 
-        </div>
+        </section>
 
-        <div className="flex flex-col gap-12 p-4 md:px-[80px]">
+        <section className="flex flex-col gap-12 p-4 md:px-[80px]">
           <div className="flex flex-col gap-8">
             <h6 className="label-l">
               Select Work
@@ -331,7 +331,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={springTransition}
+                transition={springBouncy}
                 className="w-full max-w-[520px]">
                 An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
               </motion.h5>
@@ -361,7 +361,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={springTransition}
+                transition={springBouncy}
                 className="w-full max-w-[520px]">A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.
               </motion.h5>
               <ProjectShowcase
@@ -390,7 +390,7 @@ export default function Home() {
                 initial={{ opacity: 0, x: 20 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={springTransition}
+                transition={springBouncy}
                 className="w-full max-w-[520px]">Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.
               </motion.h5>
               <ProjectShowcase
@@ -422,7 +422,7 @@ export default function Home() {
               </Button>
             </div>
           </div>
-        </div>
+        </section>
 
       </main>
     </>
