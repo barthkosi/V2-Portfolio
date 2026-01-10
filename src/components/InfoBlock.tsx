@@ -148,8 +148,8 @@ export default function InfoBlock({
         className={[
           'text-[var(--content-secondary)]',
           isCentered
-            ? 'body-m'
-            : 'body-m max-w-[480px] lg:max-w-[335px]',
+            ? 'body-m-medium'
+            : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
         variants={wordContainerVariants}
       >
