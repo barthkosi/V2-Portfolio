@@ -71,14 +71,14 @@
     },
     {
       "id": "show-your-work",
-      "image": "https://res.cloudinary.com/barthkosi/image/upload/show-your-work.png",
+      "image": "https://res.cloudinary.com/barthkosi/image/upload/show-your-work.webp",
       "title": "Show Your Work!",
       "author": "Austin Kleon",
       "link": "https://www.goodreads.com/book/show/18290401"
     }, 
     {
         "id": "essentialism",
-        "image": "https://res.cloudinary.com/barthkosi/image/upload/essentialism.png",
+        "image": "https://res.cloudinary.com/barthkosi/image/upload/essentialism.webp",
         "title": "Essentialism",
         "author": "Greg McKeown",
         "link": "https://www.goodreads.com/book/show/19776547"
