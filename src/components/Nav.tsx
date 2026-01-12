@@ -58,8 +58,6 @@ export default function Nav() {
           background: isOpen
             ? 'var(--background-primary)'
             : `linear-gradient(to bottom, var(--background-primary), var(--opacity-0))`,
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
           maskImage: isOpen
             ? 'none'
             : 'linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0))',
