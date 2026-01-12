@@ -4,7 +4,7 @@ import Marquee from "react-fast-marquee";
 export default function Footer() {
   return (
     <footer className="w-full p-4 md:p-6">
-      <div className="overflow-hidden max-w-[1440px] flex flex-col items-start rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
+      <div className="mx-auto overflow-hidden max-w-[1440px] flex flex-col items-start rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
         <div className='w-full flex flex-col md:flex-row items-start text-left gap-5 p-6 md:p-10'>
           <div className="w-full flex flex-col gap-3">
             <div className="label-xs text-[var(--content-tertiary)]">Links</div>
