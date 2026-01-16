@@ -5,7 +5,7 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
-import { springMarquee, springBouncy } from "@/lib/transitions";
+import { Motion, springMarquee, springBouncy } from "@/lib/transitions";
 
 const simple = [
   {
@@ -65,41 +65,6 @@ const mainContainerVariants: Variants = {
   },
 };
 
-const wordContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.06,
-      when: "beforeChildren",
-    },
-  },
-};
-
-const descriptionContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.04,
-      delayChildren: 0.4,
-      when: "beforeChildren",
-    },
-  },
-};
-
-const wordVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 20,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: springBouncy,
-  },
-};
-
 const buttonContainerVariants: Variants = {
   hidden: { opacity: 0 },
   visible: {
@@ -152,17 +117,7 @@ const marqueeMobileVariants: Variants = {
 
 
 
-const animateWords = (text: string) => {
-  return text.split(' ').map((word, index) => (
-    <motion.span
-      key={`${word}-${index}`}
-      variants={wordVariants}
-      style={{ display: 'inline-block', marginRight: '0.25em' }}
-    >
-      {word}
-    </motion.span>
-  ));
-};
+
 
 export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
@@ -186,18 +141,16 @@ export default function Home() {
             variants={mainContainerVariants}
           >
             <div className="flex flex-col gap-2 pt-4 lg:pt-0 text-left">
-              <motion.h1
-                className='md:max-w-[640px] lg:max-w-[1440px]'
-                variants={wordContainerVariants}
-              >
-                {animateWords("Barth creates visual systems and digital experiences")}
-              </motion.h1>
-              <motion.p
-                className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]"
-                variants={descriptionContainerVariants}
-              >
-                {animateWords("Explore my portfolio of web interactions, engineered solutions, and dynamic motion design that aims to inject joy into the digital world.")}
-              </motion.p>
+              <Motion type="fadeUp" delay={0.2}>
+                <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>
+                  Barth creates visual systems and digital experiences
+                </h1>
+              </Motion>
+              <Motion type="fadeUp" delay={0.4}>
+                <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
+                  Explore my portfolio of web interactions, engineered solutions, and dynamic motion design that aims to inject joy into the digital world.
+                </p>
+              </Motion>
             </div>
             <motion.div
               className="flex flex-row items-center gap-3 flex-wrap"
