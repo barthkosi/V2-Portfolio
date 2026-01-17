@@ -1,5 +1,5 @@
 import { motion, Variants } from "motion/react"
-import { springSnappy } from "../lib/transitions"
+import { springSnappy, anim } from "../lib/transitions"
 import { useLoading } from "../context/LoadingContext"
 
 type InfoBlockVariant = 'default' | 'centered'
@@ -43,30 +43,7 @@ export default function InfoBlock({
     },
   }
 
-  const wordContainerVariants: Variants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.08,
-        when: "beforeChildren",
-      },
-    },
-  }
-
   const letterVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: springSnappy,
-    },
-  }
-
-  const wordVariants: Variants = {
     hidden: {
       opacity: 0,
       y: 20,
@@ -86,24 +63,6 @@ export default function InfoBlock({
         style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
       >
         {char}
-      </motion.span>
-    ))
-  }
-
-  const animateWords = (text: string) => {
-    const words = text.split(' ')
-    return words.map((word, index) => (
-      <motion.span
-        key={`${word}-${index}`}
-        variants={wordVariants}
-        style={{ display: 'inline-block', marginRight: '0.25em' }}
-        onAnimationComplete={(definition) => {
-          if (definition === 'visible' && index === words.length - 1) {
-            onComplete?.()
-          }
-        }}
-      >
-        {word}
       </motion.span>
     ))
   }
@@ -151,9 +110,14 @@ export default function InfoBlock({
             ? 'body-m-medium'
             : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
-        variants={wordContainerVariants}
+        variants={anim.fadeUp}
+        onAnimationComplete={(definition) => {
+          if (definition === 'visible') {
+            onComplete?.()
+          }
+        }}
       >
-        {animateWords(description)}
+        {description}
       </motion.p>
     </motion.div>
   )
