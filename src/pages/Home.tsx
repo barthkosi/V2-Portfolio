@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Head from "../components/Head";
 import { motion, Variants } from "motion/react";
 import Button from "../components/Button";
@@ -41,20 +42,39 @@ const extraItems: ExtraItem[] = [
     sidebarDescription: "Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands.",
     link: "/reading-list",
   },
-  {
-    id: "writing",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/replacement-cover.webp",
-    sidebarTitle: "Writing",
-    sidebarDescription: "My internal monologues externalized, covering everything from tech to the messy human condition.",
-    cardTitle: "What is the benchmark for replacement?",
-    cardDescription: "On taste, agency and the death of average.",
-    link: "/writing",
-  },
 ];
 
 export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
-  const { isContentReady } = useLoading();
+  const { isContentReady, addBlocker, removeBlocker } = useLoading();
+
+  useEffect(() => {
+    const BLOCKER_KEY = 'home-images';
+    addBlocker(BLOCKER_KEY);
+
+    const imagesToPreload = [
+      ...heroMarquee.map(item => item.image),
+    ];
+
+    let loadedCount = 0;
+    const totalImages = imagesToPreload.length;
+
+    const checkComplete = () => {
+      loadedCount++;
+      if (loadedCount === totalImages) {
+        removeBlocker(BLOCKER_KEY);
+      }
+    };
+
+    imagesToPreload.forEach((src) => {
+      const img = new Image();
+      img.onload = checkComplete;
+      img.onerror = checkComplete; // Don't block on failed images
+      img.src = src;
+    });
+
+    return () => removeBlocker(BLOCKER_KEY);
+  }, [addBlocker, removeBlocker]);
 
   return (
     <>
