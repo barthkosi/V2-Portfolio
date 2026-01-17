@@ -2,7 +2,7 @@ import { Link, useLocation } from "react-router-dom";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import Button from "../components/Button";
-import { springBouncy } from "../lib/transitions";
+import { anim, physics } from "../lib/transitions";
 import { useLoading } from "../context/LoadingContext";
 
 export default function Nav() {
@@ -48,9 +48,9 @@ export default function Nav() {
   return (
     <motion.nav
       className={`w-full flex flex-col ${isOpen ? 'h-screen' : 'h-[64px]'} md:h-[102px] p-4 md:p-8 items-start justify-between gap-6 sticky top-0 z-50 overflow-visible`}
-      initial={{ y: -24, opacity: 0 }}
-      animate={isContentReady ? { y: 0, opacity: 1 } : { y: -24, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 265, damping: 22, mass: 1 }}
+      initial={anim.fadeDownBouncy.initial}
+      animate={isContentReady ? anim.fadeDownBouncy.animate : anim.fadeDownBouncy.initial}
+      exit={anim.fadeDownBouncy.exit}
     >
       <div
         className="absolute inset-0 pointer-events-none"
@@ -97,10 +97,9 @@ export default function Nav() {
               {showVault && (
                 <motion.div
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ type: "spring", stiffness: 265, damping: 22, mass: 1 }}
+                  initial={anim.fadeDownBouncy.initial}
+                  animate={anim.fadeDownBouncy.animate}
+                  exit={anim.fadeDownBouncy.exit}
                 >
                   <Link to="/archive" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Archive</Link>
                   <Link to="/reading-list" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Reading List</Link>
@@ -123,10 +122,9 @@ export default function Nav() {
               {showSocial && (
                 <motion.div
                   className="absolute top-full left-1/2 -translate-x-1/2 mt-2 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ type: "spring", stiffness: 265, damping: 22, mass: 1 }}
+                  initial={anim.fadeDownBouncy.initial}
+                  animate={anim.fadeDownBouncy.animate}
+                  exit={anim.fadeDownBouncy.exit}
                 >
                   <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
                     <svg
@@ -231,7 +229,7 @@ export default function Nav() {
               animate={{
                 d: isOpen ? "M8 8L25 25" : "M4 10L28 10"
               }}
-              transition={springBouncy}
+              transition={physics.bouncy}
             />
 
             <motion.path
@@ -273,8 +271,8 @@ export default function Nav() {
               <motion.div
                 className="flex flex-col gap-1"
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/work" onClick={() => setIsOpen(false)}>Work</Link>
@@ -283,8 +281,8 @@ export default function Nav() {
               <motion.div
                 className="flex flex-col gap-1"
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/explorations" onClick={() => setIsOpen(false)}>Explorations</Link>
@@ -293,8 +291,8 @@ export default function Nav() {
               <motion.div
                 className="flex flex-col gap-1"
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/illustrations" onClick={() => setIsOpen(false)}>Illustrations</Link>
@@ -304,31 +302,31 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.3, delay: 1.6 } },
+                  visible: { opacity: 1, transition: { ...physics.standard, delay: 1.6 } },
                 }}
               >
                 <div className="label-s text-[var(--content-tertiary)]">Vault</div>
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/archive" onClick={() => setIsOpen(false)}>Archive</Link>
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/reading-list" onClick={() => setIsOpen(false)}>Reading List</Link>
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <Link to="/writing" onClick={() => setIsOpen(false)}>Writing</Link>
@@ -339,15 +337,15 @@ export default function Nav() {
               <motion.div
                 variants={{
                   hidden: { opacity: 0 },
-                  visible: { opacity: 1, transition: { duration: 0.3, delay: 1.6 } },
+                  visible: { opacity: 1, transition: { ...physics.standard, delay: 1.6 } },
                 }}
               >
                 <div className="label-s text-[var(--content-tertiary)]">Social</div>
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -356,8 +354,8 @@ export default function Nav() {
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -366,8 +364,8 @@ export default function Nav() {
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -376,8 +374,8 @@ export default function Nav() {
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: { opacity: 0, y: -10 },
-                  visible: { opacity: 1, y: 0, transition: springBouncy },
+                  hidden: anim.fadeDownBouncy.hidden,
+                  visible: anim.fadeDownBouncy.visible,
                 }}
               >
                 <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer">
@@ -394,7 +392,7 @@ export default function Nav() {
                   opacity: 1,
                   scaleX: 1,
                   originX: 0,
-                  transition: springBouncy
+                  transition: physics.bouncy
                 },
               }}
             >
