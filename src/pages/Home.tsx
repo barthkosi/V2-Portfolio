@@ -12,12 +12,18 @@ import heroMarquee from "../data/heroMarquee.json";
 
 const marqueeDesktopVariants: Variants = {
   hidden: anim.fadeLeftBouncy.hidden,
-  visible: anim.fadeLeftBouncy.visible,
+  visible: {
+    ...anim.fadeLeftBouncy.visible,
+    transition: { ...anim.fadeLeftBouncy.visible.transition, delay: 1.6 },
+  },
 };
 
 const marqueeMobileVariants: Variants = {
   hidden: anim.fadeUpBouncy.hidden,
-  visible: anim.fadeUpBouncy.visible,
+  visible: {
+    ...anim.fadeUpBouncy.visible,
+    transition: { ...anim.fadeUpBouncy.visible.transition, delay: 1.6 },
+  },
 };
 
 const extraItems: ExtraItem[] = [
@@ -68,7 +74,7 @@ export default function Home() {
               visible: {
                 transition: {
                   staggerChildren: 0.15,
-                  delayChildren: 0.2,
+                  delayChildren: 0.8,
                 },
               },
             }}
