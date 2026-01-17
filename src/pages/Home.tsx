@@ -5,95 +5,24 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
-import { Motion, springMarquee, springBouncy } from "@/lib/transitions";
+import { Motion, springMarquee } from "@/lib/transitions";
 
 const simple = [
-  {
-    id: "1",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.webp",
-  },
-  {
-    id: "2",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.webp",
-  },
-  {
-    id: "3",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.webp",
-  },
-  {
-    id: "4",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.webp",
-  },
-  {
-    id: "5",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.webp",
-  },
-  {
-    id: "6",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.webp",
-  },
-  {
-    id: "7",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.webp",
-  },
-  {
-    "id": "metal-logo",
-    "image": "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp"
-  },
-  {
-    "id": "explrar-explorations-2025",
-    "image": "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp"
-  },
-  {
-    "id": "image-cards",
-    "image": "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp"
-  },
-  {
-    id: "9",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.webp",
-  },
+  { id: "1", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.webp" },
+  { id: "2", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.webp" },
+  { id: "3", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.webp" },
+  { id: "4", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.webp" },
+  { id: "5", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.webp" },
+  { id: "6", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.webp" },
+  { id: "7", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.webp" },
+  { id: "metal-logo", image: "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp" },
+  { id: "explrar-explorations-2025", image: "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp" },
+  { id: "image-cards", image: "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp" },
+  { id: "9", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.webp" },
 ];
 
-// Hero section animations
-const mainContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.5,
-    },
-  },
-};
-
-const buttonContainerVariants: Variants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.15,
-      delayChildren: 1,
-    },
-  },
-};
-
-const buttonVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 15,
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: springBouncy,
-  },
-};
-
-// Marquee - desktop slides from right
 const marqueeDesktopVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    x: 100,
-  },
+  hidden: { opacity: 0, x: 100 },
   visible: {
     opacity: 1,
     x: 0,
@@ -101,12 +30,8 @@ const marqueeDesktopVariants: Variants = {
   },
 };
 
-// Marquee - mobile slides from bottom
 const marqueeMobileVariants: Variants = {
-  hidden: {
-    opacity: 0,
-    y: 50,
-  },
+  hidden: { opacity: 0, y: 50 },
   visible: {
     opacity: 1,
     y: 0,
@@ -114,16 +39,9 @@ const marqueeMobileVariants: Variants = {
   },
 };
 
-
-
-
-
-
 export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
   const { isContentReady } = useLoading();
-
-
 
   return (
     <>
@@ -138,44 +56,42 @@ export default function Home() {
             className="w-full items-start flex flex-col justify-center gap-4"
             initial="hidden"
             animate={isContentReady ? "visible" : "hidden"}
-            variants={mainContainerVariants}
+            variants={{
+              visible: {
+                transition: {
+                  staggerChildren: 0.15,
+                  delayChildren: 0.2,
+                },
+              },
+            }}
           >
             <div className="flex flex-col gap-2 pt-4 lg:pt-0 text-left">
-              <Motion type="fadeUp" delay={0.2}>
+              <Motion type="upSnappy">
                 <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>
                   Barth creates visual systems and digital experiences
                 </h1>
               </Motion>
-              <Motion type="fadeUp" delay={0.4}>
+              <Motion type="upSnappy">
                 <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
                   Explore my portfolio of web interactions, engineered solutions, and dynamic motion design that aims to inject joy into the digital world.
                 </p>
               </Motion>
             </div>
-            <motion.div
-              className="flex flex-row items-center gap-3 flex-wrap"
-              variants={buttonContainerVariants}
-            >
-              <motion.div variants={buttonVariants}>
-                <Button
-                  href="https://cal.com/barthkosi/intro"
-                  openInNewTab
-                >
-                  Schedule a Call
-                </Button>
-              </motion.div>
-
-              <motion.div variants={buttonVariants}>
-                <Button to="/work"
-                  variant="secondary"
-                >
-                  View Work
-                </Button>
-              </motion.div>
-            </motion.div>
+            
+            <Motion type="upSnappy" className="flex flex-row items-center gap-3 flex-wrap">
+              <Button
+                href="https://cal.com/barthkosi/intro"
+                openInNewTab
+              >
+                Schedule a Call
+              </Button>
+              <Button to="/work" variant="secondary">
+                View Work
+              </Button>
+            </Motion>
           </motion.div>
 
-          {/* Marquee Section - slides from right on desktop, bottom on mobile */}
+          {/* Marquee Section */}
           <motion.div
             className="w-[140%] lg:w-[100%] flex justify-center items-start"
             initial="hidden"
@@ -190,40 +106,20 @@ export default function Home() {
             >
               {isDesktop ? (
                 <>
-                  <div
-                    className="relative w-[280px] h-[600px] overflow-hidden"
-                    style={{
-                      maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
-                      WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
-                    }}
-                  >
+                  <div className="relative w-[280px] h-[600px] overflow-hidden" style={{ maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
                     <div className="flex flex-col gap-1 animate-scroll-up">
                       {[...simple.slice(0, 5), ...simple.slice(0, 5), ...simple.slice(0, 5)].map((item, index) => (
                         <div key={`col1-${item.id}-${index}`} className="w-full flex-shrink-0">
-                          <img
-                            src={item.image}
-                            alt={`Project ${item.id}`}
-                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]"
-                          />
+                          <img src={item.image} alt={`Project ${item.id}`} className="w-full aspect-video object-cover rounded-[var(--radius-lg)]" />
                         </div>
                       ))}
                     </div>
                   </div>
-                  <div
-                    className="relative w-[280px] h-[600px] overflow-hidden"
-                    style={{
-                      maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
-                      WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)',
-                    }}
-                  >
+                  <div className="relative w-[280px] h-[600px] overflow-hidden" style={{ maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
                     <div className="flex flex-col gap-1 animate-scroll-down">
                       {[...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3)].map((item, index) => (
                         <div key={`col2-${item.id}-${index}`} className="w-full flex-shrink-0">
-                          <img
-                            src={item.image}
-                            alt={`Project ${item.id}`}
-                            className="w-full aspect-video object-cover rounded-[var(--radius-lg)]"
-                          />
+                          <img src={item.image} alt={`Project ${item.id}`} className="w-full aspect-video object-cover rounded-[var(--radius-lg)]" />
                         </div>
                       ))}
                     </div>
@@ -231,152 +127,69 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <Marquee
-                    direction="left"
-                    speed={50}
-                    autoFill={true}
-                    style={{
-                      maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
-                      WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
-                    }}
-                  >
+                  <Marquee direction="left" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
                     {simple.slice(0, 5).map((item) => (
-                      <img
-                        key={item.id}
-                        src={item.image}
-                        alt={`Project ${item.id}`}
-                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px]"
-                      />
+                      <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
                     ))}
                   </Marquee>
-                  <Marquee
-                    direction="right"
-                    speed={50}
-                    autoFill={true}
-                    style={{
-                      maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
-                      WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)',
-                    }}
-                  >
+                  <Marquee direction="right" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
                     {simple.slice(5).map((item) => (
-                      <img
-                        key={item.id}
-                        src={item.image}
-                        alt={`Project ${item.id}`}
-                        className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px]"
-                      />
+                      <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
                     ))}
                   </Marquee>
                 </>
               )}
             </div>
           </motion.div>
-
         </section>
 
         <section className="flex flex-col gap-12 p-4 md:px-[80px]">
           <div className="flex flex-col gap-8">
-            <h6 className="label-l">
-              Select Work
-            </h6>
+            <h6 className="label-l">Select Work</h6>
             <div className="flex flex-col gap-5">
-              <motion.h5
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={springBouncy}
-                className="w-full max-w-[520px]">
-                An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.
-              </motion.h5>
+              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+                <h5>An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.</h5>
+              </Motion>
               <ProjectShowcase
                 variant="left"
                 items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp',
-                    alt: 'project cover',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp', alt: 'project cover' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp', alt: 'project screenshot' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp', alt: 'project screenshot' },
                 ]}
               />
             </div>
             <div className="flex flex-col gap-5">
-              <motion.h5
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={springBouncy}
-                className="w-full max-w-[520px]">A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.
-              </motion.h5>
+              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+                <h5>A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.</h5>
+              </Motion>
               <ProjectShowcase
                 variant="right"
                 items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp',
-                    alt: 'project cover',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp',
-                    alt: 'project screenshot',
-                  },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp', alt: 'project screenshot' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp', alt: 'project cover' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp', alt: 'project screenshot' },
                 ]}
               />
             </div>
             <div className="flex flex-col gap-5">
-              <motion.h5
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={springBouncy}
-                className="w-full max-w-[520px]">Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.
-              </motion.h5>
+              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+                <h5>Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.</h5>
+              </Motion>
               <ProjectShowcase
                 variant="right"
                 items={[
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp',
-                    alt: 'project screenshot',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.webp',
-                    alt: 'suiXaxelar collab logo',
-                  },
-                  {
-                    type: 'image',
-                    src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp',
-                    alt: 'project screenshot',
-                  },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp', alt: 'project screenshot' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.webp', alt: 'suiXaxelar collab logo' },
+                  { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp', alt: 'project screenshot' },
                 ]}
               />
             </div>
             <div className="w-full flex justify-center">
-              <Button to="/work"
-                variant="secondary"
-              >
-                View All Work
-              </Button>
+              <Button to="/work" variant="secondary">View All Work</Button>
             </div>
           </div>
         </section>
-
       </main>
     </>
   );
