@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from "motion/react";
-import { springBouncy } from "../lib/transitions";
+import { physics } from "../lib/transitions";
 
 export type MediaType = 'image' | 'video';
 
@@ -48,7 +48,7 @@ const itemVariants: Variants = {
     visible: {
         opacity: 1,
         x: 0,
-        transition: springBouncy,
+        transition: physics.standard,
     }
 };
 
