@@ -1,5 +1,5 @@
 import { motion, Variants } from "motion/react"
-import { springSnappy, anim } from "../lib/transitions"
+import { anim } from "../lib/transitions"
 import { useLoading } from "../context/LoadingContext"
 
 type InfoBlockVariant = 'default' | 'centered'
@@ -43,23 +43,11 @@ export default function InfoBlock({
     },
   }
 
-  const letterVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y: 20,
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: springSnappy,
-    },
-  }
-
   const animateText = (text: string) => {
     return text.split('').map((char, index) => (
       <motion.span
         key={`${char}-${index}`}
-        variants={letterVariants}
+        variants={anim.upSnappy}
         style={{ display: 'inline-block', whiteSpace: char === ' ' ? 'pre' : 'normal' }}
       >
         {char}
@@ -110,7 +98,7 @@ export default function InfoBlock({
             ? 'body-m-medium'
             : 'body-m-medium max-w-[480px] lg:max-w-[335px]',
         ].join(' ')}
-        variants={anim.fadeUp}
+        variants={anim.upSnappy}
         onAnimationComplete={(definition) => {
           if (definition === 'visible') {
             onComplete?.()
