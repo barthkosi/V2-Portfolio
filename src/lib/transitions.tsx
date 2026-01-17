@@ -15,7 +15,6 @@ export const physics = {
 export const springBouncy = physics.bouncy;
 export const springSnappy = physics.snappy;
 export const springBase = physics.snappy;
-export const springMarquee = { type: "spring", stiffness: 100, damping: 20, mass: 1 } as const;
 
 const directions = {
   up: { y: DEFAULT_DISTANCE },

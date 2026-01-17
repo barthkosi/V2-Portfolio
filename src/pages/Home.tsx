@@ -6,26 +6,18 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
 import ExtrasSection, { ExtraItem } from "../components/ExtrasSection";
-import { Motion, springMarquee } from "@/lib/transitions";
+import { Motion, anim } from "@/lib/transitions";
 import heroMarquee from "../data/heroMarquee.json";
 
 
 const marqueeDesktopVariants: Variants = {
-  hidden: { opacity: 0, x: 100 },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: springMarquee,
-  },
+  hidden: anim.fadeLeftBouncy.hidden,
+  visible: anim.fadeLeftBouncy.visible,
 };
 
 const marqueeMobileVariants: Variants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: springMarquee,
-  },
+  hidden: anim.fadeUpBouncy.hidden,
+  visible: anim.fadeUpBouncy.visible,
 };
 
 const extraItems: ExtraItem[] = [
@@ -72,6 +64,7 @@ export default function Home() {
             initial="hidden"
             animate={isContentReady ? "visible" : "hidden"}
             variants={{
+              hidden: {},
               visible: {
                 transition: {
                   staggerChildren: 0.15,
@@ -80,20 +73,35 @@ export default function Home() {
               },
             }}
           >
-            <div className="flex flex-col gap-2 pt-4 lg:pt-0 text-left">
-              <Motion type="upSnappy">
-                <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>
-                  Barth creates visual systems and digital experiences
-                </h1>
-              </Motion>
-              <Motion type="upSnappy">
-                <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
-                  Explore my portfolio of web interactions, engineered solutions, and dynamic motion design that aims to inject joy into the digital world.
-                </p>
-              </Motion>
-            </div>
+            <motion.div
+              className="flex flex-col gap-2 pt-4 lg:pt-0 text-left"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
+              <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>
+                Barth creates visual systems and digital experiences
+              </h1>
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
+              <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
+                Explore my portfolio of web interactions, engineered solutions, and dynamic motion design that aims to inject joy into the digital world.
+              </p>
+            </motion.div>
 
-            <Motion type="upSnappy" className="flex flex-row items-center gap-3 flex-wrap">
+            <motion.div
+              className="flex flex-row items-center gap-3 flex-wrap"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <Button
                 href="https://cal.com/barthkosi/intro"
                 openInNewTab
@@ -103,7 +111,7 @@ export default function Home() {
               <Button to="/work" variant="secondary">
                 View Work
               </Button>
-            </Motion>
+            </motion.div>
           </motion.div>
 
           {/* Marquee Section */}
