@@ -6,20 +6,7 @@ import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
 import { Motion, springMarquee } from "@/lib/transitions";
-
-const simple = [
-  { id: "1", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281622/bookworms_f3dtzz.webp" },
-  { id: "2", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360174/bookworm_-_cover_kc0pcr.webp" },
-  { id: "3", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360901/atoms_-_3_memhte.webp" },
-  { id: "4", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360900/atoms_-_2_nu2b6z.webp" },
-  { id: "5", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360408/Screens_rhp8oe.webp" },
-  { id: "6", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756360410/Screens-1_vf2tnw.webp" },
-  { id: "7", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756281200/polarcam_bmcbvy.webp" },
-  { id: "metal-logo", image: "https://res.cloudinary.com/barthkosi/image/upload/metal-logo.webp" },
-  { id: "explrar-explorations-2025", image: "https://res.cloudinary.com/barthkosi/image/upload/explrar-explorations-2025.webp" },
-  { id: "image-cards", image: "https://res.cloudinary.com/barthkosi/image/upload/image-cards.webp" },
-  { id: "9", image: "https://res.cloudinary.com/barthkosi/image/upload/v1756359953/cover_lnaewc.webp" },
-];
+import heroMarquee from "../data/heroMarquee.json";
 
 const marqueeDesktopVariants: Variants = {
   hidden: { opacity: 0, x: 100 },
@@ -77,7 +64,7 @@ export default function Home() {
                 </p>
               </Motion>
             </div>
-            
+
             <Motion type="upSnappy" className="flex flex-row items-center gap-3 flex-wrap">
               <Button
                 href="https://cal.com/barthkosi/intro"
@@ -108,7 +95,7 @@ export default function Home() {
                 <>
                   <div className="relative w-[280px] h-[600px] overflow-hidden" style={{ maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
                     <div className="flex flex-col gap-1 animate-scroll-up">
-                      {[...simple.slice(0, 5), ...simple.slice(0, 5), ...simple.slice(0, 5)].map((item, index) => (
+                      {[...heroMarquee.slice(0, 5), ...heroMarquee.slice(0, 5), ...heroMarquee.slice(0, 5)].map((item, index) => (
                         <div key={`col1-${item.id}-${index}`} className="w-full flex-shrink-0">
                           <img src={item.image} alt={`Project ${item.id}`} className="w-full aspect-video object-cover rounded-[var(--radius-lg)]" />
                         </div>
@@ -117,7 +104,7 @@ export default function Home() {
                   </div>
                   <div className="relative w-[280px] h-[600px] overflow-hidden" style={{ maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
                     <div className="flex flex-col gap-1 animate-scroll-down">
-                      {[...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3), ...simple.slice(5), ...simple.slice(0, 3)].map((item, index) => (
+                      {[...heroMarquee.slice(5), ...heroMarquee.slice(0, 3), ...heroMarquee.slice(5), ...heroMarquee.slice(0, 3), ...heroMarquee.slice(5), ...heroMarquee.slice(0, 3)].map((item, index) => (
                         <div key={`col2-${item.id}-${index}`} className="w-full flex-shrink-0">
                           <img src={item.image} alt={`Project ${item.id}`} className="w-full aspect-video object-cover rounded-[var(--radius-lg)]" />
                         </div>
@@ -128,12 +115,12 @@ export default function Home() {
               ) : (
                 <>
                   <Marquee direction="left" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
-                    {simple.slice(0, 5).map((item) => (
+                    {heroMarquee.slice(0, 5).map((item) => (
                       <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
                     ))}
                   </Marquee>
                   <Marquee direction="right" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
-                    {simple.slice(5).map((item) => (
+                    {heroMarquee.slice(5).map((item) => (
                       <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
                     ))}
                   </Marquee>
