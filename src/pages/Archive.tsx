@@ -5,8 +5,8 @@ import archive from "../data/archive.json";
 import { useLoading } from "../context/LoadingContext";
 
 const GAP = 32;
-const CURSOR_GRAB = "url('/src/assets/cursors/Cursor Grab.svg') 12 12, grab";
-const CURSOR_GRABBED = "url('/src/assets/cursors/Cursor Grabbed.svg') 12 12, grabbing";
+const CURSOR_GRAB = "url('/src/assets/cursors/Cursor Grab.png') 12 12, grab";
+const CURSOR_GRABBED = "url('/src/assets/cursors/Cursor Grabbed.png') 12 12, grabbing";
 const MIN_COLS = 4;
 
 export default function Archive() {
@@ -256,7 +256,7 @@ export default function Archive() {
       </div>
 
       <div className="absolute bottom-12 md:bottom-10 left-0 w-full text-center text-[var(--content-tertiary)] pointer-events-none select-none label-s">
-        Drag to explore
+        drag/scroll to explore
       </div>
     </div>
 
