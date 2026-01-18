@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion, Variants } from "motion/react";
-import { physics } from "../lib/transitions";
+import { anim, stagger } from "../lib/transitions";
 
 export type MediaType = 'image' | 'video';
 
@@ -33,24 +33,10 @@ interface ProjectShowcaseProps {
 
 const containerVariants: Variants = {
     hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: 0.2,
-        },
-    },
+    visible: stagger(0.2).animate,
 };
 
-const itemVariants: Variants = {
-    hidden: {
-        opacity: 0,
-        x: 100
-    },
-    visible: {
-        opacity: 1,
-        x: 0,
-        transition: physics.standard,
-    }
-};
+const itemVariants: Variants = anim.fadeUp;
 
 const MediaRender = ({ item }: { item: MediaItem }) => {
     const baseClasses = "w-full h-full object-cover rounded-[var(--radius-lg)] border-[0.44px] border-[var(--border-primary)]";
