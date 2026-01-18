@@ -21,14 +21,20 @@ export default function Footer() {
 
               <div className="flex flex-row gap-2 items-end">
                 <Link to="/explorations" className="hover:text-[var(--content-secondary)]">Explorations</Link>
-                <div className="label-xs text-[var(--content-secondary)]">Personal experiments</div>
+                <div className="label-xs text-[var(--content-secondary)]">Personal projects</div>
               </div>
 
               <div className="flex flex-row gap-2 items-end">
                 <Link to="/illustrations" className="hover:text-[var(--content-secondary)]">Illustrations</Link>
-                <div className="label-xs text-[var(--content-secondary)]">Visual experiments with lines</div>
+                <div className="label-xs text-[var(--content-secondary)]">Experiments with lines</div>
               </div>
 
+            </div>
+
+          </div>
+          <div className="w-full flex flex-col gap-3">
+            <div className="label-xs text-[var(--content-tertiary)]">Vault</div>
+            <div className="flex flex-col gap-2 label-s text-[var(--content-primary)] ">
               <div className="flex flex-row gap-2  items-end">
                 <Link to="/archive" className="hover:text-[var(--content-secondary)]">Archive</Link>
 
@@ -38,7 +44,13 @@ export default function Footer() {
               <div className="flex flex-row gap-2 items-end">
                 <Link to="/reading-list" className="hover:text-[var(--content-secondary)]">Reading List</Link>
 
-                <div className="label-xs text-[var(--content-secondary)]">Books I recommend </div>
+                <div className="label-xs text-[var(--content-secondary)]">Books I recommend</div>
+              </div>
+
+              <div className="flex flex-row gap-2 items-end">
+                <Link to="/writing" className="hover:text-[var(--content-secondary)]">Writing</Link>
+
+                <div className="label-xs text-[var(--content-secondary)]">On the human condition</div>
               </div>
 
             </div>
