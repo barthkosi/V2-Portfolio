@@ -47,13 +47,13 @@ export default function ExtrasSection({ items, label = "Extras" }: ExtrasSection
 
     useEffect(() => {
         const handleScroll = () => {
-            const stickyTop = 134;
             let newActiveIndex = 0;
 
             cardRefs.current.forEach((cardRef, index) => {
                 if (!cardRef) return;
                 const rect = cardRef.getBoundingClientRect();
-                if (rect.top <= stickyTop + (index * 20) + 10) {
+                // Use stickyBaseTop to match when each card actually becomes sticky
+                if (rect.top <= stickyBaseTop + (index * 20) + 10) {
                     newActiveIndex = index;
                 }
             });
@@ -64,7 +64,7 @@ export default function ExtrasSection({ items, label = "Extras" }: ExtrasSection
         window.addEventListener('scroll', handleScroll, { passive: true });
         handleScroll();
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [stickyBaseTop]);
 
     return (
         <section ref={sectionRef} className="w-full flex flex-col lg:flex-row gap-6 lg:gap-12 py-8 px-4 md:px-[80px]">
