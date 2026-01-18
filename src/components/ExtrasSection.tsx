@@ -96,7 +96,7 @@ export default function ExtrasSection({ items, label = "Extras" }: ExtrasSection
                 </div>
             </div>
 
-            <div className="w-full lg:px-40 flex flex-col">
+            <div className="w-full lg:px-40 gap-4 flex flex-col">
                 {items.map((item: ExtraItem, index: number) => (
                     <div
                         key={`${item.id}-${index}`}

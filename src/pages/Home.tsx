@@ -29,6 +29,15 @@ const marqueeMobileVariants: Variants = {
 
 const extraItems: ExtraItem[] = [
   {
+    id: "replacement",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/replacement-cover.webp",
+    sidebarTitle: "Writing",
+    sidebarDescription: "My internal monologues externalized, covering everything from tech to the messy human condition.",
+    cardTitle: "What is the benchmark for replacement?",
+    cardDescription: "On taste, agency and the death of average.",
+    link: "/writing",
+  },
+  {
     id: "beckham-2025",
     image: "https://res.cloudinary.com/barthkosi/image/upload/beckham-2025.webp",
     sidebarTitle: "Illustrations",
@@ -36,22 +45,8 @@ const extraItems: ExtraItem[] = [
     link: "/illustrations",
   },
   {
-    id: "tennis",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/tennis-illustration-05-Nov-2025.webp",
-    sidebarTitle: "Illustrations",
-    sidebarDescription: "A visual diary of forms. I believe only in continued iteration. This page is a snapshot of my ever growing dialogue with color, light, and composition.",
-    link: "/illustrations",
-  },
-  {
     id: "the-alchemist",
     image: "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
-    sidebarTitle: "Reading List",
-    sidebarDescription: "Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands.",
-    link: "/reading-list",
-  },
-  {
-    id: "the-brand-gap",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/the-brand-gap.webp",
     sidebarTitle: "Reading List",
     sidebarDescription: "Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands.",
     link: "/reading-list",
