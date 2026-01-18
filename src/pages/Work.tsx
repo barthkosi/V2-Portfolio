@@ -6,7 +6,7 @@ import Card from "../components/Card";
 import Filter from "../components/Filter";
 import { getContent, getAllTags, ContentItem } from "../lib/content";
 
-import { springBouncy } from "@/lib/transitions";
+import { Motion, springBouncy } from "@/lib/transitions";
 
 export default function Work() {
     const [projects, setProjects] = useState<ContentItem[]>([]);
@@ -125,9 +125,14 @@ export default function Work() {
                 )}
 
                 {projects.length === 0 && (
-                    <div className="flex flex-col my-auto items-center w-full gap-7">
+                    <Motion
+                        type="fadeUpBouncy"
+                        className="flex flex-col my-auto items-center w-full gap-7"
+                        initial="initial"
+                        animate={introFinished ? "animate" : "initial"}
+                    >
                         <h5 className="my-auto h-full text-[var(--content-primary)]">Work is coming soon!</h5>
-                    </div>
+                    </Motion>
                 )}
             </div>
         </main>
