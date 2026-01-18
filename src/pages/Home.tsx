@@ -201,7 +201,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="flex flex-col gap-12 p-4 md:px-[80px]">
+        <section className="flex flex-col gap-12 p-4 md:px-[80px] mt-10 md:mt-20">
           <div className="flex flex-col gap-8">
             <h6 className="label-l">Select Work</h6>
             <div className="flex flex-col gap-5">
