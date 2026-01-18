@@ -70,7 +70,7 @@ export default function Post({ type }: PostProps) {
                     <ReactMarkdown
                         components={{
                             p: (props) => <p className="blog-text mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
-                            a: (props) => <a className="blog-text mb-4 lg:mb-6 italic text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
+                            a: (props) => <a className="blog-text mb-4 lg:mb-6 text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
                             img: (props) => <img className="rounded-[var(--radius-lg)] w-full my-8" {...props} />,
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
