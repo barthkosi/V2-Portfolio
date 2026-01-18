@@ -43,7 +43,7 @@ export default function ExtrasSection({ items, label = "Extras" }: ExtrasSection
 
     // Extra offset for mobile/tablet navigation
     // Desktop: 134px, Tablet: 334px (134+160+40), Mobile: 294px (134+160)
-    const stickyBaseTop = isDesktop ? 134 : isTablet ? 334 : 294;
+    const stickyBaseTop = isDesktop ? 134 : isTablet ? 340 : 320;
 
     useEffect(() => {
         const handleScroll = () => {
