@@ -3,10 +3,10 @@ import Head from "../components/Head";
 import Card from "../components/Card";
 import archive from "../data/archive.json";
 import { useLoading } from "../context/LoadingContext";
-import cursorGrab from "../assets/cursors/Cursor Grab.svg";
-import cursorGrabbed from "../assets/cursors/Cursor Grabbed.svg";
 
 const GAP = 32;
+const CURSOR_GRAB = "url('/src/assets/cursors/Cursor Grab.svg') 12 12, grab";
+const CURSOR_GRABBED = "url('/src/assets/cursors/Cursor Grabbed.svg') 12 12, grabbing";
 const MIN_COLS = 4;
 
 export default function Archive() {
@@ -216,7 +216,7 @@ export default function Archive() {
   return (
     <div
       className="w-full h-full overflow-visible relative touch-none"
-      style={{ cursor: `url(${isGrabbing ? cursorGrabbed : cursorGrab}) 12 12, grab` }}
+      style={{ cursor: isGrabbing ? CURSOR_GRABBED : CURSOR_GRAB }}
       onMouseDown={(e) => { handleStart(e.clientX, e.clientY); setIsGrabbing(true); }}
       onMouseMove={(e) => handleMove(e.clientX, e.clientY)}
       onMouseUp={() => { isDragging.current = false; setIsGrabbing(false); }}
