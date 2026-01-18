@@ -12,10 +12,10 @@ import heroMarquee from "../data/heroMarquee.json";
 
 
 const marqueeDesktopVariants: Variants = {
-  hidden: anim.fadeLeftBouncy.hidden,
+  hidden: anim.fadeRightBouncy.hidden,
   visible: {
-    ...anim.fadeLeftBouncy.visible,
-    transition: { ...anim.fadeLeftBouncy.visible.transition, delay: 1.4 },
+    ...anim.fadeRightBouncy.visible,
+    transition: { ...anim.fadeRightBouncy.visible.transition, delay: 1.4 },
   },
 };
 
