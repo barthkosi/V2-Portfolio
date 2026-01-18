@@ -3,6 +3,8 @@ import Head from "../components/Head";
 import Card from "../components/Card";
 import archive from "../data/archive.json";
 import { useLoading } from "../context/LoadingContext";
+import cursorGrab from "../assets/cursors/Cursor Grab.svg";
+import cursorGrabbed from "../assets/cursors/Cursor Grabbed.svg";
 
 const GAP = 32;
 const MIN_COLS = 4;
@@ -10,6 +12,7 @@ const MIN_COLS = 4;
 export default function Archive() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [isGrabbing, setIsGrabbing] = useState(false);
   const [imageHeights, setImageHeights] = useState<Record<string, number>>({});
   const { addBlocker, removeBlocker } = useLoading();
 
@@ -212,14 +215,15 @@ export default function Archive() {
 
   return (
     <div
-      className="w-full h-full overflow-visible relative cursor-move touch-none"
-      onMouseDown={(e) => handleStart(e.clientX, e.clientY)}
+      className="w-full h-full overflow-visible relative touch-none"
+      style={{ cursor: `url(${isGrabbing ? cursorGrabbed : cursorGrab}) 12 12, grab` }}
+      onMouseDown={(e) => { handleStart(e.clientX, e.clientY); setIsGrabbing(true); }}
       onMouseMove={(e) => handleMove(e.clientX, e.clientY)}
-      onMouseUp={() => isDragging.current = false}
-      onMouseLeave={() => isDragging.current = false}
-      onTouchStart={(e) => handleStart(e.touches[0].clientX, e.touches[0].clientY)}
+      onMouseUp={() => { isDragging.current = false; setIsGrabbing(false); }}
+      onMouseLeave={() => { isDragging.current = false; setIsGrabbing(false); }}
+      onTouchStart={(e) => { handleStart(e.touches[0].clientX, e.touches[0].clientY); setIsGrabbing(true); }}
       onTouchMove={(e) => handleMove(e.touches[0].clientX, e.touches[0].clientY)}
-      onTouchEnd={() => isDragging.current = false}
+      onTouchEnd={() => { isDragging.current = false; setIsGrabbing(false); }}
       onWheel={(e) => {
         // Optional: prevent default if you want to stop browser history swipe etc.
         // e.preventDefault(); 
@@ -251,7 +255,7 @@ export default function Archive() {
         ))}
       </div>
 
-      <div className="absolute bottom-10 left-0 w-full text-center text-[var(--content-tertiary)] pointer-events-none select-none label-s">
+      <div className="absolute bottom-12 md:bottom-10 left-0 w-full text-center text-[var(--content-tertiary)] pointer-events-none select-none label-s">
         Drag to explore
       </div>
     </div>
