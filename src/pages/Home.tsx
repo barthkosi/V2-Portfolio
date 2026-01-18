@@ -15,7 +15,7 @@ const marqueeDesktopVariants: Variants = {
   hidden: anim.fadeLeftBouncy.hidden,
   visible: {
     ...anim.fadeLeftBouncy.visible,
-    transition: { ...anim.fadeLeftBouncy.visible.transition, delay: 1.6 },
+    transition: { ...anim.fadeLeftBouncy.visible.transition, delay: 1.4 },
   },
 };
 
@@ -23,7 +23,7 @@ const marqueeMobileVariants: Variants = {
   hidden: anim.fadeUpBouncy.hidden,
   visible: {
     ...anim.fadeUpBouncy.visible,
-    transition: { ...anim.fadeUpBouncy.visible.transition, delay: 1.6 },
+    transition: { ...anim.fadeUpBouncy.visible.transition, delay: 1.4 },
   },
 };
 
