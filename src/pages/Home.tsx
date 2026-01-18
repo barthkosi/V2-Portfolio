@@ -203,9 +203,12 @@ export default function Home() {
 
         <section className="flex flex-col gap-12 p-4 md:px-[80px] mt-10 md:mt-20">
           <div className="flex flex-col gap-8">
-            <h6 className="label-l">Select Work</h6>
+            
+            <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
+                <h6 className="label-l">Select Work</h6>
+              </Motion>
             <div className="flex flex-col gap-5">
-              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+              <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
                 <h5>An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.</h5>
               </Motion>
               <ProjectShowcase
@@ -218,7 +221,7 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-5">
-              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+              <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
                 <h5>A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.</h5>
               </Motion>
               <ProjectShowcase
@@ -231,7 +234,7 @@ export default function Home() {
               />
             </div>
             <div className="flex flex-col gap-5">
-              <Motion type="rightSnappy" useInView className="w-full max-w-[520px]">
+              <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
                 <h5>Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.</h5>
               </Motion>
               <ProjectShowcase
