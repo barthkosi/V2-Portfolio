@@ -27,7 +27,7 @@ export default function Post({ type }: PostProps) {
 
 
 
-    if (loading) return null; // Or a mini spinner if prefered, but main loader covers first load
+    if (loading) return null;
 
     if (!post) {
         return <Navigate to="/404" replace />;
@@ -49,7 +49,6 @@ export default function Post({ type }: PostProps) {
 
             <div className="flex flex-col max-w-[720px] items-center lg:items-start w-full p-4 md:p-8 mx-auto gap-8">
 
-                {/* Header */}
                 <div className="w-full flex flex-col gap-4 items-start md:items-center">
                     <h1 className="text-start md:text-center text-[var(--content-primary)]">{post.title}</h1>
                     <div className="flex flex-col items-start md:items-center gap-4 text-[var(--content-tertiary)] label-s">
@@ -65,13 +64,12 @@ export default function Post({ type }: PostProps) {
                     </div>
                 </div>
 
-                {/* Content */}
-                <article className="w-full">
+                <article className="w-full max-w-[640px]">
                     <ReactMarkdown
                         components={{
                             p: (props) => <p className="blog-text mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             a: (props) => <a className="blog-text mb-4 lg:mb-6 text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
-                            img: (props) => <img className="rounded-[var(--radius-lg)] w-full" {...props} />,
+                            img: (props) => <img className="rounded-[var(--radius-lg)] w-[calc(100%+80px)] max-w-[720px] -ml-[40px]" {...props} />,
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h3: (props) => <h3 className="h5 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
