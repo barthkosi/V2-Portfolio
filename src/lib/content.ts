@@ -12,6 +12,8 @@ export interface ContentItem {
     bannerImage?: string;
     author?: string;
     tags?: string[];
+    buttonText?: string;
+    buttonLink?: string;
     content: string; // The raw markdown body
 }
 
@@ -63,6 +65,8 @@ const parseFile = (path: string, content: string, type: ContentType): ContentIte
         bannerImage: data.bannerImage,
         author: data.author,
         tags: data.tags || [],
+        buttonText: data.buttonText,
+        buttonLink: data.buttonLink,
         content: body || '',
     };
 };
