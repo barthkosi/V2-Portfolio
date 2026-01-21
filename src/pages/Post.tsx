@@ -101,7 +101,7 @@ export default function Post({ type }: PostProps) {
                             {prevPost ? (
                                 <Link
                                     to={`/${type}/${prevPost.slug}`}
-                                    className="text-[var(--content-secondary)] hover:text-[var(--content-primary)] transition-colors"
+                                    className="text-[var(--content-primary)] hover:text-[var(--content-secondary)] transition-colors"
                                 >
                                     ← Previous
                                 </Link>
@@ -109,7 +109,7 @@ export default function Post({ type }: PostProps) {
                             {nextPost ? (
                                 <Link
                                     to={`/${type}/${nextPost.slug}`}
-                                    className="text-[var(--content-secondary)] hover:text-[var(--content-primary)] transition-colors"
+                                    className="text-[var(--content-primary)] hover:text-[var(--content-secondary)] transition-colors"
                                 >
                                     Next →
                                 </Link>
