@@ -1,11 +1,11 @@
 ---
 title: "Vinyl Player"
 date: "2025-06-07" 
-description: "On taste, agency and the death of average."
+description: "A fully functioning vinyl player built in framer."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/vinyl-player.webp"
 bannerImage: ""
 author: "Barth"
-tags: ["Explorations"]
+tags: ["Framer"]
 ---
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/vinyl-player.webp)
