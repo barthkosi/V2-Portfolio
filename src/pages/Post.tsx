@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react';
-import { useParams, Navigate } from 'react-router-dom';
+import { useParams, Navigate, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import Head from '../components/Head';
-import { getPostBySlug, ContentItem, ContentType } from '../lib/content';
+import Card from '../components/Card';
+import { getPostBySlug, getContent, ContentItem, ContentType } from '../lib/content';
 
 interface PostProps {
     type: ContentType;
@@ -11,14 +12,19 @@ interface PostProps {
 export default function Post({ type }: PostProps) {
     const { slug } = useParams<{ slug: string }>();
     const [post, setPost] = useState<ContentItem | null>(null);
+    const [allPosts, setAllPosts] = useState<ContentItem[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const loadPost = async () => {
             if (!slug) return;
 
-            const item = await getPostBySlug(type, slug);
+            const [item, posts] = await Promise.all([
+                getPostBySlug(type, slug),
+                getContent(type)
+            ]);
             setPost(item || null);
+            setAllPosts(posts);
             setLoading(false);
         };
 
@@ -82,6 +88,59 @@ export default function Post({ type }: PostProps) {
                         {post.content}
                     </ReactMarkdown>
                 </article>
+
+                {(() => {
+                    const currentIndex = allPosts.findIndex(p => p.slug === post.slug);
+                    const prevPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+                    const nextPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+
+                    if (!prevPost && !nextPost) return null;
+
+                    return (
+                        <div className="w-full flex justify-between items-center pt-8 border-t border-[var(--border-primary)]">
+                            {prevPost ? (
+                                <Link
+                                    to={`/${type}/${prevPost.slug}`}
+                                    className="text-[var(--content-secondary)] hover:text-[var(--content-primary)] transition-colors"
+                                >
+                                    ← Previous
+                                </Link>
+                            ) : <span />}
+                            {nextPost ? (
+                                <Link
+                                    to={`/${type}/${nextPost.slug}`}
+                                    className="text-[var(--content-secondary)] hover:text-[var(--content-primary)] transition-colors"
+                                >
+                                    Next →
+                                </Link>
+                            ) : <span />}
+                        </div>
+                    );
+                })()}
+
+                {(() => {
+                    const otherPosts = allPosts.filter(p => p.slug !== post.slug).slice(0, 3);
+                    if (otherPosts.length === 0) return null;
+
+                    return (
+                        <div className="w-full flex flex-col gap-5 pt-8">
+                            <h3 className="h4 text-[var(--content-primary)]">More {type}</h3>
+                            <div className="flex flex-col gap-4">
+                                {otherPosts.map(p => (
+                                    <Card
+                                        key={p.slug}
+                                        image={p.coverImage || ""}
+                                        title={p.title}
+                                        description={p.description}
+                                        link={`/${type}/${p.slug}`}
+                                        variant="list"
+                                        aspectRatio="aspect-video"
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                    );
+                })()}
             </div>
         </main>
     );
