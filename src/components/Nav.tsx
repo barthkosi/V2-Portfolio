@@ -89,8 +89,8 @@ export default function Nav() {
             onMouseEnter={() => setShowVault(true)}
             onMouseLeave={() => setShowVault(false)}
           >
-            <button className="group py-2 items-center flex flex-row gap-1 hover:text-[var(--content-primary)]">
-              <div>Vault</div>
+            <button className="group py-2 items-center flex flex-row gap-1 hover:text-[var(--content-primary)] transition-colors">
+              Vault
               <motion.svg
                 width="20"
                 height="20"
@@ -101,10 +101,9 @@ export default function Nav() {
                 transition={physics.bouncy}
               >
                 <path
-                  className="fill-[var(--content-secondary)] group-hover:fill-[var(--content-primary)] transition-colors"
                   fillRule="evenodd"
                   clipRule="evenodd"
-                  d="M5.21967 8.21967C5.51256 7.92678 5.98744 7.92678 6.28033 8.21967L10 11.9393L13.7197 8.21967C14.0126 7.92678 14.4874 7.92678 14.7803 8.21967C15.0732 8.51256 15.0732 8.98744 14.7803 9.28033L10.5303 13.5303C10.3897 13.671 10.1989 13.75 10 13.75C9.80109 13.75 9.61032 13.671 9.46967 13.5303L5.21967 9.28033C4.92678 8.98744 4.92678 8.51256 5.21967 8.21967Z"
+                  d="M5.21967 8.21967C5.51256 7.92678 5.98744 7.92678 6.28033 8.21967L10 11.9393L13.7197 8.21967C14.0126 7.92678 14.4874 7.92678 14.7803 8.21967C15.0732 8.51256 15.0732 8.98744 14.7803 9.28033L10.5303 13.5303C10.3897 13.671 10.1989 13.75 10 13.75C9.80109 13.75 9.61032 13.671 9.46967 13.5303L5.21967 9.28033C4.92678 8.98744 4.92678 8.51256 5.21967 8.21967Z" fill="currentColor"
                 />
               </motion.svg>
             </button>
@@ -130,7 +129,7 @@ export default function Nav() {
             onMouseEnter={() => setShowSocial(true)}
             onMouseLeave={() => setShowSocial(false)}
           >
-            <button className="group py-2 items-center flex flex-row gap-1 hover:text-[var(--content-primary)]">
+            <button className="group py-2 items-center flex flex-row gap-1 hover:text-[var(--content-primary)] transition-colors">
               Social
               <motion.svg
                 width="20"
@@ -142,10 +141,9 @@ export default function Nav() {
                 transition={physics.bouncy}
               >
                 <path
-                  className="fill-[var(--content-secondary)] group-hover:fill-[var(--content-primary)] transition-colors"
                   fillRule="evenodd"
                   clipRule="evenodd"
-                  d="M5.21967 8.21967C5.51256 7.92678 5.98744 7.92678 6.28033 8.21967L10 11.9393L13.7197 8.21967C14.0126 7.92678 14.4874 7.92678 14.7803 8.21967C15.0732 8.51256 15.0732 8.98744 14.7803 9.28033L10.5303 13.5303C10.3897 13.671 10.1989 13.75 10 13.75C9.80109 13.75 9.61032 13.671 9.46967 13.5303L5.21967 9.28033C4.92678 8.98744 4.92678 8.51256 5.21967 8.21967Z"
+                  d="M5.21967 8.21967C5.51256 7.92678 5.98744 7.92678 6.28033 8.21967L10 11.9393L13.7197 8.21967C14.0126 7.92678 14.4874 7.92678 14.7803 8.21967C15.0732 8.51256 15.0732 8.98744 14.7803 9.28033L10.5303 13.5303C10.3897 13.671 10.1989 13.75 10 13.75C9.80109 13.75 9.61032 13.671 9.46967 13.5303L5.21967 9.28033C4.92678 8.98744 4.92678 8.51256 5.21967 8.21967Z" fill="currentColor"
                 />
               </motion.svg>
             </button>
