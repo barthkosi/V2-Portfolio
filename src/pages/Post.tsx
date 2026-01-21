@@ -123,7 +123,7 @@ export default function Post({ type }: PostProps) {
                     if (otherPosts.length === 0) return null;
 
                     return (
-                        <div className="w-full flex flex-col gap-5 pt-8">
+                        <div className="w-full flex flex-col gap-5">
                             <h3 className="h4 text-[var(--content-primary)]">More {type}</h3>
                             <div className="flex flex-col gap-4">
                                 {otherPosts.map(p => (
