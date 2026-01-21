@@ -6,6 +6,8 @@ coverImage: "https://res.cloudinary.com/barthkosi/image/upload/vinyl-player.webp
 bannerImage: ""
 author: "Barth"
 tags: ["Framer"]
+buttonText: "View Live"
+buttonLink: "https://vinylplayer.framer.website/"
 ---
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/vinyl-player.webp)
