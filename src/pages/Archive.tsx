@@ -16,7 +16,7 @@ export default function Archive() {
   const [imageHeights, setImageHeights] = useState<Record<string, number>>({});
   const { addBlocker, removeBlocker } = useLoading();
 
-  // Responsive sizing
+
   useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
@@ -27,8 +27,6 @@ export default function Archive() {
   const ITEM_WIDTH = isMobile ? 250 : 400;
   const COLS = Math.max(MIN_COLS, Math.ceil(Math.sqrt(archive.length)));
 
-  // Preload images to get their natural dimensions
-  // Card has p-2 (8px) padding on top and bottom = 16px total
   const CARD_PADDING = 16;
 
   useEffect(() => {
@@ -44,8 +42,7 @@ export default function Archive() {
 
     archive.forEach((item) => {
       const img = new Image();
-      img.onload = () => {
-        // Calculate height based on aspect ratio at ITEM_WIDTH + Card padding
+      img.onload = () => {        
         const aspectRatio = img.naturalHeight / img.naturalWidth;
         loadedHeights[item.id] = ITEM_WIDTH * aspectRatio + CARD_PADDING;
         loadedCount++;
@@ -54,7 +51,6 @@ export default function Archive() {
         }
       };
       img.onerror = () => {
-        // Fallback to square if image fails
         loadedHeights[item.id] = ITEM_WIDTH + CARD_PADDING;
         loadedCount++;
         if (loadedCount === archive.length) {
@@ -64,21 +60,18 @@ export default function Archive() {
       img.src = item.image;
     });
 
-    // Cleanup in case of unmount before finish
     return () => removeBlocker('archive-layout');
   }, [ITEM_WIDTH]);
 
-  // Calculate masonry positions for each item
   const itemPositions = useMemo(() => {
     if (Object.keys(imageHeights).length < archive.length) {
-      return null; // Not ready yet
+      return null;
     }
 
     const positions: { id: string; x: number; y: number; height: number; image: string; colIndex: number }[] = [];
     const columnHeights = Array(COLS).fill(0);
 
     archive.forEach((item) => {
-      // Find the column index for this item (fill columns sequentially)
       const colIndex = positions.length % COLS;
       const x = colIndex * (ITEM_WIDTH + GAP);
       const y = columnHeights[colIndex];
@@ -99,7 +92,6 @@ export default function Archive() {
     return positions;
   }, [imageHeights, COLS, ITEM_WIDTH]);
 
-  // Calculate total dimensions based on actual content - track per-column heights
   const { totalDimensions, columnTotalHeights } = useMemo(() => {
     if (!itemPositions) return { totalDimensions: { width: 0, height: 0 }, columnTotalHeights: [] };
 
@@ -117,7 +109,6 @@ export default function Archive() {
     };
   }, [itemPositions, COLS, ITEM_WIDTH]);
 
-  // Physics refs
   const position = useRef({ x: 0, y: 0 });
   const velocity = useRef({ x: 0, y: 0 });
   const lastMouse = useRef({ x: 0, y: 0 });
@@ -125,13 +116,11 @@ export default function Archive() {
   const animationFrameId = useRef<number | null>(null);
   const hasInitialized = useRef(false);
 
-  // Center the grid on initial load
   useEffect(() => {
     if (!hasInitialized.current && totalDimensions.width > 0 && totalDimensions.height > 0) {
       const viewportWidth = window.innerWidth;
       const viewportHeight = window.innerHeight;
 
-      // Center the grid by offsetting position so the middle of the grid is in the middle of the viewport
       position.current.x = (viewportWidth - totalDimensions.width) / 2;
       position.current.y = (viewportHeight - totalDimensions.height) / 2;
 
