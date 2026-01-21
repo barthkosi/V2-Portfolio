@@ -97,7 +97,7 @@ export default function Post({ type }: PostProps) {
                     if (!prevPost && !nextPost) return null;
 
                     return (
-                        <div className="w-full flex justify-between items-center pt-8 border-t border-[var(--border-primary)]">
+                        <div className="w-full flex justify-between items-center pt-4 md:pt-6 border-t border-[var(--border-primary)]">
                             {prevPost ? (
                                 <Link
                                     to={`/${type}/${prevPost.slug}`}
