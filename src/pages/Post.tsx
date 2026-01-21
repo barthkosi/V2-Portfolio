@@ -85,7 +85,34 @@ export default function Post({ type }: PostProps) {
                         components={{
                             p: (props) => <p className="blog-text mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             a: (props) => <a className="blog-text mb-4 lg:mb-6 text-[var(--content-link)] hover:text-[var(--content-link-hover)] transition-colors" {...props} />,
-                            img: (props) => <img className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]" {...props} />,
+                            img: (props) => {
+                                const src = props.src || '';
+                                // Detect video file extensions
+                                if (src.match(/\.(mp4|webm|mov)(\?.*)?$/i)) {
+                                    return (
+                                        <video
+                                            src={src}
+                                            className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]"
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                        />
+                                    );
+                                }
+                                // Detect Cloudinary video player embeds
+                                if (src.includes('player.cloudinary.com/embed')) {
+                                    return (
+                                        <iframe
+                                            src={src}
+                                            className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px] aspect-video"
+                                            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                                            allowFullScreen
+                                        />
+                                    );
+                                }
+                                return <img className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]" {...props} />;
+                            },
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h3: (props) => <h3 className="h5 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
