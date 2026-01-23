@@ -49,4 +49,4 @@ I will proffer no guidance, agency remains in your hands, you must learn first h
 
 Average will always exist, but it drifts upward each time a new tool arrives. The masters, however, keep sprinting ahead, turning ability into art. **AI does not steal our future, it hands us a sharper chisel and dares us to carve deeper.**
 
-We all stand the chance to be Michelangelo, but can we set the angel free?
+We all stand the chance to be Michelangelo, but can we set the angel free? 
