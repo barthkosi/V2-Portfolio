@@ -288,8 +288,8 @@
   --content-disabled: var(--neutral-200);
   --content-brand: var(--brand-700);
   --content-link: var(--blue-500);
-  --content-link-hover: var(--blue-600);
-  --content-link-pressed: var(--blue-700);
+  --content-link-hover: var(--blue-700);
+  --content-link-pressed: var(--blue-800);
   --content-info: var(--brand-500);
   --content-info-bold: var(--brand-500);
   --content-notice: var(--orange-500);
@@ -353,8 +353,8 @@
     --content-disabled: var(--neutral-750);
     --content-brand: var(--brand-500);
     --content-link: var(--blue-500);
-    --content-link-hover: var(--blue-400);
-    --content-link-pressed: var(--blue-300);
+    --content-link-hover: var(--blue-800);
+    --content-link-pressed: var(--blue-900);
     --content-info: var(--brand-400);
     --content-info-bold: var(--brand-500);
     --content-notice: var(--orange-500);
