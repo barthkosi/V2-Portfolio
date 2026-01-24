@@ -14,7 +14,9 @@ During the pre-iOS 26 beta hype cycle I experimented with liquid glass in the br
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp)
 
-The tool’s high level of granularity makes it easy to fine-tune how the glass reacts to different backgrounds.
+The tool’s high level of granularity makes it easy to fine-tune how the glass looks and reacts to different backgrounds.
+
+![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-video-2025.webp)
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-1-2025.webp)
 
