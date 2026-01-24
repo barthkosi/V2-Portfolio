@@ -4,10 +4,29 @@ import ReactMarkdown from 'react-markdown';
 import Head from '../components/Head';
 import Card from '../components/Card';
 import { getPostBySlug, getContent, ContentItem, ContentType } from '../lib/content';
+import React from 'react';
 
 interface PostProps {
     type: ContentType;
 }
+
+const MediaWrapper = ({ children, aspectRatio = '16/9' }: { children: React.ReactNode, aspectRatio?: string, type?: 'image' | 'video' }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
+
+    return (
+        <div
+            className={`relative overflow-hidden rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px] bg-[var(--background-secondary)] transition-all duration-300 ${!isLoaded ? 'shimmer-loading' : ''}`}
+            style={{ aspectRatio: isLoaded ? 'auto' : aspectRatio }}
+        >
+            <div className={`w-full transition-opacity duration-500 ${isLoaded ? 'opacity-100 h-auto' : 'opacity-0 h-full'}`}>
+                {React.isValidElement(children) ? React.cloneElement(children as React.ReactElement<any>, {
+                    onLoad: () => setIsLoaded(true),
+                    onLoadedData: () => setIsLoaded(true),
+                }) : children}
+            </div>
+        </div>
+    );
+};
 
 export default function Post({ type }: PostProps) {
     const { slug } = useParams<{ slug: string }>();
@@ -90,28 +109,36 @@ export default function Post({ type }: PostProps) {
                                 // Detect video file extensions
                                 if (src.match(/\.(mp4|webm|mov)(\?.*)?$/i)) {
                                     return (
-                                        <video
-                                            src={src}
-                                            className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]"
-                                            autoPlay
-                                            loop
-                                            muted
-                                            playsInline
-                                        />
+                                        <MediaWrapper aspectRatio="16/9" type="video">
+                                            <video
+                                                src={src}
+                                                className="w-full h-auto block"
+                                                autoPlay
+                                                loop
+                                                muted
+                                                playsInline
+                                            />
+                                        </MediaWrapper>
                                     );
                                 }
                                 // Detect Cloudinary video player embeds
                                 if (src.includes('player.cloudinary.com/embed')) {
                                     return (
-                                        <iframe
-                                            src={src}
-                                            className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px] aspect-video"
-                                            allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
-                                            allowFullScreen
-                                        />
+                                        <MediaWrapper aspectRatio="16/9" type="video">
+                                            <iframe
+                                                src={src}
+                                                className="w-full aspect-video block"
+                                                allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
+                                                allowFullScreen
+                                            />
+                                        </MediaWrapper>
                                     );
                                 }
-                                return <img className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]" {...props} />;
+                                return (
+                                    <MediaWrapper aspectRatio="3/2" type="image">
+                                        <img className="w-full h-auto block" {...props} />
+                                    </MediaWrapper>
+                                );
                             },
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
