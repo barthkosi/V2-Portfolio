@@ -92,7 +92,7 @@ export default function Post({ type }: PostProps) {
                                     return (
                                         <video
                                             src={src}
-                                            className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]"
+                                            className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]"
                                             autoPlay
                                             loop
                                             muted
@@ -105,13 +105,13 @@ export default function Post({ type }: PostProps) {
                                     return (
                                         <iframe
                                             src={src}
-                                            className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px] aspect-video"
+                                            className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px] aspect-video"
                                             allow="autoplay; fullscreen; encrypted-media; picture-in-picture"
                                             allowFullScreen
                                         />
                                     );
                                 }
-                                return <img className="rounded-[var(--radius-lg)] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]" {...props} />;
+                                return <img className="rounded-[12px] w-full lg:w-[calc(100%+80px)] lg:max-w-[720px] lg:-ml-[40px]" {...props} />;
                             },
                             h1: (props) => <h1 className="h3 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
                             h2: (props) => <h2 className="h4 mb-4 lg:mb-6 text-[var(--content-primary)]" {...props} />,
