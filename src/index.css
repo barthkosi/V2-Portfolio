@@ -1062,18 +1062,17 @@
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
 }
 
 .shimmer-loading {
-  background: linear-gradient(
-    90deg,
-    var(--background-secondary) 25%,
-    var(--background-tertiary) 50%,
-    var(--background-secondary) 75%
-  );
+  background: linear-gradient(90deg,
+      var(--background-secondary) 25%,
+      var(--background-tertiary) 50%,
+      var(--background-secondary) 75%);
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite linear;
 }
