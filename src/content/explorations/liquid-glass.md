@@ -14,9 +14,9 @@ During the pre-iOS 26 beta hype cycle I experimented with liquid glass in the br
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp)
 
-The tool’s high level of granularity makes it easy to fine-tune how the glass looks and reacts to different backgrounds.
+The tool’s high level of granularity makes it easy to fine-tune how the glass looks and reacts to different backgrounds, allowing for deep maanipulation of shape and light refraction.
 
-![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-video-2025.webp)
+![](https://res.cloudinary.com/barthkosi/video/upload/liquid-glass-preview-video-2025.webm)
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-1-2025.webp)
 
@@ -24,8 +24,8 @@ The tool’s high level of granularity makes it easy to fine-tune how the glass 
 
 ### Finished product
 
-Unicorn Studio allowed for deep manipulation of light refraction and fluid motion to mimic Apple's glassmorphism.
+With mouse tracking and a simple framer embed I was able to bring this site to life with a few clicks.
 
 ![](https://res.cloudinary.com/barthkosi/video/upload/liquid-glass-demo.mp4)
 
-if you'd like to play around with this and make your own variations here is a [link](https://unicorn.studio/remix/56gRSQtT9vCDMwfsIv0Y) to a remix in unicorn studio.
+if you'd like to play around with the source file and make your own variations here is a [link](https://unicorn.studio/remix/56gRSQtT9vCDMwfsIv0Y) to a remix in unicorn studio.
