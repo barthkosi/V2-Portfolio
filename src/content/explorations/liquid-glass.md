@@ -20,4 +20,4 @@ The tool’s high level of granularity makes it easy to fine-tune how the glass 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-1-2025.webp)
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-2-2025.webp)
 
-if you'd like to play around with this and make your own variations here is a [link](https://mymind.com/) to a remix in unicorn studio. 
+if you'd like to play around with this and make your own variations here is a [link](https://mymind.com/) to a remix in unicorn studio.
