@@ -10,7 +10,7 @@ buttonText: "View Live"
 buttonLink: "https://liquidglassexploration.framer.website/"
 ---
 
-I experimented with liquid glass in the browser using Unicorn Studio during the pre-iOS 26 beta hype cycle.
+During the pre-iOS 26 beta hype cycle I experimented with liquid glass in the browser using Unicorn Studio.
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp)
 
