@@ -21,6 +21,7 @@ Using Unicorn Studio allowed for deep manipulation of light refraction and fluid
 The tool’s high level of granularity makes it easy to fine-tune how the glass reacts to different backgrounds.
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-1-2025.webp)
+
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-preview-2-2025.webp)
 
-if you'd like to play around with this and make your own variations here is a [link](https://mymind.com/) to a remix in unicorn studio.
+if you'd like to play around with this and make your own variations here is a [link](https://unicorn.studio/remix/56gRSQtT9vCDMwfsIv0Y) to a remix in unicorn studio.
