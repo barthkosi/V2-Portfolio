@@ -28,4 +28,4 @@ With mouse tracking and a simple framer embed I was able to bring this site to l
 
 ![](https://res.cloudinary.com/barthkosi/video/upload/liquid-glass-demo.mp4)
 
-if you'd like to play around with the source file and make your own variations here is a [link](https://unicorn.studio/remix/56gRSQtT9vCDMwfsIv0Y) to a remix in unicorn studio.
+If you'd like to play around with the source file and make your own variations here is a [link](https://unicorn.studio/remix/56gRSQtT9vCDMwfsIv0Y) to a remix in unicorn studio.
