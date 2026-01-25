@@ -1058,34 +1058,6 @@
   animation: scroll-down 20s linear infinite;
 }
 
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-
-  100% {
-    transform: translateX(-33.33%);
-  }
-}
-
-@keyframes scroll-right {
-  0% {
-    transform: translateX(-33.33%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-.animate-scroll-left {
-  animation: scroll-left 8s linear infinite;
-}
-
-.animate-scroll-right {
-  animation: scroll-right 8s linear infinite;
-}
-
 @keyframes shimmer {
   0% {
     background-position: -200% 0;
