@@ -30,7 +30,7 @@ const marqueeMobileVariants: Variants = {
 const extraItems: ExtraItem[] = [
   {
     id: "replacement",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/replacement-cover.webp",
+    image: "https://res.cloudinary.com/barthkosi/image/upload/replacement.webp",
     sidebarTitle: "Writing",
     sidebarDescription: "My internal monologues externalized, covering everything from tech to the messy human condition.",
     cardTitle: "What is the benchmark for replacement?",
