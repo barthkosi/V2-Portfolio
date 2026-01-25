@@ -88,7 +88,7 @@ export default function Home() {
 
   return (
     <>
-      <main className='overflow-hidden flex flex-col items-center gap-8 lg:gap-16'>
+      <main className='overflow-hidden flex flex-col items-center gap-12 lg:gap-16'>
         <Head
           title="barthkosi - design & engineering"
           description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
@@ -202,13 +202,13 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="flex flex-col items-center justify-center h-[80vh] p-4 md:px-[80px] w-full max-w-[800px]">
+        <section className="flex flex-col items-center justify-center h-fit p-6 md:px-20 pt-20 w-full max-w-[800px]">
           <ScrollReveal className="w-full">
             Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur. Id lobortis venenatis fringilla fringilla ultrices nisi faucibus viverra. Morbi faucibus enim nulla suscipit nulla eget eu. Gravida dignissim purus posuere aenean gravida viverra.
           </ScrollReveal>
         </section>
 
-        <section className="flex flex-col gap-12 p-4 md:px-[80px] mt-10 md:mt-20">
+        <section className="flex flex-col gap-12 p-4 md:px-20 ">
           <div className="flex flex-col gap-8">
 
             <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
