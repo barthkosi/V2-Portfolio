@@ -93,7 +93,7 @@ export default function Home() {
           title="barthkosi - design & engineering"
           description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
         />
-        <section className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center" style={{ maskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 12.5%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
+        <section className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center" style={{ maskImage: 'linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
           {/* Hero Content */}
           <motion.div
             className="w-full items-start flex flex-col justify-center gap-4"
@@ -202,7 +202,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        <section className="flex flex-col items-center justify-center h-[90vh] p-4 md:px-[80px] w-full max-w-[800px]">
+        <section className="flex flex-col items-center justify-center h-[80vh] p-4 md:px-[80px] w-full max-w-[800px]">
           <ScrollReveal className="w-full">
             Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur. Id lobortis venenatis fringilla fringilla ultrices nisi faucibus viverra. Morbi faucibus enim nulla suscipit nulla eget eu. Gravida dignissim purus posuere aenean gravida viverra.
           </ScrollReveal>
