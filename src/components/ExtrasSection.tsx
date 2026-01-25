@@ -85,7 +85,7 @@ export default function ExtrasSection({ items, label = "Extras" }: ExtrasSection
                         <AnimatePresence mode="wait">
                             <motion.p
                                 key={items[activeCardIndex].sidebarDescription}
-                                className="body-m text-[var(--content-primary)]"
+                                className="body-m text-[var(--content-secondary)]"
                                 {...createSwap("vertical", 20, physics.standard)}
                             >
                                 {items[activeCardIndex].sidebarDescription}
