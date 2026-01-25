@@ -1,7 +1,7 @@
 ---
-title: "Liquid Glass Ring"
+title: "Liquid Glass Shader"
 date: "2025-06-16" 
-description: "Recreated Liquid glass in the browser with shaders."
+description: "Recreated liquid glass in the browser with shaders."
 coverImage: "https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp"
 bannerImage: ""
 author: "Barth"
@@ -14,7 +14,7 @@ During the pre-iOS 26 beta hype cycle I experimented with liquid glass in the br
 
 ![](https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp)
 
-The tool’s high level of granularity makes it easy to fine-tune how the glass looks and reacts to different backgrounds, allowing for deep maanipulation of shape and light refraction.
+The tool’s high level of granularity makes it easy to fine-tune how the glass looks and reacts to different backgrounds, allowing for deep manipulation of shape and light refraction.
 
 ![](https://res.cloudinary.com/barthkosi/video/upload/liquid-glass-preview-video-2025.webm)
 
