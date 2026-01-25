@@ -36,7 +36,7 @@ const containerVariants: Variants = {
     visible: stagger(0.2).animate,
 };
 
-const itemVariants: Variants = anim.fadeUp;
+const itemVariants: Variants = anim.fadeUpBouncy;
 
 const MediaRender = ({ item }: { item: MediaItem }) => {
     const baseClasses = "w-full h-full object-cover rounded-[var(--radius-lg)] border-[0.44px] border-[var(--border-primary)]";
