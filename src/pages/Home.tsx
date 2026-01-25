@@ -2,7 +2,6 @@ import { useEffect } from "react";
 import Head from "../components/Head";
 import { motion, Variants } from "motion/react";
 import Button from "../components/Button";
-import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
@@ -93,7 +92,7 @@ export default function Home() {
           title="barthkosi - design & engineering"
           description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
         />
-        <section className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center" style={{ maskImage: 'linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 87.5%, rgba(0, 0, 0, 0) 100%)' }}>
+        <section className="flex flex-col pl-4 md:pl-8 pr-4 md:pr-8 lg:pr-0 lg:flex-row lg:gap-8 items-center">
           {/* Hero Content */}
           <motion.div
             className="w-full items-start flex flex-col justify-center gap-4"
@@ -186,16 +185,20 @@ export default function Home() {
                 </>
               ) : (
                 <>
-                  <Marquee direction="left" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
-                    {heroMarquee.slice(0, 5).map((item) => (
-                      <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
-                    ))}
-                  </Marquee>
-                  <Marquee direction="right" speed={50} autoFill style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
-                    {heroMarquee.slice(5).map((item) => (
-                      <img key={item.id} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)] gap-[2px] mx-[1px]" />
-                    ))}
-                  </Marquee>
+                  <div className="relative w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
+                    <div className="flex flex-row gap-1 animate-scroll-left">
+                      {[...heroMarquee.slice(0, 5), ...heroMarquee.slice(0, 5), ...heroMarquee.slice(0, 5)].map((item, index) => (
+                        <img key={`mob-l-${item.id}-${index}`} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)]" />
+                      ))}
+                    </div>
+                  </div>
+                  <div className="relative w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)', WebkitMaskImage: 'linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgb(0, 0, 0) 10%, rgb(0, 0, 0) 90%, rgba(0, 0, 0, 0) 100%)' }}>
+                    <div className="flex flex-row gap-1 animate-scroll-right">
+                      {[...heroMarquee.slice(5), ...heroMarquee.slice(5), ...heroMarquee.slice(5)].map((item, index) => (
+                        <img key={`mob-r-${item.id}-${index}`} src={item.image} alt={`Project ${item.id}`} className="h-40 md:h-52 aspect-video object-cover rounded-[var(--radius-lg)]" />
+                      ))}
+                    </div>
+                  </div>
                 </>
               )}
             </div>
@@ -261,6 +264,28 @@ export default function Home() {
 
       </main>
       <ExtrasSection items={extraItems} />
+
+      <section className="flex flex-col w-full items-center text-center justify-center gap-8">
+        <div className="flex flex-col items-center gap-6 w-full max-w-[640px]">
+          <div className="w-full flex flex-col gap-4">
+            <h3>
+              Digital Canvas?
+            </h3>
+            <p className="w-full body-l text-[var(--content-secondary)]">
+              Lorem ipsum dolor sit amet consectetur. Bibendum nulla pulvinar vel a aliquam quis in consectetur. Pellentesque vel vel nisl odio facilisis.
+            </p>
+          </div>
+          <div className="w-fit">
+            <Button
+              to="/archive"
+              variant="secondary">
+              View Archive
+            </Button>
+          </div>
+        </div>
+        <div className="w-full h-[60vh] bg-[var(--background-secondary)]" />
+      </section>
+
     </>
   );
 }
