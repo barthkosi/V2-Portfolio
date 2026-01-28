@@ -111,14 +111,14 @@ export default function Nav() {
             <AnimatePresence>
               {showVault && (
                 <motion.div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col"
                   initial={anim.fadeDownBouncyBouncy.initial}
                   animate={anim.fadeDownBouncyBouncy.animate}
                   exit={anim.fadeDownBouncyBouncy.exit}
                 >
-                  <Link to="/archive" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Archive</Link>
-                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Reading List</Link>
-                  <Link to="/writing" className="hover:text-[var(--content-secondary)] whitespace-nowrap">Writing</Link>
+                  <Link to="/archive" className="hover:text-[var(--content-secondary)] whitespace-nowrap py-1">Archive</Link>
+                  <Link to="/reading-list" className="hover:text-[var(--content-secondary)] whitespace-nowrap py-1">Reading List</Link>
+                  <Link to="/writing" className="hover:text-[var(--content-secondary)] whitespace-nowrap py-1">Writing</Link>
                 </motion.div>
               )}
             </AnimatePresence>
