@@ -111,7 +111,7 @@ export default function Nav() {
             <AnimatePresence>
               {showVault && (
                 <motion.div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-0"
                   initial={anim.fadeDownBouncyBouncy.initial}
                   animate={anim.fadeDownBouncyBouncy.animate}
                   exit={anim.fadeDownBouncyBouncy.exit}
@@ -151,12 +151,12 @@ export default function Nav() {
             <AnimatePresence>
               {showSocial && (
                 <motion.div
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-2"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-0 bg-[var(--background-primary)] text-[var(--content-primary)] border border-[var(--background-secondary)] rounded-[12px] shadow-lg p-3 flex flex-col gap-0"
                   initial={anim.fadeDownBouncy.initial}
                   animate={anim.fadeDownBouncy.animate}
                   exit={anim.fadeDownBouncy.exit}
                 >
-                  <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+                  <a href="https://x.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)] py-1">
                     <svg
                       width="16"
                       height="16"
@@ -171,7 +171,7 @@ export default function Nav() {
                     </svg>
                     X(Twitter)
                   </a>
-                  <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+                  <a href="https://cosmos.so/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)] py-1">
                     <svg
                       width="16"
                       height="16"
@@ -191,7 +191,7 @@ export default function Nav() {
                     </svg>
                     Cosmos
                   </a>
-                  <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+                  <a href="http://www.linkedin.com/in/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)] py-1">
                     <svg
                       width="16"
                       height="16"
@@ -208,7 +208,7 @@ export default function Nav() {
                     </svg>
                     LinkedIn
                   </a>
-                  <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)]">
+                  <a href="https://github.com/barthkosi/" target="_blank" rel="noopener noreferrer" className="flex flex-row gap-2 items-center hover:text-[var(--content-secondary)] py-1">
                     <svg
                       width="16"
                       height="16"
