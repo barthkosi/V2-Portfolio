@@ -8,7 +8,7 @@ type CardProps = {
     description?: string
     link?: string
     tags?: string[]
-    variant?: 'default' | 'list'
+    variant?: 'default' | 'list' | 'list-stacked'
     aspectRatio?: string
 }
 
@@ -24,42 +24,43 @@ export default function Card({
     // Default Card Content
     const DefaultContent = (
         <>
-        <div className="flex flex-col gap-2">
-            <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
-                <div className={`relative w-full ${aspectRatio === "auto" ? "" : aspectRatio} overflow-hidden rounded-xl`}>
-                    <img
-                        src={image}
-                        alt={title || ""}
-                        className={`${aspectRatio === "auto" ? "w-full h-auto" : "absolute inset-0 w-full h-full"} object-cover`}
-                        loading="lazy"
-                    />
+            <div className="flex flex-col gap-2">
+                <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
+                    <div className={`relative w-full ${aspectRatio === "auto" ? "" : aspectRatio} overflow-hidden rounded-xl`}>
+                        <img
+                            src={image}
+                            alt={title || ""}
+                            className={`${aspectRatio === "auto" ? "w-full h-auto" : "absolute inset-0 w-full h-full"} object-cover`}
+                            loading="lazy"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            {(title || description) && (
-                <div className="w-full flex flex-col p-4 gap-1 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
-                    {title && <div className="w-full text-[var(--content-primary)] label-m">{title}</div>}
-                    {description && <div className="w-full text-[var(--content-tertiary)] body-s-medium">{description}</div>}
-                </div>
-            )}
-         </div>   
+                {(title || description) && (
+                    <div className="w-full flex flex-col p-4 gap-1 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
+                        {title && <div className="w-full text-[var(--content-primary)] label-m">{title}</div>}
+                        {description && <div className="w-full text-[var(--content-tertiary)] body-s-medium">{description}</div>}
+                    </div>
+                )}
+            </div>
         </>
     );
 
     // List Card Content
+    const isStacked = variant === 'list-stacked';
     const ListContent = (
-        <div className="w-full gap-3 flex flex-col md:flex-row items-center group">
+        <div className={`w-full gap-3 flex flex-col ${isStacked ? 'bg-[var(--background-primary)]' : 'md:flex-row'} items-center group`}>
             <img
                 src={image}
                 alt={title || ""}
-                className="aspect-video w-full md:max-w-[240px] rounded-[12px] h-auto object-cover bg-[var(--background-secondary)]"
+                className={`aspect-video w-full ${isStacked ? '' : 'md:max-w-[240px]'} rounded-[12px] h-auto object-cover bg-[var(--background-secondary)]`}
             />
             <div className="w-full flex flex-col gap-1">
                 {title && <h5 className="text-[var(--content-primary)]">{title}</h5>}
                 {description && <div className="label-m text-[var(--content-secondary)]">{description}</div>}
             </div>
             {tags && tags.length > 0 && (
-                <div className="w-full lg:max-w-[320px] flex flex-wrap justify-start md:justify-end gap-2">
+                <div className={`w-full ${isStacked ? '' : 'lg:max-w-[320px]'} flex flex-wrap justify-start ${isStacked ? '' : 'md:justify-end'} gap-2`}>
                     {tags.map((tag) => (
                         <div key={tag} className="px-4 py-2 rounded-full label-s bg-[var(--background-secondary)] text-[var(--content-secondary)]">
                             {tag}
@@ -71,7 +72,7 @@ export default function Card({
     );
 
     // Determines which content to render
-    const content = variant === "list" ? ListContent : DefaultContent;
+    const content = (variant === "list" || variant === "list-stacked") ? ListContent : DefaultContent;
 
     // For list view, we don't want the default flex-col gap-3 wrapper from the original card if it interferes, 
     // but the original had `wrapperClass = "gap-3 flex flex-col"`. 
