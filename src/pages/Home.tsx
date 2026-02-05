@@ -87,7 +87,8 @@ export default function Home() {
 
   return (
     <>
-      <main className='overflow-hidden flex flex-col items-center gap-8 lg:gap-16'>
+    <main>
+      <div className='overflow-hidden flex flex-col items-center gap-8 lg:gap-16'>
         <Head
           title="barthkosi - design & engineering"
           description="Barth creates visual systems and digital experiences. Explore my portfolio of web interactions, engineered solutions, and dynamic motion design."
@@ -252,8 +253,10 @@ export default function Home() {
           </div>
         </section>
 
-      </main>
+      </div>
       <ExtrasSection items={extraItems} />
+      
+    </main>
     </>
   );
 }
