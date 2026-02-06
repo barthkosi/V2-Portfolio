@@ -53,7 +53,7 @@ export default function Card({
             <img
                 src={image}
                 alt={title || ""}
-                className={`aspect-video w-full ${isStacked ? '' : 'md:max-w-[240px]'} rounded-[12px] h-auto object-cover bg-[var(--background-secondary)]`}
+                className={`${aspectRatio === "auto" ? "w-full h-auto" : `${aspectRatio} w-full`} ${isStacked ? '' : 'md:max-w-[240px]'} rounded-[12px] object-cover bg-[var(--background-secondary)]`}
             />
             <div className="w-full flex flex-col gap-1">
                 {title && <h5 className="text-[var(--content-primary)]">{title}</h5>}
