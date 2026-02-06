@@ -5,7 +5,6 @@ import Button from "../components/Button";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
-import ProjectShowcase from "../components/ProjectShowcase";
 import { Motion, anim } from "@/lib/transitions";
 import heroMarquee from "../data/heroMarquee.json";
 import Card from "@/components/Card";
@@ -250,57 +249,6 @@ export default function Home() {
               <Button to="/work" variant="secondary">View All Work</Button>
             </Motion>
           </section>
-          <section className="flex flex-col gap-12 p-4 md:px-[80px] mt-10 md:mt-20">
-            <div className="flex flex-col gap-8">
-
-              <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
-                <h6 className="label-l">Select Work</h6>
-              </Motion>
-              <div className="flex flex-col gap-5">
-                <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
-                  <h5>An <span className="text-[#31449B]">AI</span> powered <span className="text-[#31449B]">Trip Planner</span> and document organizer.</h5>
-                </Motion>
-                <ProjectShowcase
-                  variant="left"
-                  items={[
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp', alt: 'project cover' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-2.webp', alt: 'project screenshot' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/explrar-showcase-1.webp', alt: 'project screenshot' },
-                  ]}
-                />
-              </div>
-              <div className="flex flex-col gap-5">
-                <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
-                  <h5>A fully customizable graphic interface for <span className="text-[#B98D00]">manga</span> and <span className="text-[#7497BB]">comics</span>.</h5>
-                </Motion>
-                <ProjectShowcase
-                  variant="right"
-                  items={[
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp', alt: 'project screenshot' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-logo.webp', alt: 'project cover' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-3.webp', alt: 'project screenshot' },
-                  ]}
-                />
-              </div>
-              <div className="flex flex-col gap-5">
-                <Motion type="fadeRight" useInView className="w-full max-w-[520px]">
-                  <h5>Graphics and event banners for the <span className="text-[#0396FF]">sui</span> x <span className="text-[#FE6100]">axelar</span> event in Lagos, NG.</h5>
-                </Motion>
-                <ProjectShowcase
-                  variant="right"
-                  items={[
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-1.webp', alt: 'project screenshot' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-logo.webp', alt: 'suiXaxelar collab logo' },
-                    { type: 'image', src: 'https://res.cloudinary.com/barthkosi/image/upload/suixaxelar-showcase-2.webp', alt: 'project screenshot' },
-                  ]}
-                />
-              </div>
-              <div className="w-full flex justify-center">
-                <Button to="/work" variant="secondary">View All Work</Button>
-              </div>
-            </div>
-          </section>
-
         </div>
 
         {/*explorations section*/}
@@ -394,7 +342,16 @@ export default function Home() {
               />
             </div>
           </div>
-
+          <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            className="w-fit"
+          >
+            <Button to="/writing" variant="secondary">
+              See Writing
+            </Button>
+          </Motion>
         </section>
 
         {/*About section*/}
