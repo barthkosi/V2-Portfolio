@@ -6,10 +6,10 @@ import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
 import ProjectShowcase from "../components/ProjectShowcase";
-import ExtrasSection, { ExtraItem } from "../components/ExtrasSection";
 import { Motion, anim } from "@/lib/transitions";
 import heroMarquee from "../data/heroMarquee.json";
 import Card from "@/components/Card";
+import ScrollReveal from "../components/ScrollReveal";
 
 
 const marqueeDesktopVariants: Variants = {
@@ -21,38 +21,13 @@ const marqueeDesktopVariants: Variants = {
 };
 
 const marqueeMobileVariants: Variants = {
-  hidden: anim.fadeUpBouncy.hidden,
+  hidden: anim.FadeUpBouncyBouncy.hidden,
   visible: {
-    ...anim.fadeUpBouncy.visible,
-    transition: { ...anim.fadeUpBouncy.visible.transition, delay: 1.4 },
+    ...anim.FadeUpBouncyBouncy.visible,
+    transition: { ...anim.FadeUpBouncyBouncy.visible.transition, delay: 1.4 },
   },
 };
 
-const extraItems: ExtraItem[] = [
-  {
-    id: "replacement",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/replacement.webp",
-    sidebarTitle: "Writing",
-    sidebarDescription: "My internal monologues externalized, covering everything from tech to the messy human condition.",
-    cardTitle: "What is the benchmark for replacement?",
-    cardDescription: "On taste, agency and the death of average.",
-    link: "/writing",
-  },
-  {
-    id: "beckham-2025",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/beckham-2025.webp",
-    sidebarTitle: "Illustrations",
-    sidebarDescription: "A visual diary of forms. I believe only in continued iteration. This page is a snapshot of my ever growing dialogue with color, light, and composition.",
-    link: "/illustrations",
-  },
-  {
-    id: "the-alchemist",
-    image: "https://res.cloudinary.com/barthkosi/image/upload/the-alchemist.avif",
-    sidebarTitle: "Reading List",
-    sidebarDescription: "Reading more is one of my biggest goals. This list shifts and grows as new titles find their way into my hands.",
-    link: "/reading-list",
-  },
-];
 
 export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
@@ -113,8 +88,8 @@ export default function Home() {
               <motion.div
                 className="flex flex-col gap-2 pt-4 lg:pt-0 text-left"
                 variants={{
-                  hidden: anim.fadeUpBouncy.hidden,
-                  visible: anim.fadeUpBouncy.visible,
+                  hidden: anim.FadeUpBouncyBouncy.hidden,
+                  visible: anim.FadeUpBouncyBouncy.visible,
                 }}
               >
                 <h1 className='md:max-w-[640px] lg:max-w-[1440px]'>
@@ -123,8 +98,8 @@ export default function Home() {
               </motion.div>
               <motion.div
                 variants={{
-                  hidden: anim.fadeUpBouncy.hidden,
-                  visible: anim.fadeUpBouncy.visible,
+                  hidden: anim.FadeUpBouncyBouncy.hidden,
+                  visible: anim.FadeUpBouncyBouncy.visible,
                 }}
               >
                 <p className="body-m max-w-[380px] md:max-w-[640px] lg:max-w-[520px] text-[var(--content-secondary)]">
@@ -135,8 +110,8 @@ export default function Home() {
               <motion.div
                 className="flex flex-row items-center gap-3 flex-wrap"
                 variants={{
-                  hidden: anim.fadeUpBouncy.hidden,
-                  visible: anim.fadeUpBouncy.visible,
+                  hidden: anim.FadeUpBouncyBouncy.hidden,
+                  visible: anim.FadeUpBouncyBouncy.visible,
                 }}
               >
                 <Button
@@ -202,7 +177,79 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
-
+          {/*Projects section*/}
+          <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-12 gap-8">
+            <div className="flex flex-col gap-4 w-full text-start">
+            <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
+            className="w-full items-start">
+                <h3>Featured Work</h3>
+              </Motion>
+            </div>
+            <div className="flex flex-col gap-4 md:gap-6">
+              <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6">
+                <div className="col-span-2">
+                  <Card
+                    image="https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp"
+                    title="Explrar"
+                    description="An AI powered trip planner and document organizer"
+                    link=""
+                    tags={["UI/UX", "Product Design"]}
+                    variant="list-stacked"
+                  />
+                </div>
+                <Motion
+                  type="FadeUpBouncy"
+                  useInView={true}
+                  viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                  className="col-span-1"
+                >
+                  <Card
+                    image="https://res.cloudinary.com/barthkosi/image/upload/sui-image-v1.webp"
+                    title="Sui x Axelar event graphics"
+                    description="Posters and event banners for the sui x axelar event in Lagos, NG."
+                    link=""
+                    tags={["Graphic Design"]}
+                    aspectRatio="auto"
+                    variant="list-stacked"
+                  />
+                </Motion>
+              </div>
+              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
+                <div className="w-full">
+                  <Card
+                    image="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp"
+                    title="Bookworm"
+                    description="An AI powered trip planner and document organizer"
+                    link=""
+                    tags={["UI/UX", "Branding"]}
+                    aspectRatio="auto"
+                    variant="list-stacked"
+                  />
+                </div>
+                <div className="w-full">
+                  <Card
+                    image="https://res.cloudinary.com/barthkosi/image/upload/lillup.webp"
+                    title="Lillup"
+                    description="Posters and event banners for the sui x axelar event in Lagos, NG."
+                    link=""
+                    tags={["UX Design"]}
+                    variant="list-stacked"
+                  />
+                </div>
+              </div>
+            </div>
+            <Motion
+              type="FadeUpBouncy"
+              useInView={true}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              className="w-fit"
+            >
+              <Button to="/work" variant="secondary">View All Work</Button>
+            </Motion>
+          </section>
           <section className="flex flex-col gap-12 p-4 md:px-[80px] mt-10 md:mt-20">
             <div className="flex flex-col gap-8">
 
@@ -255,15 +302,22 @@ export default function Home() {
           </section>
 
         </div>
-        <ExtrasSection items={extraItems} />
 
         {/*explorations section*/}
         <section className="flex flex-col gap-8 items-center px-4 md:px-8 lg:px-20 py-12">
-          <div className="flex flex-col gap-4 max-w-[640px] text-center">
-            <Motion type="fadeUp" useInView className="w-full">
+          <div className="flex flex-col gap-2 max-w-[640px] text-center">
+            <Motion
+              type="FadeUpBouncy"
+              useInView={true}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              className="w-full">
               <h3>Explorations</h3>
             </Motion>
-            <Motion type="fadeUp" useInView className="w-full">
+            <Motion
+              type="FadeUpBouncy"
+              useInView={true}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              className="w-full">
               <p className="text-[var(--content-secondary)]">Experiments, tests, and unfinished ideas.</p>
             </Motion>
           </div>
@@ -283,29 +337,35 @@ export default function Home() {
               link="/explorations/vinyl"
               variant="list-stacked"
             />
-            <Card
-              image="https://example.com/image.jpg"
-              title="Project Name"
-              description="Short description"
-              link="/explorations/project"
-              variant="list-stacked"
-            />
           </div>
-
-          <Button to="/explorations" variant="secondary">
-            See More
-          </Button>
-
+          <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            className="w-fit"
+          >
+            <Button to="/explorations" variant="secondary">
+              See More
+            </Button>
+          </Motion>
         </section>
 
         {/*Writing section*/}
-        <section className="overflow-visible flex flex-col items-center lg:flex-row gap-8 px-4 md:px-8 lg:px-20 py-12">
-          <div className="w-full flex flex-col gap-4 items-center lg:items-start text-center lg:text-left lg:top-[134px] sticky self-start">
-            <Motion type="fadeUp" useInView className="w-full">
+        <section className="overflow-visible flex flex-col lg:flex-row items-center gap-8 px-4 md:px-8 lg:px-20 py-12">
+          <div className="w-full max-w-[400px] flex flex-col gap-2 items-center lg:items-start text-center lg:text-left lg:top-[134px] sticky self-start mx-auto">
+            <Motion
+              type="FadeUpBouncy"
+              useInView={true}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              className="w-full">
               <h3>Writing</h3>
             </Motion>
-            <Motion type="fadeUp" useInView className="w-full">
-              <p className="text-[var(--content-secondary)]">Experiments, tests, and unfinished ideas.</p>
+            <Motion
+              type="FadeUpBouncy"
+              useInView={true}
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              className="w-full">
+              <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
             </Motion>
             <div className="hidden lg:block">
               <Button to="/writing" variant="secondary">
@@ -318,7 +378,7 @@ export default function Home() {
             <div className="lg:top-[134px] lg:sticky self-start">
               <Card
                 image="https://res.cloudinary.com/barthkosi/image/upload/replacement.webp"
-                title="What is the benchmark for replacement"
+                title="What is the benchmark for replacement?"
                 description="On taste, agency and the death of average"
                 link="/writing/replacement"
                 variant="list-stacked"
@@ -335,6 +395,50 @@ export default function Home() {
             </div>
           </div>
 
+        </section>
+
+        {/*About section*/}
+        <section className="w-full flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-0 h-fit px-4 md:px-8 lg:px-20 py-20">
+          <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            className="w-full">
+            <h6>About Me</h6>
+          </Motion>
+          <ScrollReveal className="w-full md:col-span-2">
+            Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur. Id lobortis venenatis fringilla fringilla ultrices nisi faucibus viverra. Morbi faucibus enim nulla suscipit nulla eget eu. Gravida dignissim purus posuere aenean gravida viverra.
+          </ScrollReveal>
+        </section>
+
+        {/*Illustrtaions*/}
+        <section className="overflow-visible flex flex-col items-start gap-8 px-4 md:px-8 lg:px-20 py-12">
+          <div className="w-full max-w-[400px] flex flex-col gap-2">
+          <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            className="w-full">
+              <h3>Illustrations</h3>
+            </Motion>
+          <Motion
+            type="FadeUpBouncy"
+            useInView={true}
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            className="w-full">
+              <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
+            </Motion>
+          </div>
+
+          <div className="w-full flex flex-col gap-5">
+
+          </div>
+
+          <div>
+            <Button to="/illustrations" variant="secondary">
+              See More
+            </Button>
+          </div>
         </section>
       </main>
     </>
