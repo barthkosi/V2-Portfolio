@@ -177,7 +177,7 @@ export default function Home() {
             </motion.div>
           </section>
           {/*Projects section*/}
-          <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-12 gap-8">
+          <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-8 md:py-12 gap-8">
             <div className="flex flex-col gap-4 w-full text-start">
             <Motion
             type="FadeUpBouncy"
@@ -252,7 +252,7 @@ export default function Home() {
         </div>
 
         {/*explorations section*/}
-        <section className="flex flex-col gap-8 items-center px-4 md:px-8 lg:px-20 py-12">
+        <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-8 md:py-12 gap-8">
           <div className="flex flex-col gap-2 max-w-[640px] text-center">
             <Motion
               type="FadeUpBouncy"
@@ -299,7 +299,7 @@ export default function Home() {
         </section>
 
         {/*Writing section*/}
-        <section className="overflow-visible flex flex-col lg:flex-row items-center gap-8 px-4 md:px-8 lg:px-20 py-12">
+        <section className="overflow-visible flex flex-col lg:flex-row items-center gap-8 px-4 md:px-8 lg:px-20 py-8 md:py-12">
           <div className="w-full max-w-[400px] flex flex-col gap-2 items-center lg:items-start text-center lg:text-left lg:top-[134px] sticky self-start mx-auto">
             <Motion
               type="FadeUpBouncy"
@@ -355,7 +355,7 @@ export default function Home() {
         </section>
 
         {/*About section*/}
-        <section className="w-full flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-0 h-fit px-4 md:px-8 lg:px-20 py-20">
+        <section className="w-full flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-0 h-fit px-4 md:px-8 lg:px-20 py-8 md:py-12">
           <Motion
             type="FadeUpBouncy"
             useInView={true}
@@ -369,7 +369,7 @@ export default function Home() {
         </section>
 
         {/*Illustrtaions*/}
-        <section className="overflow-visible flex flex-col items-start gap-8 px-4 md:px-8 lg:px-20 py-12">
+        <section className="overflow-visible flex flex-col items-start gap-8 px-4 md:px-8 lg:px-20 py-8 md:py-12">
           <div className="w-full max-w-[400px] flex flex-col gap-2">
           <Motion
             type="FadeUpBouncy"
