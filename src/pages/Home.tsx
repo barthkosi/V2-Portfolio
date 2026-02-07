@@ -46,7 +46,7 @@ function IllustrationsSection() {
         {/* Header */}
         <div className="w-full max-w-[400px] flex flex-col gap-2 mb-8">
           <h3>Illustrations</h3>
-          <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
+          <p className="text-[var(--content-secondary)]">A gallery of lines, colors, shapes and forms.</p>
         </div>
 
         {/* Cards container - padding-bottom reserves space for absolute cards (60% width × ~1.5 aspect ratio = 90%) */}
@@ -363,7 +363,7 @@ export default function Home() {
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp"
                     title="Bookworm"
-                    description="An AI powered trip planner and document organizer"
+                    description="A fully customizable graphic interface for manga and comics."
                     link=""
                     tags={["UI/UX", "Branding"]}
                     aspectRatio="auto"
@@ -380,7 +380,7 @@ export default function Home() {
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/lillup.webp"
                     title="Lillup"
-                    description="Posters and event banners for the sui x axelar event in Lagos, NG."
+                    description="Engineering the digital twin infrastructure for human capital. The future of workforce intelligence."
                     link=""
                     tags={["UX Design"]}
                     variant="list-stacked"
@@ -501,7 +501,7 @@ export default function Home() {
                 visible: anim.fadeUpBouncy.visible,
               }}
             >
-              <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
+              <p className="text-[var(--content-secondary)]">I write about tech, design and the messy human condition.</p>
             </motion.div>
             <motion.div
               className="hidden lg:block"
