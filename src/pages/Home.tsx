@@ -1,14 +1,15 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import Head from "../components/Head";
-import { motion, Variants } from "motion/react";
+import { motion, Variants, useScroll, useTransform } from "motion/react";
 import Button from "../components/Button";
 import Marquee from "react-fast-marquee";
 import { useMediaQuery } from "../hooks/useMediaQuery";
 import { useLoading } from "../context/LoadingContext";
-import { Motion, anim } from "@/lib/transitions";
+import { Motion, anim, stagger } from "@/lib/transitions";
 import heroMarquee from "../data/heroMarquee.json";
 import Card from "@/components/Card";
 import ScrollReveal from "../components/ScrollReveal";
+import illustrations from "../data/illustrations.json";
 
 
 const marqueeDesktopVariants: Variants = {
@@ -27,6 +28,111 @@ const marqueeMobileVariants: Variants = {
   },
 };
 
+function IllustrationsSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start start", "end end"]
+  });
+
+  const illustrationItems = illustrations.slice(0, 6);
+
+  return (
+    <section
+      ref={sectionRef}
+      className="relative h-[400vh]"
+    >
+      <div className="sticky top-4 px-4 md:px-8 lg:px-20 py-8 md:py-12 overflow-hidden">
+        {/* Header */}
+        <div className="w-full max-w-[400px] flex flex-col gap-2 mb-8">
+          <h3>Illustrations</h3>
+          <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
+        </div>
+
+        {/* Cards container - padding-bottom reserves space for absolute cards (60% width × ~1.5 aspect ratio = 90%) */}
+        <div className="w-full relative pb-[90%]">
+          {illustrationItems.map((item, index) => {
+            // Stagger the animation timing for each card
+            const start = 0.1 + (index * 0.12);
+            const end = 0.2 + (index * 0.12);
+
+            return (
+              <IllustrationCardAnimated
+                key={item.id}
+                item={item}
+                index={index}
+                scrollYProgress={scrollYProgress}
+                start={start}
+                end={end}
+              />
+            );
+          })}
+        </div>
+
+        {/* Button - appears at the end */}
+        <motion.div
+          className="mt-8"
+          style={{
+            opacity: useTransform(scrollYProgress, [0.85, 0.95], [0, 1])
+          }}
+        >
+          <Button to="/illustrations" variant="secondary">
+            See More
+          </Button>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
+// Card component with scroll-linked animation
+function IllustrationCardAnimated({
+  item,
+  index,
+  scrollYProgress,
+  start,
+  end
+}: {
+  item: { id: string; image: string };
+  index: number;
+  scrollYProgress: any;
+  start: number;
+  end: number;
+}) {
+  // Calculate offset as percentage: 6 cards at 60% width, remaining 40% / 5 gaps = 8% per card
+  const offsetPercent = index * 8;
+
+  const x = useTransform(
+    scrollYProgress,
+    [start, end],
+    ['100%', `${offsetPercent}%`]
+  );
+
+  const opacity = useTransform(
+    scrollYProgress,
+    [start, start + 0.05],
+    [0, 1]
+  );
+
+  return (
+    <motion.div
+      className="absolute top-0 w-[60%]"
+      style={{
+        x,
+        opacity,
+        zIndex: index + 1
+      }}
+    >
+      <div className="w-full p-2 rounded-[var(--radius-lg)] bg-[var(--background-secondary)]">
+        <img
+          src={item.image}
+          alt={item.id}
+          className="w-full h-auto object-cover rounded-xl"
+        />
+      </div>
+    </motion.div>
+  );
+}
 
 export default function Home() {
   const isDesktop = useMediaQuery('(min-width: 1024px)');
@@ -176,20 +282,41 @@ export default function Home() {
               </div>
             </motion.div>
           </section>
-          {/*Projects section*/}
-          <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-8 md:py-12 gap-8">
-            <div className="flex flex-col gap-4 w-full text-start">
-            <Motion
-            type="FadeUpBouncy"
-            useInView={true}
-            viewport={{ once: true, margin: "0px 0px -200px 0px" }}
-            className="w-full items-start">
-                <h3>Featured Work</h3>
-              </Motion>
-            </div>
+
+          {/*Projects*/}
+          <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-8 md:py-12 pt-20 gap-8">
+            <motion.div
+              className="flex flex-col gap-4 w-full text-start"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+              variants={stagger(0.1)}
+            >
+              <motion.div
+                variants={{
+                  hidden: anim.fadeUpBouncy.hidden,
+                  visible: anim.fadeUpBouncy.visible,
+                }}
+              >
+                <h2 className="h4">Featured Work</h2>
+              </motion.div>
+            </motion.div>
             <div className="flex flex-col gap-4 md:gap-6">
-              <div className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6">
-                <div className="col-span-2">
+              {/* First row - staggered */}
+              <motion.div
+                className="flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                variants={stagger(0.1)}
+              >
+                <motion.div
+                  className="col-span-2"
+                  variants={{
+                    hidden: anim.fadeUpBouncy.hidden,
+                    visible: anim.fadeUpBouncy.visible,
+                  }}
+                >
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/explrar-logo.webp"
                     title="Explrar"
@@ -198,12 +325,13 @@ export default function Home() {
                     tags={["UI/UX", "Product Design"]}
                     variant="list-stacked"
                   />
-                </div>
-                <Motion
-                  type="FadeUpBouncy"
-                  useInView={true}
-                  viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                </motion.div>
+                <motion.div
                   className="col-span-1"
+                  variants={{
+                    hidden: anim.fadeUpBouncy.hidden,
+                    visible: anim.fadeUpBouncy.visible,
+                  }}
                 >
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/sui-image-v1.webp"
@@ -214,10 +342,24 @@ export default function Home() {
                     aspectRatio="auto"
                     variant="list-stacked"
                   />
-                </Motion>
-              </div>
-              <div className="flex flex-col md:flex-row gap-4 md:gap-6">
-                <div className="w-full">
+                </motion.div>
+              </motion.div>
+
+              {/* Second row - staggered */}
+              <motion.div
+                className="flex flex-col md:flex-row gap-4 md:gap-6"
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+                variants={stagger(0.1)}
+              >
+                <motion.div
+                  className="w-full"
+                  variants={{
+                    hidden: anim.fadeUpBouncy.hidden,
+                    visible: anim.fadeUpBouncy.visible,
+                  }}
+                >
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/bw-showcase-1.webp"
                     title="Bookworm"
@@ -227,8 +369,14 @@ export default function Home() {
                     aspectRatio="auto"
                     variant="list-stacked"
                   />
-                </div>
-                <div className="w-full">
+                </motion.div>
+                <motion.div
+                  className="w-full"
+                  variants={{
+                    hidden: anim.fadeUpBouncy.hidden,
+                    visible: anim.fadeUpBouncy.visible,
+                  }}
+                >
                   <Card
                     image="https://res.cloudinary.com/barthkosi/image/upload/lillup.webp"
                     title="Lillup"
@@ -237,8 +385,8 @@ export default function Home() {
                     tags={["UX Design"]}
                     variant="list-stacked"
                   />
-                </div>
-              </div>
+                </motion.div>
+              </motion.div>
             </div>
             <Motion
               type="FadeUpBouncy"
@@ -251,41 +399,71 @@ export default function Home() {
           </section>
         </div>
 
-        {/*explorations section*/}
+        {/*explorations*/}
         <section className="flex flex-col items-center px-4 md:px-8 lg:px-20 py-8 md:py-12 gap-8">
-          <div className="flex flex-col gap-2 max-w-[640px] text-center">
-            <Motion
-              type="FadeUpBouncy"
-              useInView={true}
-              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-              className="w-full">
+          <motion.div
+            className="flex flex-col gap-2 max-w-[640px] text-center"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            variants={stagger(0.1)}
+          >
+            <motion.div
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <h3>Explorations</h3>
-            </Motion>
-            <Motion
-              type="FadeUpBouncy"
-              useInView={true}
-              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-              className="w-full">
+            </motion.div>
+            <motion.div
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <p className="text-[var(--content-secondary)]">Experiments, tests, and unfinished ideas.</p>
-            </Motion>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="w-full flex flex-col md:flex-row gap-5">
-            <Card
-              image="https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp"
-              title="Liquid glass shader"
-              description="Recreated liquid glass in the browser with shaders."
-              link="/explorations/glass"
-              variant="list-stacked"
-            />
-            <Card
-              image="https://res.cloudinary.com/barthkosi/image/upload/vinyl-player-cover.webp"
-              title="Vinyl player"
-              description="A fully functioning vinyl player built in framer."
-              link="/explorations/vinyl"
-              variant="list-stacked"
-            />
-          </div>
+          <motion.div
+            className="w-full flex flex-col md:flex-row gap-5"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            variants={stagger(0.1)}
+          >
+            <motion.div
+              className="w-full"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
+              <Card
+                image="https://res.cloudinary.com/barthkosi/image/upload/liquid-glass-ring.webp"
+                title="Liquid glass shader"
+                description="Recreated liquid glass in the browser with shaders."
+                link="/explorations/glass"
+                variant="list-stacked"
+              />
+            </motion.div>
+            <motion.div
+              className="w-full"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
+              <Card
+                image="https://res.cloudinary.com/barthkosi/image/upload/vinyl-player-cover.webp"
+                title="Vinyl player"
+                description="A fully functioning vinyl player built in framer."
+                link="/explorations/vinyl"
+                variant="list-stacked"
+              />
+            </motion.div>
+          </motion.div>
           <Motion
             type="FadeUpBouncy"
             useInView={true}
@@ -298,32 +476,60 @@ export default function Home() {
           </Motion>
         </section>
 
-        {/*Writing section*/}
+        {/*Writing*/}
         <section className="overflow-visible flex flex-col lg:flex-row items-center gap-8 px-4 md:px-8 lg:px-20 py-8 md:py-12">
-          <div className="w-full max-w-[400px] flex flex-col gap-2 items-center lg:items-start text-center lg:text-left lg:top-[134px] sticky self-start mx-auto">
-            <Motion
-              type="FadeUpBouncy"
-              useInView={true}
-              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-              className="w-full">
+          <motion.div
+            className="w-full max-w-[400px] flex flex-col gap-2 items-center lg:items-start text-center lg:text-left lg:top-[134px] sticky self-start mx-auto"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            variants={stagger(0.1)}
+          >
+            <motion.div
+              className="w-full"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <h3>Writing</h3>
-            </Motion>
-            <Motion
-              type="FadeUpBouncy"
-              useInView={true}
-              viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-              className="w-full">
+            </motion.div>
+            <motion.div
+              className="w-full"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
-            </Motion>
-            <div className="hidden lg:block">
+            </motion.div>
+            <motion.div
+              className="hidden lg:block"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <Button to="/writing" variant="secondary">
-                See More
+                See Writing
               </Button>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
-          <div className="w-full flex flex-col gap-5 lg:gap-20">
-            <div className="lg:top-[134px] lg:sticky self-start">
+          <motion.div
+            className="w-full flex flex-col gap-5 lg:gap-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
+            variants={stagger(0.15)}
+          >
+            <motion.div
+              className="lg:top-[134px] lg:sticky self-start"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <Card
                 image="https://res.cloudinary.com/barthkosi/image/upload/replacement.webp"
                 title="What is the benchmark for replacement?"
@@ -331,8 +537,14 @@ export default function Home() {
                 link="/writing/replacement"
                 variant="list-stacked"
               />
-            </div>
-            <div className="lg:top-[134px] sticky self-start">
+            </motion.div>
+            <motion.div
+              className="lg:top-[134px] sticky self-start"
+              variants={{
+                hidden: anim.fadeUpBouncy.hidden,
+                visible: anim.fadeUpBouncy.visible,
+              }}
+            >
               <Card
                 image="https://res.cloudinary.com/barthkosi/image/upload/unproductive.webp"
                 title="Productivity as performance"
@@ -340,13 +552,13 @@ export default function Home() {
                 link="/writing/unproductive"
                 variant="list-stacked"
               />
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
           <Motion
             type="FadeUpBouncy"
             useInView={true}
             viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-            className="w-fit"
+            className="w-fit lg:hidden"
           >
             <Button to="/writing" variant="secondary">
               See Writing
@@ -354,7 +566,7 @@ export default function Home() {
           </Motion>
         </section>
 
-        {/*About section*/}
+        {/*About*/}
         <section className="w-full flex flex-col md:grid md:grid-cols-3 gap-4 md:gap-0 h-fit px-4 md:px-8 lg:px-20 py-8 md:py-12">
           <Motion
             type="FadeUpBouncy"
@@ -364,39 +576,12 @@ export default function Home() {
             <h6>About Me</h6>
           </Motion>
           <ScrollReveal className="w-full md:col-span-2">
-            Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur. Id lobortis venenatis fringilla fringilla ultrices nisi faucibus viverra. Morbi faucibus enim nulla suscipit nulla eget eu. Gravida dignissim purus posuere aenean gravida viverra.
+                        I’m obsessed with the 'why' behind digital experiences. For me, good design isn't about shipping features—it's about removing friction and rejecting manipulation. I want to build software that feels human, helpful, and properly optimized for the individual. The long term goal is simple: turn these ideas into a framework that others can use to build better, kinder tools.
           </ScrollReveal>
         </section>
 
-        {/*Illustrtaions*/}
-        <section className="overflow-visible flex flex-col items-start gap-8 px-4 md:px-8 lg:px-20 py-8 md:py-12">
-          <div className="w-full max-w-[400px] flex flex-col gap-2">
-          <Motion
-            type="FadeUpBouncy"
-            useInView={true}
-            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-            className="w-full">
-              <h3>Illustrations</h3>
-            </Motion>
-          <Motion
-            type="FadeUpBouncy"
-            useInView={true}
-            viewport={{ once: true, margin: "0px 0px -150px 0px" }}
-            className="w-full">
-              <p className="text-[var(--content-secondary)]">Lorem ipsum dolor sit amet consectetur. Venenatis hendrerit felis sed consectetur.</p>
-            </Motion>
-          </div>
-
-          <div className="w-full flex flex-col gap-5">
-
-          </div>
-
-          <div>
-            <Button to="/illustrations" variant="secondary">
-              See More
-            </Button>
-          </div>
-        </section>
+        {/*Illustrations*/}
+        <IllustrationsSection />
       </main>
     </>
   );
